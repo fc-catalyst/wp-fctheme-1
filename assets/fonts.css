@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('/wordpress/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-300.woff2') format('woff2'),
+       url('/wordpress/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-300.woff') format('woff');
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('/wordpress/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-regular.woff2') format('woff2'),
+       url('/wordpress/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-regular.woff') format('woff');
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('/wordpress/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-700.woff2') format('woff2'),
+       url('/wordpress/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-700.woff') format('woff');
+  font-display: fallback;
+}
