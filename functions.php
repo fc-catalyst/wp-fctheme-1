@@ -43,12 +43,18 @@ add_action( 'wp_head', function() {
     @include_once( get_template_directory() . '/assets/first-screen.css' );
 
     // personal first screen
+    if ( is_front_page() ) {
+        @include_once( get_template_directory() . '/assets/fs--front-page.css' );
+    }
     $qo = get_queried_object();
     if ( get_class( $qo ) === 'WP_Post' ) { // personal style for a post by slug
         $file = $qo->post_name;
-    } elseif ( get_class( $qo ) === 'WP_Post_Type' ) { // personal for post type archive (basically, by slag too)
+    }
+/*
+    if ( get_class( $qo ) === 'WP_Post_Type' ) { // personal for post type archive (basically, by slag too)
         $file = $qo->name;
     }
+*/
 	@include_once( get_template_directory() . '/assets/fs-' . $file . '.css' );
 ?>
 </style>

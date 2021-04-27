@@ -1,0 +1,27 @@
+/* home overall */
+
+body {
+    background-image:var(--top-gap-bg);
+    background-attachment: fixed;
+}
+
+body::before {
+    content:none;
+}
+
+/* hero */
+body.home .fct-hero {
+    min-height:100vh;
+}
+
+body.home .fct-hero > * {
+    padding-top:var(--menu-height);
+    padding-bottom:var(--menu-height);
+    
+}
+
+body.home .fct-hero > *:nth-child(2) {
+    align-self:stretch;
+    background:var(--hero-bg);
+    background-size:cover;
+}
