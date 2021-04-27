@@ -13,7 +13,7 @@
         while ( $the_query->have_posts() ) {
             $the_query->the_post();
 ?>		
-		<div class="container">
+		<div class="entry-content">
             <?php the_content(); ?>
 		</div>
 <?php

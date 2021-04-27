@@ -20,6 +20,9 @@ header.site-header {
     /* ++ add current menu item separately */
 }
 
+html { /* initial value */
+    scroll-behavior:smooth;
+}
 body {
 	margin:0;
 	padding:0;
@@ -53,11 +56,6 @@ header.site-header .wrap-width {
     display:flex;
     align-items:center;
     justify-content:space-between;
-    width:100%;
-    max-width:1250px;
-    margin:0 auto;
-    padding:0 15px;
-    box-sizing:border-box;
 }
 
 .site-logo {
@@ -419,45 +417,56 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 }
 
 
-/* bootstrap container width */
-.container {
-    padding-right:15px;
-    padding-left:15px;
-    margin-right:auto;
-    margin-left:auto;
+/* gutenberg & layout sizes */
+.wrap-width,
+.entry-content > * {
+    width:100%;
+    margin:0 auto;
+    padding:0 15px;
+    box-sizing:border-box;
+    border:1px dotted red;
 }
 @media (min-width:768px) {
-    .container {
-        width:640px;
+    .entry-content > * {
+        max-width:640px;
     }
 }
 @media (min-width:992px) {
-    .container {
-        width:860px;
+    .entry-content > * {
+        max-width:860px;
     }
 }
 @media (min-width:1200px) {
-    .container {
-        width:1100px;
+    .entry-content > * {
+        max-width:1100px;
     }
 }
 @media (min-width:1400px) {
-    .container {
-        width:1170px;
+    .entry-content > * {
+        max-width:1250px;
     }
 }
-
-.container::before,
-.container::after {
+/*
+.entry-content > *::before,
+.entry-content > *::after {
     display:table;
     content:'';
 }
-.container::after {
+.entry-content > *::after {
     clear:both;
 }
+*/
 
+/* full-width blocks */
+.entry-content > .alignfull {
+    max-width:none;
+    padding-left:0;
+    padding-right:0;
+}
 
-/* smooth scroll on the start */
-html{
-    scroll-behavior:smooth;
+.entry-content .wp-block-image {
+    margin:0 0 16px;
+}
+.entry-content .alignfull.wp-block-image img {
+    height:auto;
 }

@@ -199,3 +199,8 @@ add_action( 'init', function() {
 	];
 	register_post_type( $args['label'], $args );
 });
+
+// gutenberg full-width & wide blocks support (wide is for normal, full is for full-screen)
+add_action( 'after_setup_theme', function() {
+    add_theme_support( 'align-wide' );
+});
