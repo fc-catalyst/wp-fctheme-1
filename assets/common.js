@@ -9,19 +9,21 @@
         }
 
         window.clearInterval( a );
-        var $ = window.jQuery;
+        var $ = window.jQuery,
+            scrolled = 0;
 
         /* tracking events */
-        $( window ).scroll( function() {
-            var scrolled = $( window ).scrollTop();
-
-            body_add_scrolled( scrolled );
-
-        });
-
-        $( document ).ready( function() {
-            anchor_links(); // or just keep the default scroll behavior
+        $( document ).on( 'ready', function() {
+            anchor_links(); // done to mind the top bar, hidding the targeted headline
             menu_events();
+        });
+        $( window ).on( 'load', function() {
+            scrolled = $( window ).scrollTop();
+            body_add_scrolled();
+        });
+        $( window ).on( 'scroll', function() {
+            scrolled = $( window ).scrollTop();
+            body_add_scrolled();
         });
 
         /* the functions for the events above */
@@ -30,7 +32,9 @@
             if ( !$anchors.length ) {
                 return;
             }
-            $( 'head' ).append( '<style>html{scroll-behavior:auto!important;}</style>' );
+            setTimeout( function() {
+                $( 'head' ).append( '<style>html{scroll-behavior:auto!important;}</style>' );
+            });
             $anchors.click( function(e) {
                 var anchor = $( this ).attr( 'href' ),
                     $target = $( anchor );
@@ -42,7 +46,7 @@
             });
         }
 
-        function body_add_scrolled(scrolled) {
+        function body_add_scrolled() {
             var $body = $( 'body' );
             if ( scrolled > 20 ) {
                 if ( $body.hasClass( 'scrolled' ) )
@@ -55,7 +59,7 @@
         
         function scroll_to_object(target) {
 
-            if ( typeof target ==='string' || typeof target ==='object' && !target instanceof $ ) {
+            if ( typeof target ==='string' || typeof target === 'object' && !target instanceof $ ) {
                 var $target = $( target );
             } else {
                 var $target = target;
