@@ -25,3 +25,29 @@ body.home .fct-hero > *:nth-child(2) {
     background:var(--hero-bg);
     background-size:cover;
 }
+
+body.home .fct-hero .wp-block-group {
+    max-width:520px;
+    margin:var(--menu-height) auto 0;
+}
+
+body.home .fct-hero h1 {
+    margin-bottom:0;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:34px;
+    font-weight:600;
+    letter-spacing:2px;
+}
+body.home .fct-hero h1 > strong {
+    color:#fff;
+    font-size:48px;
+    letter-spacing:5px;
+    font-weight:600;
+}
+body.home .fct-hero p {
+    margin-top:10px;
+    color:#fff;
+    font-weight:400;
+    letter-spacing:0.2px;
+}

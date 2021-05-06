@@ -18,7 +18,7 @@
 		<div class="wrap-width">
 
             <a href="<?php echo home_url() ?>" class="site-logo" title="Startseite">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/logo-white.png' ?>" alt="Klinikerfahrungen Logo"/>
+                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo.png' ?>" alt="Klinikerfahrungen Logo"/>
             </a>
 
             <?php if ( has_nav_menu( 'main' ) ) : ?>

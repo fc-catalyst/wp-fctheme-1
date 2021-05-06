@@ -411,9 +411,9 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 	font-family:sans-serif;
 	height:1px;
 	overflow:hidden;
-	position:absolute !important;
+	position:absolute!important;
 	width:1px;
-	word-wrap:normal !important;
+	word-wrap:normal!important;
 }
 
 
@@ -446,22 +446,18 @@ body.header-fixed.scrolled .menu-iconed > a::before {
         max-width:1250px;
     }
 }
-/*
-.entry-content > *::before,
-.entry-content > *::after {
-    display:table;
-    content:'';
-}
-.entry-content > *::after {
-    clear:both;
-}
-*/
 
-/* full-width blocks */
+/* full-width blocks .alignfull.alignwide*/
 .entry-content > .alignfull {
     max-width:none;
     padding-left:0;
     padding-right:0;
+}
+.entry-content > .alignfull > .wp-block-column:first-child {
+    padding-left:15px;
+}
+.entry-content > .alignfull > .wp-block-column:last-child {
+    padding-right:15px;
 }
 
 .entry-content .wp-block-image {
