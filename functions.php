@@ -6,11 +6,17 @@ function fct_dev() {
 }
 
 /* add common styles */
-add_action( 'get_footer', function() { // wp_enqueue_scripts
+add_action( 'wp_enqueue_scripts', function() { // get_footer
 
     wp_enqueue_style( 'fckf-style',
     	get_template_directory_uri() . '/style.css',
     	false,
+        wp_get_theme()->get('Version') . fct_dev(),
+        'all'
+    );
+    wp_enqueue_style( 'fckf-fonts',
+        get_template_directory_uri() . '/assets/fonts.css',
+        false,
         wp_get_theme()->get('Version') . fct_dev(),
         'all'
     );
@@ -21,46 +27,66 @@ add_action( 'get_footer', function() { // wp_enqueue_scripts
 		wp_get_theme()->get('Version') . fct_dev(),
 		1
 	);
+	
+	// front-page style
+	if ( is_front_page() ) {
+        wp_enqueue_style( 'fckf-style--front-page',
+            get_template_directory_uri() . '/front-page.css',
+            ['fckf-style', 'fckf-fonts'],
+            wp_get_theme()->get('Version') . fct_dev(),
+            'all'
+        );	
+	}
     
-    wp_enqueue_style( 'fckf-fonts',
-        get_template_directory_uri() . '/assets/fonts.css',
-        false,
-        wp_get_theme()->get('Version') . fct_dev(),
-        'all'
-    );
-
+    // presonal styles
+    $name = fct_get_style_slug();
+    if ( is_file( get_template_directory() . '/' . $name . '.css' ) ) {
+        wp_enqueue_style( 'fckf-style-name',
+            get_template_directory_uri() . '/' . $name . '.css',
+            ['fckf-style', 'fckf-fonts'],
+            wp_get_theme()->get('Version') . fct_dev(),
+            'all'
+        );
+    }
+	
+    
 });
 
 /* add first-screen styles */
 add_action( 'wp_head', function() {
-    global $post;
-
-?>
-<style>
+?><style>
 <?php
 
     // common first screen
     @include_once( get_template_directory() . '/assets/first-screen.css' );
 
-    // personal first screen
+    // front-page first screen
     if ( is_front_page() ) {
         @include_once( get_template_directory() . '/assets/fs--front-page.css' );
     }
+    
+    // personal first screen
+	@include_once( get_template_directory() . '/assets/fs-' . fct_get_style_slug() . '.css' );
+?>
+</style><?php
+});
+
+function fct_get_style_slug() {
     $qo = get_queried_object();
+
     if ( get_class( $qo ) === 'WP_Post' ) { // personal style for a post by slug
         $file = $qo->post_name;
     }
-/*
     if ( get_class( $qo ) === 'WP_Post_Type' ) { // personal for post type archive (basically, by slag too)
         $file = $qo->name;
     }
-*/
-	@include_once( get_template_directory() . '/assets/fs-' . $file . '.css' );
-?>
-</style>
-<?php
-});
+    
+    return $file;
+}
 
+add_action( 'get_footer', function() {
+    echo '<p><strong>' . fct_get_style_slug() . '</strong></p>';
+});
 
 /* theme settings */
 // fixed header on

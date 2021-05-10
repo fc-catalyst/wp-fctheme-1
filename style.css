@@ -15,7 +15,7 @@
 
 /* content elements */
 body * {
-    color:#4d4d4d;
+    color:#111;
 }
 
 p:last-child,
@@ -93,6 +93,10 @@ a:hover {
 }
 b, strong {
     font-weight:500;
+}
+
+img {
+    height:auto;
 }
 
 /* header with admin bar */
