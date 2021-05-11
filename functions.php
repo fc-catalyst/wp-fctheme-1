@@ -31,7 +31,7 @@ add_action( 'wp_enqueue_scripts', function() { // get_footer
 	// front-page style
 	if ( is_front_page() ) {
         wp_enqueue_style( 'fckf-style--front-page',
-            get_template_directory_uri() . '/front-page.css',
+            get_template_directory_uri() . '/assets/front-page.css',
             ['fckf-style', 'fckf-fonts'],
             wp_get_theme()->get('Version') . fct_dev(),
             'all'
@@ -40,9 +40,9 @@ add_action( 'wp_enqueue_scripts', function() { // get_footer
     
     // presonal styles
     $name = fct_get_style_slug();
-    if ( is_file( get_template_directory() . '/' . $name . '.css' ) ) {
+    if ( is_file( get_template_directory() . '/assets/' . $name . '.css' ) ) {
         wp_enqueue_style( 'fckf-style-name',
-            get_template_directory_uri() . '/' . $name . '.css',
+            get_template_directory_uri() . '/assets/' . $name . '.css',
             ['fckf-style', 'fckf-fonts'],
             wp_get_theme()->get('Version') . fct_dev(),
             'all'

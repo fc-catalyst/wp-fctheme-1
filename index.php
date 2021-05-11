@@ -11,7 +11,7 @@ if ( have_posts() ) :
 
 	<article class="post-<?php the_ID(); ?> <?php echo get_post_type(); ?> type-<?php echo get_post_type(); ?> status-publish entry" itemscope="" itemtype="https://schema.org/CreativeWork">
 		<div class="post-content" itemprop="text">
-            <header class="entry-header wrap-width">
+            <header class="entry-header entry-content">
                 <h1 class="entry-title" itemprop="headline">
                     <?php the_title(); ?>
                 </h1>

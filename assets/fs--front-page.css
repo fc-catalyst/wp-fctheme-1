@@ -1,7 +1,7 @@
 /* home overall */
 
 body {
-    background-image:var(--top-gap-bg);
+    background:var(--top-gap-bg);
     background-attachment: fixed;
 }
 
@@ -9,13 +9,15 @@ body::before {
     content:none;
 }
 
-#main-content * {
+#main-content *:-webkit-any( h1, h2, h3, h4, h5, h6, p, li, a ),
+#main-content *:is( h1, h2, h3, h4, h5, h6, p, li, a ) {
     color:#fff;
 }
 
 /* hero */
 .fct-hero {
     min-height:100vh;
+    padding:0!important;
 }
 
 .fct-hero > * {

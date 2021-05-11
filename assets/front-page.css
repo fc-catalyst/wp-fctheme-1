@@ -6,7 +6,7 @@ h2 {
     letter-spacing:2px;
 }
 h2 > strong {
-    color:#c3f7fe;
+    color:#c3f7fe!important;
 }
 
 h3 {
@@ -20,8 +20,4 @@ h3 {
 p {
     font-weight:400;
     letter-spacing:0.2px;
-}
-
-.site-footer {
-    background-color:#fff;
 }
