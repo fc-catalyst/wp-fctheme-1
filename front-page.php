@@ -21,12 +21,4 @@ if ( have_posts() ) :
     endwhile;
 endif;
 
-?>
-<style>
-    body.home {
-        --hero-bg:url('http://localhost/wordpress/wp-content/uploads/nathan-dumlao-Wr3comVZJxU-unsplash-1.png') no-repeat 50% 50%;
-    }
-</style>
-<?php
-
 get_footer();

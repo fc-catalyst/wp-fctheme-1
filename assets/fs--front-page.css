@@ -9,6 +9,10 @@ body::before {
     content:none;
 }
 
+#main-content * {
+    color:#fff;
+}
+
 /* hero */
 .fct-hero {
     min-height:100vh;
@@ -21,9 +25,10 @@ body::before {
 }
 
 .fct-hero > *:nth-child(2) {
-    align-self:stretch;
-    background:var(--hero-bg);
+    align-self:stretch!important;
+    background:var(--featured-image) no-repeat 50% 50%;
     background-size:cover;
+    min-height:50vh;
 }
 
 .fct-hero .wp-block-group {
@@ -33,21 +38,18 @@ body::before {
 
 .fct-hero h1 {
     margin-bottom:0;
-    color:#fff;
     text-transform:uppercase;
     font-size:34px;
     font-weight:600;
     letter-spacing:2px;
 }
 .fct-hero h1 > strong {
-    color:#fff;
     font-size:48px;
     letter-spacing:5px;
     font-weight:600;
 }
 .fct-hero p {
     margin-top:10px;
-    color:#fff;
     font-weight:400;
     letter-spacing:0.2px;
 }

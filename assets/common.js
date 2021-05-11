@@ -13,14 +13,14 @@
             scrolled = 0;
 
         /* tracking events */
-        $( document ).on( 'ready', function() {
+//        $( document ).on( 'ready', function() {
             anchor_links(); // done to mind the top bar, hidding the targeted headline
             menu_events();
-        });
-        $( window ).on( 'load', function() {
+//        });
+//        $( window ).on( 'load', function() {
             scrolled = $( window ).scrollTop();
             body_add_scrolled();
-        });
+//        });
         $( window ).on( 'scroll', function() {
             scrolled = $( window ).scrollTop();
             body_add_scrolled();
@@ -85,12 +85,12 @@
         }
         
         function menu_events() {
-            var checkbox = $( '#nav-primary-toggle' ),
-                hamburger = checkbox.next();
+            var $checkbox = $( '#nav-primary-toggle' ),
+                hamburger = $checkbox.next();
 
-            checkbox.click( function() {
+            $checkbox.click( function() {
                 setTimeout( function() {
-                    if ( checkbox.prop( 'checked' ) ) {
+                    if ( $checkbox.prop( 'checked' ) ) {
                         document.addEventListener( 'click', menuHide );
                     }
                 });
@@ -100,7 +100,7 @@
                 if ( e.target === hamburger[0] ) {
                     e.preventDefault();
                 }
-                checkbox.prop( 'checked', false );
+                $checkbox.prop( 'checked', false );
                 document.removeEventListener( 'click', menuHide, false );
             }
         }

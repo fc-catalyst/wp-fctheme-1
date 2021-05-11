@@ -54,6 +54,14 @@ add_action( 'wp_enqueue_scripts', function() { // get_footer
 
 /* add first-screen styles */
 add_action( 'wp_head', function() {
+
+    // get post featured image
+    $page_id = get_queried_object_id();
+    if ( has_post_thumbnail( $page_id ) ) {
+        $img = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full' )[0];
+        echo '<style>:root{--featured-image:url("'.$img.'");</style>'."\n";
+    }
+
 ?><style>
 <?php
 
@@ -69,7 +77,7 @@ add_action( 'wp_head', function() {
 	@include_once( get_template_directory() . '/assets/fs-' . fct_get_style_slug() . '.css' );
 ?>
 </style><?php
-});
+}, 7 );
 
 function fct_get_style_slug() {
     $qo = get_queried_object();
@@ -84,9 +92,6 @@ function fct_get_style_slug() {
     return $file;
 }
 
-add_action( 'get_footer', function() {
-    echo '<p><strong>' . fct_get_style_slug() . '</strong></p>';
-});
 
 /* theme settings */
 // fixed header on

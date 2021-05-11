@@ -418,36 +418,41 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 
 
 /* gutenberg & layout sizes */
+.entry-content {
+    --content-max-width:100%;
+}
+@media (min-width:768px) {
+    .entry-content {
+        --content-max-width:640px;
+    }
+}
+@media (min-width:992px) {
+    .entry-content > * {
+        --content-max-width:860px;
+    }
+}
+@media (min-width:1200px) {
+    .entry-content > * {
+        --content-max-width:1100px;
+    }
+}
+@media (min-width:1400px) {
+    .entry-content > * {
+        --content-max-width:1250px;
+    }
+}
+
 .wrap-width,
 .entry-content > * {
     width:100%;
+    max-width:var(--content-max-width);
     margin:0 auto;
     padding:0 15px;
     box-sizing:border-box;
     border:1px dotted red;
 }
-@media (min-width:768px) {
-    .entry-content > * {
-        max-width:640px;
-    }
-}
-@media (min-width:992px) {
-    .entry-content > * {
-        max-width:860px;
-    }
-}
-@media (min-width:1200px) {
-    .entry-content > * {
-        max-width:1100px;
-    }
-}
-@media (min-width:1400px) {
-    .entry-content > * {
-        max-width:1250px;
-    }
-}
 
-/* full-width blocks .alignfull.alignwide*/
+/* full-width blocks > .alignfull */
 .entry-content > .alignfull {
     max-width:none;
     padding-left:0;
@@ -459,10 +464,32 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 .entry-content > .alignfull > .wp-block-column:last-child {
     padding-right:15px;
 }
+@media (max-width:599px) {
+    .entry-content > .alignfull > .wp-block-column {
+        padding-left:15px;
+        padding-right:15px;
+    }
+}
 
+/* full-width blocks > .alignwide */
+.entry-content > .alignwide {
+    max-width:none;
+    margin:0;
+    padding:0 calc( ( 100% - var(--content-max-width) ) / 2 + 15px );
+}
+
+
+/* gutenberg improvements */
+@media (min-width:600px) {
+    .wp-block-columns {
+        flex-wrap:nowrap;
+    }
+}
+@media (max-width:599px) {
+    .wp-block-column:not(:first-child) {
+        margin-top:28px;
+    }
+}
 .entry-content .wp-block-image {
     margin:0 0 16px;
-}
-.entry-content .alignfull.wp-block-image img {
-    height:auto;
 }
