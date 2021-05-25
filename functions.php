@@ -164,6 +164,17 @@ add_action( 'admin_print_styles', function() {
 
 } );
 
+// style the admin
+add_action( 'admin_init', function() {
+	wp_admin_css_color(
+		'klinikerfahrungen',
+		'Klinikerfahrungen',
+		get_template_directory_uri() . '/style-admin.css',
+		[ '#0b4562', '#89cad6', '#fff', '#fff', '#fff', '#fda7a7' ]
+		//[ '#0b4562', '#23667b', '#4699a9', '#89cad6', '#ffffff', '#fda7a7' ]
+	);
+});
+
 // disable emoji
 add_action( 'init', function() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );

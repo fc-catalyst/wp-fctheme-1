@@ -71,7 +71,7 @@
 
             var scroll_to = $target.position()['top'] - scroll_offset();
             $( 'html, body' ).animate( {
-                scroll_to_objectp: scroll_to
+                scrollTop: scroll_to
             }, 400 );
         }
         
