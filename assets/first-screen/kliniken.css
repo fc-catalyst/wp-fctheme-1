@@ -1,0 +1,9 @@
+/* home overall */
+
+body {
+    background:#cac;
+}
+
+body::before {
+    content:none;
+}

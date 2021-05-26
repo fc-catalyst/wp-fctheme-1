@@ -1,99 +1,122 @@
 <?php
 
+// ++ use namespace
+
 function fct_dev() {
     //return '';
     return time();
 }
 
-/* add common styles */
-add_action( 'wp_enqueue_scripts', function() { // get_footer
-
-    wp_enqueue_style( 'fckf-style',
-    	get_template_directory_uri() . '/style.css',
-    	false,
-        wp_get_theme()->get('Version') . fct_dev(),
-        'all'
-    );
-    wp_enqueue_style( 'fckf-fonts',
-        get_template_directory_uri() . '/assets/fonts.css',
-        false,
-        wp_get_theme()->get('Version') . fct_dev(),
-        'all'
-    );
-
-    wp_enqueue_script( 'fckf-common',
-		get_template_directory_uri() . '/assets/common.js',
-		[ "jquery" ],
-		wp_get_theme()->get('Version') . fct_dev(),
-		1
-	);
-	
-	// front-page style
-	if ( is_front_page() ) {
-        wp_enqueue_style( 'fckf-style--front-page',
-            get_template_directory_uri() . '/assets/front-page.css',
-            ['fckf-style', 'fckf-fonts'],
-            wp_get_theme()->get('Version') . fct_dev(),
-            'all'
-        );	
-	}
-    
-    // presonal styles
-    $name = fct_get_style_slug();
-    if ( is_file( get_template_directory() . '/assets/' . $name . '.css' ) ) {
-        wp_enqueue_style( 'fckf-style-name',
-            get_template_directory_uri() . '/assets/' . $name . '.css',
-            ['fckf-style', 'fckf-fonts'],
-            wp_get_theme()->get('Version') . fct_dev(),
-            'all'
-        );
-    }
-	
-    
-});
-
-/* add first-screen styles */
+/* STYLES for the first-screen */
 add_action( 'wp_head', function() {
-
-    // get post featured image
-    $page_id = get_queried_object_id();
-    if ( has_post_thumbnail( $page_id ) ) {
-        $img = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full' )[0];
-        echo '<style>:root{--featured-image:url("'.$img.'");</style>'."\n";
-    }
-
 ?><style>
 <?php
 
-    // common first screen
-    @include_once( get_template_directory() . '/assets/first-screen.css' );
+    $dir = get_template_directory() . '/assets/first-screen/';
 
-    // front-page first screen
+    // main
+    @include_once( $dir . '--main.css' );
+
+    // front page
     if ( is_front_page() ) {
-        @include_once( get_template_directory() . '/assets/fs--front-page.css' );
+        @include_once( $dir . '--front-page.css' );
     }
+
+    // post type and name or archieve type name
+    $files = fct_load_styles();
+    if ( empty( $files ) ) { return; }
     
-    // personal first screen
-	@include_once( get_template_directory() . '/assets/fs-' . fct_get_style_slug() . '.css' );
-?>
-</style><?php
+    foreach( $files as $v ) {
+        @include_once( $dir .  $v . '.css' );
+    }
+
+?></style>
+<?php
 }, 7 );
 
-function fct_get_style_slug() {
+/* add common styles */
+add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights reacts better
+
+    $dir = get_template_directory() . '/assets/styles/';
+    $url = get_template_directory_uri() . '/assets/styles/';
+    $main = 'fct1-style';
+    $fonts = 'fct1-fonts';
+
+    // main
+    wp_enqueue_style( $main,
+    	get_template_directory_uri() . '/style.css',
+    	false,
+        wp_get_theme()->get( 'Version' ) . fct_dev(),
+        'all'
+    );
+
+    // scripts
+    wp_enqueue_script( 'fct1-common',
+		get_template_directory_uri() . '/assets/common.js',
+		[ 'jquery' ],
+		wp_get_theme()->get( 'Version' ) . fct_dev(),
+		1
+	);
+
+    // fonts
+    wp_enqueue_style( $fonts,
+        $url . '--fonts.css',
+        false,
+        wp_get_theme()->get( 'Version' ) . fct_dev(),
+        'all'
+    );
+
+	// front page
+	if ( is_front_page() ) {
+        wp_enqueue_style(
+            $main . '-front-page',
+            $url . '--front-page.css',
+            [ $main, $fonts ],
+            wp_get_theme()->get( 'Version' ) . fct_dev(),
+            'all'
+        );	
+	}
+
+	// post type and name or archieve type name
+    $files = fct_load_styles();
+    if ( empty( $files ) ) { return; }
+    
+    foreach( $files as $v ) {
+        if ( !is_file( $dir . $v . '.css' ) ) { continue; }
+
+        wp_enqueue_style(
+            $main . $v,
+            $dir . $v . '.css',
+            [ $main, $fonts ],
+            wp_get_theme()->get( 'Version' ) . fct_dev(),
+            'all'
+        );
+    }
+
+});
+
+
+function fct_load_styles() {
     $qo = get_queried_object();
 
-    if ( get_class( $qo ) === 'WP_Post' ) { // personal style for a post by slug
-        $file = $qo->post_name;
+    $result = [];
+
+    if ( get_class( $qo ) === 'WP_Post_Type' ) {
+        $result[] = $qo->name; // or can use slug to match the url: $go->rewrite->slug
     }
-    if ( get_class( $qo ) === 'WP_Post_Type' ) { // personal for post type archive (basically, by slag too)
-        $file = $qo->name;
+
+    if ( get_class( $qo ) === 'WP_Post' ) {
+        $result[] = $qo->post_name; // slug
+        $result[] = $qo->post_type; // post type name
     }
-    
-    return $file;
+
+    return $result;
 }
 
 
+
 /* theme settings */
+
 // fixed header on
 add_filter( 'body_class', function ($classes) {
     $classes[] = 'header-fixed';
@@ -128,8 +151,19 @@ add_filter( 'excerpt_more', function($more) {
     return '';
 });
 
+// print featured image
+add_action( 'wp_head', function() {
+    $page_id = get_queried_object_id();
+    if ( has_post_thumbnail( $page_id ) ) {
+        $img = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full' )[0];
+        echo '<style>:root{--featured-image:url("'.$img.'");</style>'."\n";
+    }
+
+}, 6 );
+
 
 /* economy */
+
 // disable creating default sizes on upload
 add_action( 'intermediate_image_sizes_advanced', function($sizes) {
 
@@ -163,17 +197,6 @@ add_action( 'admin_print_styles', function() {
   <?php
 
 } );
-
-// style the admin
-add_action( 'admin_init', function() {
-	wp_admin_css_color(
-		'klinikerfahrungen',
-		'Klinikerfahrungen',
-		get_template_directory_uri() . '/style-admin.css',
-		[ '#0b4562', '#89cad6', '#fff', '#fff', '#fff', '#fda7a7' ]
-		//[ '#0b4562', '#23667b', '#4699a9', '#89cad6', '#ffffff', '#fda7a7' ]
-	);
-});
 
 // disable emoji
 add_action( 'init', function() {
@@ -248,7 +271,31 @@ add_action( 'init', function() {
 	register_post_type( $args['label'], $args );
 });
 
-// gutenberg full-width & wide blocks support (wide is for normal, full is for full-screen)
+// gutenberg full-width & wide blocks support (wide is full-width background and boxed content)
 add_action( 'after_setup_theme', function() {
     add_theme_support( 'align-wide' );
 });
+
+// admin additional styling for the theme
+add_action( 'admin_init', function() {
+	wp_admin_css_color(
+		'klinikerfahrungen',
+		'Klinikerfahrungen',
+		get_template_directory_uri() . '/assets/styles/--style-admin.css',
+		[ '#0b4562', '#89cad6', '#fff', '#fff', '#fff', '#fda7a7' ]
+		//[ '#0b4562', '#23667b', '#4699a9', '#89cad6', '#ffffff', '#fda7a7' ]
+	);
+	/*
+    if ( !current_user_can( '{ROLE}' ) ) { // hide the option to pick a different color scheme
+        remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+    }
+    //*/
+});
+/*
+add_action( 'user_register', function ($user_id) { // set new theme to all newly registered users
+    wp_update_user([
+        'ID' => $user_id,
+        'admin_color' => 'klinikerfahrungen'
+    ]);
+});
+//*/
