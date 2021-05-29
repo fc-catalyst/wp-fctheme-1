@@ -139,6 +139,25 @@ body.admin-bar header.site-header {
     opacity:0.8;
 }
 
+.wp-block-buttons > .wp-block-button {
+    margin-right:15px;
+    text-transform:uppercase;
+}
+
+.with-line {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.with-line::after {
+    content:'';
+    flex:1;
+    height:2px;
+    margin-left:10px;
+    background-color:var(--h-color);
+}
+
 /* gutenberg sections blocks styling */
 #main-content .bg-white {
     background-color:#fff;

@@ -1,0 +1,146 @@
+/* home overall */
+
+body::before {
+    content:none;
+}
+
+@media (min-width:992px) {
+    .wp-block-columns > .wp-block-column:not(:last-child) {
+        padding-right:50px;
+        box-sizing:border-box;
+    }
+}
+
+h2 {
+    font-size:30px;
+}
+
+/* clinic hero */
+
+.fcp-clinic-hero {
+    --clinic-bg:url('http://localhost/wordpress/wp-content/uploads/Japan2.jpg');
+    min-height:75vh;
+    /*background:var(--top-gap-bg);*/
+    /*background-attachment: fixed;*/
+    background-image:var(--top-gap-bg), linear-gradient(60deg, #277888ee 12%, #58acbc00 90%), var(--clinic-bg), var(--top-gap-bg);
+    background-repeat:no-repeat;
+    background-position:0 0, 0 0, 50% calc( 50% + var(--menu-height) ), 0 0;
+    background-size:100% var(--menu-height), cover, cover, cover;
+}
+
+.fcp-clinic-hero > * {
+    padding-top:calc( var(--menu-height) + 30px );
+    padding-bottom:30px;
+}
+
+.fcp-clinic-hero * {
+    color:#fff;
+}
+
+.fcp-clinic-hero .fcp-clinic-badges {
+    margin-bottom:10px;
+}
+
+.fcp-clinic-hero h1 {
+    margin-top:0;
+    margin-bottom:10px;
+    font-size:30px;
+}
+
+.fcp-clinic-hero h1 + p {
+    margin-top:0;
+    margin-bottom:8px;
+    text-transform:uppercase;
+    font-weight:300;
+    letter-spacing:2.2px;
+    font-size:20px;
+}
+
+.fcp-clinic-hero .fcp-clinic-rating {
+    margin-bottom:12px;
+    font-size:32px;
+    letter-spacing:10px;
+}
+
+.fcp-clinic-hero .fcp-clinic-rating > span {
+    display:inline-block;
+    margin-left:12px;
+    letter-spacing:2px;
+    font-size:26px;
+    color:#f5b309;
+}
+
+.fcp-clinic-hero .wp-block-button__link {
+    padding-top:0.3em;
+    padding-bottom:0.3em;
+    text-transform:uppercase;
+    font-size:16px;
+    font-weight:600;
+}
+
+.fcp-clinic-hero .wp-block-button__link::after {
+    content:'\000BB';
+    display:inline-block;
+    margin-left:10px;
+    font-weight:300;
+    transform:rotate( 90deg ) scale( 1.2 );
+}
+.fcp-clinic-hero .fcp-clinic-photo {
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    width:100%;
+    height:auto;
+    position:relative;
+}
+
+.fcp-clinic-hero .fcp-clinic-photo img {
+    height:30%;
+    width:auto;
+    max-width:100%;
+    max-height:300px;
+    border-radius:8px;
+}
+
+/* can move to styles or even some to global? */
+
+.fcp-clinic-content {
+    align-items:stretch;
+}
+
+/* vertical gallery */
+.fcp-clinic-gallery-wrap {
+    position:relative;
+}
+.fcp-clinic-gallery {
+    position:absolute;
+    width:100%;
+    height:calc( 100% - 107px + 20px );
+    margin-top:-20px;
+    overflow:hidden;
+}
+
+/* details buttons */
+.fcp-clinic-details {
+    margin-top:15px;
+}
+.fcp-clinic-details > * {
+    flex:1;
+    margin-right:1em;
+}
+.fcp-clinic-details > * > a {
+    width:100%;
+    box-sizing:border-box;
+    white-space:nowrap;
+}
+
+.fcp-button-select > a::after {
+    content:'';
+    display:block;
+    float:right;
+    width:12px;
+    height:12px;
+    border:1px solid var(--h-color);
+    border-width:0px 1px 1px 0px;
+    transform:rotate( 45deg ) translate( 0, 4px );
+}

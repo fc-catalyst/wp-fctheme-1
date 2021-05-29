@@ -1,6 +1,7 @@
 <?php
 
 // ++ use namespace
+// ++ move personal styles to admin??
 
 function fct_dev() {
     //return '';
@@ -45,7 +46,7 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
     // main
     wp_enqueue_style( $main,
     	get_template_directory_uri() . '/style.css',
-    	false,
+    	[],
         wp_get_theme()->get( 'Version' ) . fct_dev(),
         'all'
     );
@@ -61,7 +62,7 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
     // fonts
     wp_enqueue_style( $fonts,
         $url . '--fonts.css',
-        false,
+        [],
         wp_get_theme()->get( 'Version' ) . fct_dev(),
         'all'
     );
@@ -97,17 +98,18 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
 
 
 function fct_load_styles() {
+    // -{post-type}-list for archive, -{post-type} for posts, {slug} for particular posts
     $qo = get_queried_object();
 
     $result = [];
 
     if ( get_class( $qo ) === 'WP_Post_Type' ) {
-        $result[] = $qo->name; // or can use slug to match the url: $go->rewrite->slug
+        $result[] = '-' . $qo->name . '-list'; // or can use slug to match the url: $go->rewrite->slug
     }
 
     if ( get_class( $qo ) === 'WP_Post' ) {
         $result[] = $qo->post_name; // slug
-        $result[] = $qo->post_type; // post type name
+        $result[] = '-' . $qo->post_type; // post type name
     }
 
     return $result;
