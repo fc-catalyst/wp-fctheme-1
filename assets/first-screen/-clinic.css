@@ -18,19 +18,32 @@ h2 {
 /* clinic hero */
 
 .fcp-clinic-hero {
-    --clinic-bg:url('http://localhost/wordpress/wp-content/uploads/Japan2.jpg');
+    --clinic-bg:var(--top-gap-bg);
     min-height:75vh;
-    /*background:var(--top-gap-bg);*/
-    /*background-attachment: fixed;*/
     background-image:var(--top-gap-bg), linear-gradient(60deg, #277888ee 12%, #58acbc00 90%), var(--clinic-bg), var(--top-gap-bg);
     background-repeat:no-repeat;
     background-position:0 0, 0 0, 50% calc( 50% + var(--menu-height) ), 0 0;
     background-size:100% var(--menu-height), cover, cover, cover;
 }
-
 .fcp-clinic-hero > * {
     padding-top:calc( var(--menu-height) + 30px );
     padding-bottom:30px;
+}
+
+@media (max-width:949px) {
+    .fcp-clinic-hero {
+        background-image:var(--top-gap-bg), linear-gradient(150deg, #277888ee 12%, #58acbc00 100%), var(--clinic-bg);
+        background-repeat:no-repeat;
+        background-position:0 0, 0 0, 50% calc( 50% + ( var(--menu-height) * 0.6 ) );
+        background-size:100% calc( var(--menu-height) * 0.6 ), cover, cover;
+    }
+    .fcp-clinic-hero > * {
+        padding-top:calc( ( var(--menu-height) * 0.6 ) + 20px );
+        padding-bottom:20px;
+    }
+    .fcp-clinic-hero > *:not(:first-child) {
+        padding-top:20px;
+    }
 }
 
 .fcp-clinic-hero * {
@@ -100,47 +113,4 @@ h2 {
     max-width:100%;
     max-height:300px;
     border-radius:8px;
-}
-
-/* can move to styles or even some to global? */
-
-.fcp-clinic-content {
-    align-items:stretch;
-}
-
-/* vertical gallery */
-.fcp-clinic-gallery-wrap {
-    position:relative;
-}
-.fcp-clinic-gallery {
-    position:absolute;
-    width:100%;
-    height:calc( 100% - 107px + 20px );
-    margin-top:-20px;
-    overflow:hidden;
-}
-
-/* details buttons */
-.fcp-clinic-details {
-    margin-top:15px;
-}
-.fcp-clinic-details > * {
-    flex:1;
-    margin-right:1em;
-}
-.fcp-clinic-details > * > a {
-    width:100%;
-    box-sizing:border-box;
-    white-space:nowrap;
-}
-
-.fcp-button-select > a::after {
-    content:'';
-    display:block;
-    float:right;
-    width:12px;
-    height:12px;
-    border:1px solid var(--h-color);
-    border-width:0px 1px 1px 0px;
-    transform:rotate( 45deg ) translate( 0, 4px );
 }

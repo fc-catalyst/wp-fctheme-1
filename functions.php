@@ -1,6 +1,6 @@
 <?php
 
-// ++ use namespace
+// ++ use namespace!!!!
 // ++ move personal styles to admin??
 
 function fct_dev() {
