@@ -1,8 +1,5 @@
 <?php
 
-// ++ use namespace!!!!
-// ++ move personal styles to admin??
-
 function fct_dev() {
     //return '';
     return time();
@@ -25,10 +22,10 @@ add_action( 'wp_head', function() {
 
     // post type and name or archieve type name
     $files = fct_load_styles();
-    if ( empty( $files ) ) { return; }
-    
-    foreach( $files as $v ) {
-        @include_once( $dir .  $v . '.css' );
+    if ( $files ) {
+        foreach( $files as $v ) {
+            @include_once( $dir .  $v . '.css' );
+        }
     }
 
 ?></style>
