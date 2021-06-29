@@ -45,7 +45,7 @@ h3 {
     margin:30px 0 23px;
     font-size:30px;
     line-height:1.5;
-    font-weight:500;
+    font-weight:600;
     letter-spacing:1.5px;
     text-transform:uppercase;
     color:var(--h-color);
@@ -239,6 +239,7 @@ body.admin-bar header.site-header {
 #main-content .bg-gradient *:-webkit-any( h1, h2, h3, h4, h5, h6, p, li, a ) {
     color:#fff;
 }
+
 /* footer */
 .site-footer {
     background-color:#fff;

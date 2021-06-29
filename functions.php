@@ -84,7 +84,7 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
 
         wp_enqueue_style(
             $main . $v,
-            $dir . $v . '.css',
+            $url . $v . '.css',
             [ $main, $fonts ],
             wp_get_theme()->get( 'Version' ) . fct_dev(),
             'all'
@@ -298,3 +298,36 @@ add_action( 'user_register', function ($user_id) { // set new theme to all newly
     ]);
 });
 //*/
+
+// comments remove url
+add_filter( 'comment_form_default_fields', function($fields) {
+    unset( $fields['url'] );
+    unset( $fields['cookies'] ); // can modify later, instead of hidding
+    return $fields;
+});
+
+// comments stop storing user data
+add_filter( 'pre_comment_user_ip', function($a) { return ''; } );
+add_filter( 'pre_comment_user_agent', function($a) { return ''; } );
+add_filter( 'pre_comment_author_url', function($a) { return ''; } );
+
+// comments form change fields order
+add_filter( 'comment_form_fields', function($fields){
+//die(print_r( $fields ));
+	$new_fields = [];
+
+	$new_order = ['author', 'email', 'comment', 'url'];
+
+	foreach ( $new_order as $k ) {
+		$new_fields[ $k ] = $fields[ $k ];
+		unset( $fields[ $k ] );
+	}
+
+	if ( $fields ) {
+		foreach( $fields as $k => $v ) {
+			$new_fields[ $k ] = $v;
+        }
+    }
+
+	return $new_fields;
+});

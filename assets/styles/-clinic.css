@@ -1,0 +1,194 @@
+/* comments for clinic / doctor */
+
+.comments-area .comments-list > .comment {
+    margin-bottom:55px;
+}
+
+.comments-area .comment-author {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+    font-size:26px;
+    font-weight:600;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+
+.comments-area .comment-author img {
+    border-radius:50%;
+    margin-right:25px;
+}
+
+.comments-area .comment-author::after {
+    content:'';
+    flex:1;
+    height:2px;
+    margin-left:10px;
+    background-color:var(--h-color);
+}
+.comments-area .comment-content * {
+    font-size:14px;
+}
+
+.comments-area .comment-more {
+    display:flex;
+    margin-top:16px;
+    font-size:12px;
+    opacity:0.6;
+}
+.comments-area .comment-more > * {
+    margin-right:12px;
+}
+
+/* reply */
+.comments-area .comment > .comment {
+    margin:30px 0 0 40px;
+    padding-left:25px;
+    border-left:2px solid var(--h-color);
+    opacity:0.7;
+}
+
+/* comments form */
+.comment-form .comment-form-fields {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+.comment-form .comment-form-fields > * {
+    width:100%;
+}
+.comment-form h3 {
+    margin:0 0 10px;
+    font-size:28px;
+    font-weight:700;
+}
+.comment-form .comment-form-author,
+.comment-form .comment-form-email {
+    width:49%;
+    margin-bottom:0;
+}
+.comment-form input[type=text],
+.comment-form textarea {
+    width:100%;
+    border:2px solid var(--h-color);
+    padding:10px 13px;
+    box-sizing:border-box;
+    -webkit-appearance:none;
+}
+.comment-form .comment-form-submit {
+    margin-top:0;
+    text-align:right;
+}
+.comment-form input[type=submit] {
+    border:none;
+    border-radius:22px;
+    padding:12px 45px;
+    box-sizing:border-box;
+    -webkit-appearance:none;
+    background-color:var(--h-color);
+    text-transform:uppercase;
+    color:#fff;
+}
+
+/* styling the ratings part */
+
+.cr_form .cr_wrap {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:nowrap;
+    margin:20px 0 15px;
+    border:none;
+    padding:0;
+}
+.cr_form legend {
+    float:left; /* a crutch to make the legend behave */
+    font-size:16px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+.cr_form label {
+    min-width:26px;
+}
+
+
+    /* comments - reviews */
+
+.cr_comment {
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    margin:25px 0 30px;
+}
+
+.cr_comment .cr_wrap {
+    flex:1;
+    margin:0 10px;
+}
+.cr_comment .cr_wrap:first-child {
+    margin-left:0;
+}
+.cr_comment .cr_wrap:last-child {
+    margin-right:0;
+}
+
+.cr_comment .cr_headline {
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+.cr_comment .cr_rating_bar {
+    width:70%;
+}
+
+
+    /* nominations */
+.cr_nomination .cr_wrap {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:20px 0 15px;
+}
+.cr_nomination .cr_wrap > * {
+    flex:1;
+}
+.cr_nomination .cr_headline {
+    font-size:18px;
+    font-weight:600;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+.cr_nomination .cr_rating_bar {
+    max-width:130px;
+}
+
+
+    /* total rating */
+.comment-rating-headline {
+    margin:22px 0 10px;
+    font-size:26px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+.comment-rating-total {
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    margin:10px 0 38px;
+    font-size:26px;
+    font-weight:600;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+.comment-rating-total > * {
+    flex:1;
+}
+.comment-rating-total .cr_rating_bar {
+    max-width:160px;
+    margin-right:20px;
+}
