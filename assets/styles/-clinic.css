@@ -112,6 +112,16 @@
 .cr_form label {
     min-width:26px;
 }
+@media (min-width:600px) and (max-width:991px) {
+    .cr_form .cr_wrap {
+        flex-wrap:wrap;
+    }
+    .cr_form .cr_wrap > * {
+        flex:auto;
+        width:100%;
+        max-width:150px;
+    }
+}
 
 
     /* comments - reviews */
@@ -142,7 +152,24 @@
     color:var(--h-color);
 }
 .cr_comment .cr_rating_bar {
-    width:70%;
+    max-width:100px;
+}
+
+@media (max-width:500px), (min-width:600px) and (max-width:991px) {
+    .cr_comment {
+        flex-wrap:wrap;
+    }
+    .cr_comment .cr_wrap {
+        flex:auto;
+        width:calc( 50% - 10px );
+        margin-top:10px;
+    }
+    .cr_comment .cr_wrap:nth-child(odd) {
+        margin-left:0;
+    }
+    .cr_comment .cr_wrap:nth-child(even) {
+        margin-right:0;
+    }
 }
 
 
@@ -164,6 +191,16 @@
 }
 .cr_nomination .cr_rating_bar {
     max-width:130px;
+}
+@media (min-width:600px) and (max-width:991px) {
+    .cr_nomination .cr_wrap {
+        flex-wrap:wrap;
+    }
+    .cr_nomination .cr_wrap > * {
+        flex:auto;
+        width:100%;
+        max-width:150px;
+    }
 }
 
 
