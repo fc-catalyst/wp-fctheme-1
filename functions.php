@@ -97,6 +97,7 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
 function fct_load_styles() {
     // -{post-type}-list for archive, -{post-type} for posts, {slug} for particular posts
     $qo = get_queried_object();
+    if ( !is_object( $qo ) ) { return; }
 
     $result = [];
 

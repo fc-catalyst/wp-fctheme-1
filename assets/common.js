@@ -105,5 +105,22 @@
             }
         }
         
+        /* hidden fields show-hide */
+        $( '.fct-open-next > a' ).click( function(e) {
+            e.preventDefault();
+            $( this ).parent().toggleClass( 'fct-active' );
+        });
+        
+        /* vertical gallery navigation */
+        $( '.fct-vertical-gallery' ).click( function() {
+            var $self = $( this ),
+                $parent = $self.parent(),
+                vpheight = Math.max( document.documentElement.clientHeight || 0, window.innerHeight || 0 );
+            if ( $parent.innerHeight() > $self.outerHeight() ) { return; }
+            var difference = $self.outerHeight() - $parent.innerHeight();
+            $self.css( 'transform', 'translate( 0, -' + difference + 'px )' );
+            // ^^this is just testing ++ add transition
+        });
+        
     });
 } )();
