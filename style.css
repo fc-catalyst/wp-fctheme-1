@@ -267,4 +267,5 @@ body.admin-bar header.site-header {
 /* video */
 .fct-video > * {
     width:100%;
+    min-height:312px;
 }
