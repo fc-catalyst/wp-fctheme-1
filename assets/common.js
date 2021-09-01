@@ -109,7 +109,7 @@
         /* add map by class */
         if ( $( '.fct-gmap-view' ).length ) {
             fcLoadScriptVariable(
-                'https://maps.googleapis.com/maps/api/js?key=AIzaSyBlq096W0DQdhx_eRuc7OSwKM2F1mBbS0E&libraries=places',
+                'https://maps.googleapis.com/maps/api/js?key={}&libraries=places',
                 'google'
             );
             fcLoadScriptVariable(
