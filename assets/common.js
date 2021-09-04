@@ -109,11 +109,11 @@
         /* add map by class */
         if ( $( '.fct-gmap-view' ).length ) {
             fcLoadScriptVariable(
-                'https://maps.googleapis.com/maps/api/js?key={}&libraries=places',
+                'https://maps.googleapis.com/maps/api/js?key='+fcGmapKey+'&libraries=places',
                 'google'
             );
             fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/gmap-view.js?' + + new Date(),
+                '/wp-content/themes/fct1/assets/smarts/gmap-view.js',
                 'fcAddGmapView',
                 function() { fcAddGmapView( '.fct-gmap-view' ) },
                 ['google']
