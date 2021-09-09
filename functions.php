@@ -301,10 +301,8 @@ add_action( 'user_register', function ($user_id) { // set new theme to all newly
 //*/
 
 // load scripts async, like fcLoadScriptVariable(path.js, varname, success(), depend vars []);
-add_action( 'wp_head', function() { // ++do similar for styles to use in separate scripts
-?>
-<script type="text/javascript">!function(){let r={},c={},a={},o=function(){},d=!1;function u(){clearInterval(o),d=!1}window.fcLoadScriptVariable=function(t,e="",n=function(){},i=[]){!t||a[t]||c[t]||r[t]||(r[t]={var:e,fun:n,dpc:i},d||(o=setInterval(function(){!function(){if(!Object.keys(r).length)return u(),0;var t=document.readyState;if(t="complete"===t||"interactive"===t)t:for(var n in r){for(let t=0,e=r[n].dpc.length;t<e;t++)if(void 0===window[r[n].dpc[t]])continue t;if(!c[n]&&!a[n]){let t=document.createElement("script");t.setAttribute("type","text/javascript"),t.setAttribute("src",n),t.setAttribute("async",""),document.head.appendChild(t),c[n]=!0}r[n].var&&void 0===window[r[n].var]||(a[n]=!0,r[n].fun(),delete r[n],delete c[n])}}()},300),d=!0,setTimeout(u,2e4)))},window.fcLoadScriptVariable.state=function(){return d}}();var fcGmapKey='';</script>
-        <?php
-}, 0 );
-
-
+add_action( 'wp_head', 'fcLoadScriptVariable', 0 );
+add_action( 'admin_head', 'fcLoadScriptVariable', 0 );
+function fcLoadScriptVariable() { ?>
+<script type="text/javascript">!function(){let r={},c={},a={},o=function(){},d=!1;function u(){clearInterval(o),d=!1}window.fcLoadScriptVariable=function(t,e="",n=function(){},i=[]){!t||a[t]||c[t]||r[t]||(r[t]={var:e,fun:n,dpc:i},d||(o=setInterval(function(){!function(){if(!Object.keys(r).length)return u(),0;var t=document.readyState;if(t="complete"===t||"interactive"===t)t:for(var n in r){for(let t=0,e=r[n].dpc.length;t<e;t++)if(void 0===window[r[n].dpc[t]])continue t;if(!c[n]&&!a[n]){let t=document.createElement("script");t.setAttribute("type","text/javascript"),t.setAttribute("src",n),t.setAttribute("async",""),document.head.appendChild(t),c[n]=!0}r[n].var&&void 0===window[r[n].var]||(a[n]=!0,r[n].fun(),delete r[n],delete c[n])}}()},300),d=!0,setTimeout(u,2e4)))},window.fcLoadScriptVariable.state=function(){return d}}();var fcGmapKey='AIzaSyBlq096W0DQdhx_eRuc7OSwKM2F1mBbS0E';</script>
+<?php }

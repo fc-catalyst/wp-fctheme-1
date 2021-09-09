@@ -95,7 +95,10 @@ function fcAddGallery(selector = '') {
         if ( $self.parent().innerHeight() - $self.position()['top'] > $self.outerHeight() ) { return; }
         $down.show();
     };
-    fcAddGallery.reset();
+    $up.hide();
+    $down.hide();
+    setTimeout( fcAddGallery.reset );
     $( window ).resize( function() { fcAddGallery.reset(); });
+    // ++add body resize event too, as there are some moving parts
 
 }

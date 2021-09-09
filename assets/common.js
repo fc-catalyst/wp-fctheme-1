@@ -100,7 +100,7 @@
         /* add vertical gallery by class */
         if ( $( '#entity-gallery' ).length ) {
             fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/gallery-vertical.js',
+                '/wp-content/themes/fct1/assets/smarts/gallery-vertical.js?' + + new Date(),
                 'fcAddGallery',
                 function() { fcAddGallery( '#entity-gallery' ) }
             );
