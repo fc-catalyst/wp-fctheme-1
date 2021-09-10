@@ -7,10 +7,11 @@ function fct_dev() {
 
 /* STYLES for the first-screen */
 add_action( 'wp_head', function() {
-?><style>
-<?php
+?><style><?php
 
     $dir = get_template_directory() . '/assets/first-screen/';
+
+    ob_start(); // to slightly minify the css
 
     // main
     @include_once( $dir . '--main.css' );
@@ -27,6 +28,18 @@ add_action( 'wp_head', function() {
             @include_once( $dir .  $v . '.css' );
         }
     }
+
+    $content = ob_get_contents();
+    ob_end_clean();
+
+    $content = preg_replace( '/\s+/', ' ', $content );
+    $content = preg_replace( '/ ?([\{\};:]) ?/', '$1', $content );
+    $content = preg_replace( '/\/\*(.*?)*\*\//', '', $content );
+    //++(space and space)
+    //++space>space
+    $content = trim( $content );
+    /* -s is for scrolled */
+    echo $content;
 
 ?></style>
 <?php
