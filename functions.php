@@ -11,7 +11,7 @@ add_action( 'wp_head', function() {
 
     $dir = get_template_directory() . '/assets/first-screen/';
 
-    ob_start(); // to slightly minify the css
+    //ob_start(); // to slightly minify the css ++ restore
 
     // main
     @include_once( $dir . '--main.css' );
@@ -28,7 +28,7 @@ add_action( 'wp_head', function() {
             @include_once( $dir .  $v . '.css' );
         }
     }
-
+/*
     $content = ob_get_contents();
     ob_end_clean();
 
@@ -38,8 +38,8 @@ add_action( 'wp_head', function() {
     //++(space and space)
     //++space>space
     $content = trim( $content );
-    /* -s is for scrolled */
     echo $content;
+//*/
 
 ?></style>
 <?php
@@ -108,14 +108,14 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
 
 
 function fct_load_styles() {
-    // -{post-type}-list for archive, -{post-type} for posts, {slug} for particular posts
+    // -{post-type}--archive for archive, -{post-type} for posts, {slug} for particular posts
     $qo = get_queried_object();
     if ( !is_object( $qo ) ) { return; }
 
     $result = [];
 
     if ( get_class( $qo ) === 'WP_Post_Type' ) {
-        $result[] = '-' . $qo->name . '-list'; // or can use slug to match the url: $go->rewrite->slug
+        $result[] = '-' . $qo->name . '--archive'; // or can use slug to match the url: $go->rewrite->slug
     }
 
     if ( get_class( $qo ) === 'WP_Post' ) {

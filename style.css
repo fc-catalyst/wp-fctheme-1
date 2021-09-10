@@ -99,7 +99,7 @@ li {
 
 a {
     text-decoration:underline;
-    color:color:var(--a-color);
+    color:var(--a-color);
 }
 a:hover {
     opacity:0.9;
