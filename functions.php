@@ -87,6 +87,16 @@ add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights r
             'all'
         );	
 	}
+	// home == blog
+	if ( is_home() ) {
+        wp_enqueue_style(
+            $main . '-post--archive',
+            $url . '-post--archive.css',
+            [ $main, $fonts ],
+            wp_get_theme()->get( 'Version' ) . fct_dev(),
+            'all'
+        );	
+	}
 
 	// post type and name or archieve type name
     $files = fct_load_styles();
@@ -121,6 +131,7 @@ function fct_load_styles() {
     if ( get_class( $qo ) === 'WP_Post' ) {
         $result[] = $qo->post_name; // slug
         $result[] = '-' . $qo->post_type; // post type name
+        // ++exclude the archive from here
     }
 
     return $result;
@@ -163,6 +174,9 @@ add_filter( 'get_the_archive_title', function($title) {
 add_filter( 'excerpt_more', function($more) {
     return '';
 });
+add_filter( 'excerpt_length', function($number) {
+    return 18;
+} );
 
 // print featured image
 add_action( 'wp_head', function() {
