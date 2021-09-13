@@ -4,7 +4,7 @@ get_header();
 
 ?>
     <div class="wrap-width">
-    <h1><?php single_post_title() ?></h1>
+    <h1><?php is_category() ? single_cat_title( '<small>Blog:</small> ' ) : '' ?></h1>
 <?php
 
 if ( have_posts() ) :

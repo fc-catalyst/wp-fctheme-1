@@ -8,12 +8,6 @@
  Text Domain:    fct1
 */
 
-/* init values */
-:root {
-    --str-color:#111;
-    --h-color:#23667b;
-    --a-color:#23667b;
-}
 
 /* content elements */
 p:last-child,

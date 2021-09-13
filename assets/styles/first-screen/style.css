@@ -2,6 +2,10 @@
 
 /* inits */
 :root {
+    --str-color:#111;
+    --h-color:#23667b;
+    --a-color:#23667b;
+
     --menu-height:100px;
     --top-gap-bg:linear-gradient(60deg, #277888 10%, #58acbc 90%);
     --hamburger:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg%0Afill='none' stroke='black' stroke-width='1.5' stroke-linecap='square'%3E%3Cpath d='M 1.5,3.5 H 14.5'%0A/%3E%3Cpath d='M 1.5,8 H 14.5'%0A/%3E%3Cpath d='M 1.5,12.5 H 14.5'%0A/%3E%3C/g%3E%3C/svg%3E%0A") center / contain no-repeat;

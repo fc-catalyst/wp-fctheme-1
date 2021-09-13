@@ -1,140 +1,108 @@
 <?php
 
+define( 'FCT1_PREFIX', 'fct1_');
+
 function fct_dev() {
     //return '';
     return time();
 }
 
-/* STYLES for the first-screen */
-add_action( 'wp_head', function() {
-?><style><?php
+// add styles
+add_action( 'wp_enqueue_scripts', function() { // ++try get_footer, if GInsights reacts better
 
-    $dir = get_template_directory() . '/assets/first-screen/';
+    $enqueue_dir = get_template_directory() . '/assets/styles/';
+    $enqueue_url = get_template_directory_uri() . '/assets/styles/';
+    $enqueue_files = array_merge( ['fonts'], fct_get_style_files() );
 
-    //ob_start(); // to slightly minify the css ++ restore
+    foreach ( $enqueue_files as $v ) {
+        if ( !is_file( $enqueue_dir . $v . '.css' ) ) { continue; }
 
-    // main
-    @include_once( $dir . '--main.css' );
+        wp_enqueue_style(
+            FCT1_PREFIX . '-' . $v,
+            $enqueue_url . $v . '.css',
+            [FCT1_PREFIX . '-' . 'style'], // after the main one
+            wp_get_theme()->get( 'Version' ) . fct_dev(),
+            'all'
+        );
 
-    // front page
-    if ( is_front_page() ) {
-        @include_once( $dir . '--front-page.css' );
     }
-
-    // post type and name or archieve type name
-    $files = fct_load_styles();
-    if ( $files ) {
-        foreach( $files as $v ) {
-            @include_once( $dir .  $v . '.css' );
-        }
-    }
-/*
-    $content = ob_get_contents();
-    ob_end_clean();
-
-    $content = preg_replace( '/\s+/', ' ', $content );
-    $content = preg_replace( '/ ?([\{\};:]) ?/', '$1', $content );
-    $content = preg_replace( '/\/\*(.*?)*\*\//', '', $content );
-    //++(space and space)
-    //++space>space
-    $content = trim( $content );
-    echo $content;
-//*/
-
-?></style>
-<?php
-}, 7 );
-
-/* add common styles */
-add_action( 'wp_enqueue_scripts', function() { // try get_footer, if GInsights reacts better
-
-    $dir = get_template_directory() . '/assets/styles/';
-    $url = get_template_directory_uri() . '/assets/styles/';
-    $main = 'fct1-style';
-    $fonts = 'fct1-fonts';
-
-    // main
-    wp_enqueue_style( $main,
+    
+    // main css & js
+    wp_enqueue_style( FCT1_PREFIX . '-' . 'style',
     	get_template_directory_uri() . '/style.css',
     	[],
         wp_get_theme()->get( 'Version' ) . fct_dev(),
         'all'
     );
-
-    // scripts
-    wp_enqueue_script( 'fct1-common',
+    wp_enqueue_script( FCT1_PREFIX . '-' . 'common',
 		get_template_directory_uri() . '/assets/common.js',
 		[ 'jquery' ],
 		wp_get_theme()->get( 'Version' ) . fct_dev(),
 		1
 	);
 
-    // fonts
-    wp_enqueue_style( $fonts,
-        $url . '--fonts.css',
-        [],
-        wp_get_theme()->get( 'Version' ) . fct_dev(),
-        'all'
-    );
-
-	// front page
-	if ( is_front_page() ) {
-        wp_enqueue_style(
-            $main . '-front-page',
-            $url . '--front-page.css',
-            [ $main, $fonts ],
-            wp_get_theme()->get( 'Version' ) . fct_dev(),
-            'all'
-        );	
-	}
-	// home == blog
-	if ( is_home() ) {
-        wp_enqueue_style(
-            $main . '-post--archive',
-            $url . '-post--archive.css',
-            [ $main, $fonts ],
-            wp_get_theme()->get( 'Version' ) . fct_dev(),
-            'all'
-        );	
-	}
-
-	// post type and name or archieve type name
-    $files = fct_load_styles();
-    if ( empty( $files ) ) { return; }
-    
-    foreach( $files as $v ) {
-        if ( !is_file( $dir . $v . '.css' ) ) { continue; }
-
-        wp_enqueue_style(
-            $main . $v,
-            $url . $v . '.css',
-            [ $main, $fonts ],
-            wp_get_theme()->get( 'Version' ) . fct_dev(),
-            'all'
-        );
-    }
-
 });
 
+add_action( 'wp_head', function() { // include the first-screen styles, instead of enqueuing
+?><style><?php
+    $include_dir = get_template_directory() . '/assets/styles/first-screen/';
+    $include_files = array_merge( ['style'], fct_get_style_files() );
 
-function fct_load_styles() {
-    // -{post-type}--archive for archive, -{post-type} for posts, {slug} for particular posts
+    foreach ( $include_files as $v ) {
+        if ( !is_file( $include_dir . $v . '.css' ) ) { continue; }
+
+        if ( fct_dev() ) {
+            echo "\n\n".'/*---------- '.$v.'.css ----------*'.'/'."\n";
+            @include_once( $include_dir . $v . '.css' );
+            continue;
+        }
+        
+        ob_start();
+        @include_once( $include_dir . $v . '.css' );
+        $content = ob_get_contents();
+        ob_end_clean();
+
+        $content = preg_replace( '/\s+/', ' ', $content );
+        $content = preg_replace( '/ ?([\{\};:]) ?/', '$1', $content );
+        $content = preg_replace( '/\/\*(.*?)*\*\//', '', $content );
+        //++(space and space)
+        //++space>space, space~space, space+space
+        $content = trim( $content );
+
+        echo $content;
+    }
+?></style><?php
+}, 7 );
+
+function fct_get_style_files() {
+    static $files = null;
+    if ( $files !== null ) { return $files; }
+
+    // get post type
     $qo = get_queried_object();
-    if ( !is_object( $qo ) ) { return; }
-
-    $result = [];
-
+    if ( !is_object( $qo ) ) { return []; }
     if ( get_class( $qo ) === 'WP_Post_Type' ) {
-        $result[] = '-' . $qo->name . '--archive'; // or can use slug to match the url: $go->rewrite->slug
+        $post_type = $qo->name;
     }
-
     if ( get_class( $qo ) === 'WP_Post' ) {
-        $result[] = $qo->post_name; // slug
-        $result[] = '-' . $qo->post_type; // post type name
-        // ++exclude the archive from here
+        $post_type = $qo->post_type;
     }
 
-    return $result;
+    $files = [];
+    if ( is_singular( $post_type ) ) {
+        $files[] = $post_type;
+    }
+    if ( is_front_page() ) {
+        $files[] = 'front-page';
+    }
+    if ( is_home() || is_archive() && ( !$post_type || $post_type === 'page' ) ) {
+        $files[] = 'archive-post';
+    }
+    if( is_post_type_archive( $post_type ) ) {
+        $files[] = 'archive-' . $post_type;
+    }
+    
+    return $files;
 }
 
 
