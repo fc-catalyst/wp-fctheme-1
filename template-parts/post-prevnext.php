@@ -1,4 +1,4 @@
-<nav class="wp-block-columns">
+<nav class="wp-block-columns nav-prev-next">
     <div class="wp-block-column">
 		<p>
             <?php next_post_link( '%link', 'Previous Post' ) ?>

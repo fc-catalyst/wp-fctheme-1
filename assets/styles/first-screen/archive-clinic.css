@@ -90,7 +90,7 @@ header.entry-header .entry-photo::before {
     object-position:center top;
 }
 
-h2 {
+article h2 {
     display:flex;
     align-items:center;
     height:100%;
@@ -101,7 +101,7 @@ h2 {
     font-weight:700;
     letter-spacing:0.5px;
 }
-h2 > a {
+article h2 > a {
     text-decoration:none;
 }
 

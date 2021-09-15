@@ -90,18 +90,18 @@ article.status-private {
     position:absolute;
 }
 
-h2 {
+article h2 {
     margin:0 0 10px;
     font-size:14px;
     font-weight:700;
     text-transform:none;
     letter-spacing:0;
 }
-h2 > a {
+article h2 > a {
     display:block;
     text-decoration:none;
 }
-h2 > a::before {
+article h2 > a::before {
     content:'';
     position:absolute;
     left:0;
@@ -148,11 +148,11 @@ h2 > a::before {
 }
 
 /* hover */
-h2 > a::before {
+article h2 > a::before {
     transition:transform 0.4s ease, background-color 0.4s ease;
 }
 
-h2 > a:hover::before {
+article h2 > a:hover::before {
     background-color:#0b456230;
     /*transform:rotate( 45deg ) scale( 0.70 );*/
 }

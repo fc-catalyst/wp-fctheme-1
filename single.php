@@ -37,16 +37,22 @@ if ( have_posts() ) :
         </div>
     </div>
 
-    <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
-        The thumbnail goes here
+    <div class="wp-block-column" style="flex-basis:50%;position:relative">
+        <div class="entry-photo">
+            <?php if ( $th_url = get_the_post_thumbnail_url() ) { ?>
+            <img loading="lazy" width="100%" height="100%"
+                src="<?php echo $th_url ?>"
+                alt="<?php the_title() ?>"
+            />
+            <?php } ?>
+        </div>
     </div>
 
 </header>
 
+<div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
 
-<div class="entry-content-main">
-    <?php the_content() ?>
-</div>
+<?php the_content() ?>
 
 <!-- // -->
         </div>
@@ -54,7 +60,11 @@ if ( have_posts() ) :
 </article>
 
 <div class="entry-content">
-    <?php get_template_part( 'template-parts/navigation', 'posts' ) ?>
+    <?php get_template_part( 'template-parts/post', 'prevnext' ) ?>
+    <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+    <h2 align="center">Themen die Sie Interessieren Könnten</h2>
+    <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+    <?php get_template_part( 'template-parts/post', 'moreposts' ) ?>
     <?php comments_template() ?>
 </div>
 

@@ -8,7 +8,7 @@ if ( !$hab_prev_page && !$hab_next_page ) {
 
 ?>
 
-<nav class="wp-block-columns">
+<nav class="wp-block-columns nav-prev-next">
     <div class="wp-block-column">
 		<p>
             <?php echo $hab_prev_page ?>
