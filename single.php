@@ -39,12 +39,7 @@ if ( have_posts() ) :
 
     <div class="wp-block-column" style="flex-basis:50%;position:relative">
         <div class="entry-photo">
-            <?php if ( $th_url = get_the_post_thumbnail_url() ) { ?>
-            <img loading="lazy" width="100%" height="100%"
-                src="<?php echo $th_url ?>"
-                alt="<?php the_title() ?>"
-            />
-            <?php } ?>
+            <?php fct1_image_print( get_post_thumbnail_id(), [600,600], 0, get_the_title() ) ?>
         </div>
     </div>
 
@@ -54,7 +49,10 @@ if ( have_posts() ) :
 
 <?php the_content() ?>
 
+<?php print_author() ?>
+
 <!-- // -->
+
         </div>
     </div>
 </article>
@@ -74,3 +72,22 @@ if ( have_posts() ) :
 endif;
 
 get_footer();
+
+function print_author() {
+    global $authordata;
+
+    $name = get_the_author_meta( 'display_name' );
+    $about = get_the_author_meta( 'user_description' );    
+
+    if ( !$about || !in_array( 'author', $authordata->roles ) ) {
+        return;
+    }
+    
+    ?>
+    <div class="author-box">
+        <!--<div class="author-photo"></div>-->
+        <h3><?php echo $name ?></h3>
+        <?php echo $about ?>
+    </div>
+    <?php
+}

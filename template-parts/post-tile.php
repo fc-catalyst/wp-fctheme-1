@@ -10,12 +10,7 @@ $cat = $cat
     <header class="entry-header">
         <?php echo $cat ?>
         <div class="entry-photo">
-            <?php if ( $th_url = get_the_post_thumbnail_url() ) { ?>
-            <img loading="lazy" width="100%" height="100%"
-                src="<?php echo $th_url ?>"
-                alt="<?php the_title() ?>"
-            />
-            <?php } ?>
+            <?php fct1_image_print( get_post_thumbnail_id(), [500,500], ['center','top'], get_the_title() ) ?>
         </div>
         <h2 class="entry-title" itemprop="headline">
             <a class="entry-title-link" rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a>

@@ -1,11 +1,10 @@
 <?php
 
-define( 'FCT1_PREFIX', 'fct1_');
+define( 'FCT1_', [
+    'PREFIX'  => 'fct1',
+    'D' => time() // develope mode: time() or ''
+]);
 
-function fct_dev() {
-    //return '';
-    return time();
-}
 
 // add styles
 add_action( 'wp_enqueue_scripts', function() { // ++try get_footer, if GInsights reacts better
@@ -18,26 +17,26 @@ add_action( 'wp_enqueue_scripts', function() { // ++try get_footer, if GInsights
         if ( !is_file( $enqueue_dir . $v . '.css' ) ) { continue; }
 
         wp_enqueue_style(
-            FCT1_PREFIX . '-' . $v,
+            FCT1_['PREFIX'] . '-' . $v,
             $enqueue_url . $v . '.css',
-            [FCT1_PREFIX . '-' . 'style'], // after the main one
-            wp_get_theme()->get( 'Version' ) . fct_dev(),
+            [FCT1_['PREFIX'] . '-' . 'style'], // after the main one
+            wp_get_theme()->get( 'Version' ) . FCT1_['D'],
             'all'
         );
 
     }
     
     // main css & js
-    wp_enqueue_style( FCT1_PREFIX . '-' . 'style',
+    wp_enqueue_style( FCT1_['PREFIX'] . '-' . 'style',
     	get_template_directory_uri() . '/style.css',
     	[],
-        wp_get_theme()->get( 'Version' ) . fct_dev(),
+        wp_get_theme()->get( 'Version' ) . FCT1_['D'],
         'all'
     );
-    wp_enqueue_script( FCT1_PREFIX . '-' . 'common',
+    wp_enqueue_script( FCT1_['PREFIX'] . '-' . 'common',
 		get_template_directory_uri() . '/assets/common.js',
 		[ 'jquery' ],
-		wp_get_theme()->get( 'Version' ) . fct_dev(),
+		wp_get_theme()->get( 'Version' ) . FCT1_['D'],
 		1
 	);
 
@@ -51,7 +50,7 @@ add_action( 'wp_head', function() { // include the first-screen styles, instead 
     foreach ( $include_files as $v ) {
         if ( !is_file( $include_dir . $v . '.css' ) ) { continue; }
 
-        if ( fct_dev() ) {
+        if ( FCT1_['D'] ) {
             echo "\n\n".'/*---------- '.$v.'.css ----------*'.'/'."\n";
             @include_once( $include_dir . $v . '.css' );
             continue;
@@ -192,6 +191,75 @@ add_action( 'admin_print_styles', function() {
   <?php
 
 } );
+
+
+function fct1_image_print( $img_id_src = 0, $size = 'full', $crop = false, $alt = '' ) {
+    $img = fct1_image_src( $img_id_src, $size, $crop );
+    if ( !$img ) { return; }
+    
+    ?>
+<img src="<?php echo $img[0] ?>" width="<?php echo $img[1] ?>" height="<?php echo $img[2] ?>" alt="<?php echo $alt ?>" loading="lazy" />
+    <?php
+
+}
+
+function fct1_image_src( $img_id_src = 0, $size = 'full', $crop = false ) { // src starts from after ..uploads/
+
+    if ( is_int( $img_id_src ) ) {
+        $img_id_src = explode( '/wp-content/uploads/', wp_get_attachment_image_src( $img_id_src )[0] )[1];
+    }
+
+    if ( is_string( $img_id_src ) ) {
+
+        $return = function($src) use (&$path, &$url, &$src_size) {
+            
+            if ( $new_size = $src_size ? $src_size : getimagesize( $path . $src ) ) {
+                return [
+                    $url . $src,
+                    $new_size[0],
+                    $new_size[1]
+                ];
+            }
+            return [ $url . $src ];
+        };
+
+        list( 'path' => $path, 'url' => $url ) = wp_get_upload_dir();
+        $src = '/' . trim( $img_id_src, '/' );
+
+
+        if ( !is_file( $path . $src ) ) { return; } // no source file
+        // can unlink the thumbnails if no source file, or keep it separately
+        if ( !is_array( $size ) || !is_int( $size[0] ) || !is_int( $size[1] ) ) { return $return( $src ); }
+
+        if ( $src_size = getimagesize( $path . $src ) ) { // make only smaller variants
+            if ( $src_size[0] <= $size[0] && $src_size[1] <= $size[1] ) { return $return( $src ); }
+        }
+        unset( $src_size );
+        
+        $path_split = pathinfo( $src );
+        $desired_src =  $path_split['dirname'] .
+                        ( $path_split['dirname'] == '/' ? '' : '/' ) .
+                        $path_split['filename'] .
+                        '-' . $size[0] . 'x' . $size[1] . 'c' . // c is for custom - to clear the files when needed
+                        '.' . $path_split['extension']
+                    ;
+
+        if ( is_file( $path . $desired_src ) ) {
+            return $return( $desired_src );
+        }
+
+        // create new image
+        $edit_img = wp_get_image_editor( $path . $src );
+        if ( is_wp_error( $edit_img ) ) { return $return( $src ); }
+
+        $edit_img->resize( $size[0], $size[1], $crop );
+        $edit_img->save( $path . $desired_src );
+
+        return $return( $desired_src );
+        
+    }
+
+}
 
 // disable emoji
 add_action( 'init', function() {
