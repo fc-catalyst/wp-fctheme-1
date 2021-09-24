@@ -22,7 +22,8 @@ h2 {
     min-height:75vh;
     background-image:var(--top-gap-bg), linear-gradient(60deg, #277888ee 12%, #58acbc00 90%), var(--entity-bg), var(--top-gap-bg);
     background-repeat:no-repeat;
-    background-position:0 0, 0 0, 50% calc( 50% + var(--menu-height) ), 0 0;
+    /*background-position:0 0, 0 0, 50% calc( 50% + var(--menu-height) ), 0 0;*/
+    background-position:0 0, 0 0, 50% var(--menu-height), 0 0;
     background-size:100% var(--menu-height), cover, cover, cover;
 }
 .fct-entity-hero > * {
