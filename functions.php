@@ -52,7 +52,7 @@ add_action( 'wp_head', function() { // include the first-screen styles, instead 
 
         if ( FCT1_['D'] ) {
             echo "\n\n".'/*---------- '.$v.'.css ----------*'.'/'."\n";
-            @include_once( $include_dir . $v . '.css' );
+            include_once( $include_dir . $v . '.css' );
             continue;
         }
         
@@ -364,9 +364,9 @@ add_action( 'user_register', function ($user_id) { // set new theme to all newly
 });
 //*/
 
-// load scripts async, like fcLoadScriptVariable(path.js, varname, success(), depend vars []);
+// load scripts async, like fcLoadScriptVariable(path.js, varname, success(), load after vars []);
 add_action( 'wp_head', 'fcLoadScriptVariable', 0 );
 add_action( 'admin_head', 'fcLoadScriptVariable', 0 );
 function fcLoadScriptVariable() { ?>
-<script type="text/javascript">!function(){let r={},c={},a={},o=function(){},d=!1;function u(){clearInterval(o),d=!1}window.fcLoadScriptVariable=function(t,e="",n=function(){},i=[]){!t||a[t]||c[t]||r[t]||(r[t]={var:e,fun:n,dpc:i},d||(o=setInterval(function(){!function(){if(!Object.keys(r).length)return u(),0;var t=document.readyState;if(t="complete"===t||"interactive"===t)t:for(var n in r){for(let t=0,e=r[n].dpc.length;t<e;t++)if(void 0===window[r[n].dpc[t]])continue t;if(!c[n]&&!a[n]){let t=document.createElement("script");t.setAttribute("type","text/javascript"),t.setAttribute("src",n),t.setAttribute("async",""),document.head.appendChild(t),c[n]=!0}r[n].var&&void 0===window[r[n].var]||(a[n]=!0,r[n].fun(),delete r[n],delete c[n])}}()},300),d=!0,setTimeout(u,2e4)))},window.fcLoadScriptVariable.state=function(){return d}}();var fcGmapKey='AIzaSyBlq096W0DQdhx_eRuc7OSwKM2F1mBbS0E';</script>
+<script type="text/javascript">!function(){let r={},a={},o={},s=function(){},d=!1;function f(){clearInterval(s),d=!1}window.fcLoadScriptVariable=function(e,t="",n=function(){},c=[],i=!1){!e||o[e]||a[e]||r[e]||(r[e]={var:t,fun:n,dpc:c,css:i},d||(s=setInterval(function(){!function(){if(!Object.keys(r).length)return f(),0;var e,t=document.readyState;if(t="complete"===t||"interactive"===t)e:for(var n in r){for(let e=0,t=r[n].dpc.length;e<t;e++)if(void 0===window[r[n].dpc[e]])continue e;a[n]||o[n]||(c("script",{type:"text/javascript",src:n,async:""}),(e=(a[n]=!0)===r[n].css?n.replace(".js",".css"):r[n].css)&&c("link",{type:"text/css",href:e,rel:"stylesheet"})),r[n].var&&void 0===window[r[n].var]||(o[n]=!0,r[n].fun(),delete r[n],delete a[n])}function c(e,t){let n=document.createElement(e);for(var c in t)n.setAttribute(c,t[c]);document.head.appendChild(n)}}()},300),d=!0,setTimeout(f,2e4)))},window.fcLoadScriptVariable.state=function(){return d}}();var fcGmapKey='';</script>
 <?php }
