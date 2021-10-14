@@ -140,7 +140,8 @@ function fcAddGmapView(selector = '') {
 
     marker.setMap( gmap );
     
-    
-    $self.after( '<div>' + addr + '</div>' );
+    if ( addr ) {
+        $self.after( '<div>' + addr + '</div>' );
+    }
 
 }

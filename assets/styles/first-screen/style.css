@@ -2,7 +2,7 @@
 
 /* inits */
 :root {
-    --str-color:#111;
+    --str-color:#343434;
     --h-color:#23667b;
     --a-color:#23667b;
 
@@ -32,7 +32,7 @@ body {
 	padding:0;
 }
 body * {
-	font-family:'Open Sans', sans-serif;
+	font-family:'Brandon Grotesque', sans-serif;
 }
 
 /* top navigation */
@@ -80,7 +80,7 @@ header.site-header .header-wrap {
     nav.nav-primary ul.menu > li > a,
     nav.nav-primary li > ul.sub-menu > li > a {
         padding:14px 12px;
-        font-size:14px;
+        font-size:15px;
         font-weight:400;
         line-height:1.5;
         text-decoration:none;
@@ -278,7 +278,7 @@ header.site-header .header-wrap {
     nav.nav-primary li > ul.sub-menu > li > a {
         margin-bottom:2px;
         padding:7px 15px 6px;
-        font-size:14px;
+        font-size:15px;
         font-weight:400;
         line-height:1.5;
         text-decoration:none;
@@ -372,8 +372,8 @@ body.header-fixed.scrolled .menu-iconed > a::before {
         color:transparent!important;
     }
     .menu-iconed.menu-hide-content > a::before {
-        letter-spacing:0;
-        margin-right:-2px;
+        letter-spacing:1px;
+        margin-right:-2px!important;
     }
 }
 
@@ -497,7 +497,7 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 .entry-content > .alignwide {
     max-width:none;
     margin:0;
-    padding:40px calc( ( 100% - var(--content-max-width) ) / 2 + 15px );
+    padding:40px calc( ( 100% - var(--content-max-width) ) / 2 + 15px )!important;
 }
 
 
@@ -514,4 +514,8 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 }
 body .entry-content .wp-block-image {
     margin:0 0 16px;
+}
+
+.wp-block-column > *:first-child {
+    margin-top:17px!important;
 }

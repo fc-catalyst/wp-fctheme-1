@@ -1,2 +1,5 @@
 screenshot.jpg
 imgs/*
+assets/fonts/*
+gmaps_api_key
+.gitignore

@@ -65,7 +65,7 @@ article.status-private {
     z-index:2;
     padding:8px 24px;
     background-color:var(--blog-main-color);
-    font-size:12px;
+    font-size:14px;
     font-weight:600;
     letter-spacing:0.5px;
     text-transform:uppercase;
@@ -92,7 +92,7 @@ article.status-private {
 
 article h2 {
     margin:0 0 10px;
-    font-size:14px;
+    font-size:16px;
     font-weight:700;
     text-transform:none;
     letter-spacing:0;
@@ -115,7 +115,7 @@ article h2 > a::before {
 
 .entry-date {
     margin-bottom:10px;
-    font-size:11px;
+    font-size:13px;
     font-weight:600;
     text-transform:uppercase;
     color:var(--blog-main-color);
@@ -124,7 +124,7 @@ article h2 > a::before {
 .entry-excerpt,
 .entry-excerpt * {
     margin:0;
-    font-size:12px;
+    font-size:14px;
     font-weight:300;
     color:var(--blog-main-color);
 }
@@ -139,7 +139,7 @@ article h2 > a::before {
     z-index:1;
     padding:6px 16px;
     border:1px solid var(--blog-main-color);
-    font-size:10px;
+    font-size:12px;
     font-weight:400;
     letter-spacing:0.5px;
     text-transform:uppercase;

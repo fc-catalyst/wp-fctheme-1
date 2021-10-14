@@ -1,3 +1,10 @@
+.entry-content {
+    font-size:16px;
+    line-height:1.6;
+    font-weight:500;
+    color:var(--str-color);
+}
+
 /* schedule */
 .fct-schedule-list {
     flex-basis:100%!important;
@@ -33,7 +40,7 @@
     box-sizing:border-box;
     background-color:var(--h-color);
     color:#fff;
-    font-size:13px;
+    font-size:15px;
 }
 .fct-gmap-view + div::before {
     content:'';
@@ -82,13 +89,13 @@
     background-color:var(--h-color);
 }
 .comments-area .comment-content * {
-    font-size:14px;
+    font-size:16px;
 }
 
 .comments-area .comment-more {
     display:flex;
     margin-top:16px;
-    font-size:12px;
+    font-size:14px;
     opacity:0.6;
 }
 .comments-area .comment-more > * {
@@ -101,6 +108,10 @@
     padding-left:25px;
     border-left:2px solid var(--h-color);
     opacity:0.7;
+}
+
+.comment-respond {
+    margin-top:65px;
 }
 
 /* comments form */
@@ -164,7 +175,7 @@
 }
 .cr_fields legend {
     float:left; /* a crutch to make the legend behave */
-    font-size:16px;
+    font-size:18px;
     font-weight:700;
     text-transform:uppercase;
     color:var(--h-color);
@@ -206,7 +217,7 @@
 
 .cr_comment .cr_headline {
     margin-bottom:10px;
-    font-size:14px;
+    font-size:16px;
     font-weight:700;
     text-transform:uppercase;
     color:var(--h-color);

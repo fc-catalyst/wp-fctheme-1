@@ -63,8 +63,9 @@ if ( have_posts() ) :
     <h2 align="center">Themen die Sie Interessieren Könnten</h2>
     <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
     <?php get_template_part( 'template-parts/post', 'moreposts' ) ?>
-    <?php comments_template() ?>
 </div>
+
+<?php comments_template() ?>
 
 <?php
 

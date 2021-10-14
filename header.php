@@ -18,7 +18,7 @@
 		<div class="header-wrap">
 
             <a href="<?php echo home_url() ?>" class="site-logo" title="Startseite">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo.png' ?>" alt="Klinikerfahrungen Logo"/>
+                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo-4.png' ?>" alt="Klinikerfahrungen Logo"/>
             </a>
 
             <?php if ( has_nav_menu( 'main' ) ) : ?>
@@ -27,7 +27,7 @@
                 <label for="nav-primary-toggle"></label>
                 <?php
                     wp_nav_menu( [
-                        'theme_location'  => 'main',
+                        'theme_location'  => is_user_logged_in() ? 'logged' : 'main',
                         'menu_class'      => 'menu menu-primary',
                         'menu_id'         => 'menu-primary'
                     ] );

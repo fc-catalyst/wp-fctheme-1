@@ -10,6 +10,10 @@
 
 
 /* content elements */
+body {
+    color:var(--str-color);
+}
+
 p:last-child,
 li:last-child,
 ul:last-child,
@@ -22,7 +26,6 @@ h1 {
     font-size:34px;
     line-height:1.5;
     font-weight:600;
-    letter-spacing:2px;
     text-transform:uppercase;
     color:var(--h-color);
 }
@@ -31,7 +34,6 @@ h2 {
     font-size:32px;
     line-height:1.5;
     font-weight:600;
-    letter-spacing:2px;
     text-transform:uppercase;
     color:var(--h-color);
 }
@@ -40,7 +42,6 @@ h3 {
     font-size:30px;
     line-height:1.5;
     font-weight:600;
-    letter-spacing:1.5px;
     text-transform:uppercase;
     color:var(--h-color);
 }
@@ -74,8 +75,6 @@ p {
     font-size:16px;
     line-height:1.6;
     font-weight:500;
-    letter-spacing:0.2px;
-    color:var(--str-color);
 }
 ul, ol {
     margin:17px 0 23px;
@@ -88,7 +87,6 @@ li {
     line-height:1.6;
     font-size:16px;
     font-weight:500;
-    color:var(--str-color);
 }
 
 a {
@@ -129,7 +127,7 @@ body.admin-bar header.site-header {
     padding-left:15px;
     padding-right:15px;
     text-align:center;
-    font-size:15px;
+    font-size:16px;
     font-style:italic;
     opacity:0.8;
 }
@@ -237,7 +235,7 @@ body.admin-bar header.site-header {
     overflow:hidden;
 }
 
-/* gutenberg sections blocks styling */
+/* gutenberg sections blocks styling ++--*/
 #main-content .bg-white {
     background-color:#fff;
 }
@@ -264,10 +262,6 @@ body.admin-bar header.site-header {
     color:#fff;
 }
 
-/* footer */
-.site-footer {
-    background-color:#fff;
-}
 
 /* functional */
 .fct-open-next:not( .fct-active ) + * {
@@ -294,11 +288,31 @@ body.admin-bar header.site-header {
 /* pages navigation */
 .nav-prev-next a {
     display:inline-block;
-    padding:4px 12px;
+    padding:6px 12px 4px;
     background-color:var(--a-color);
     font-size:12px;
     font-weight:600;
     text-transform:uppercase;
     text-decoration:none;
     color:#fff;
+}
+
+
+/* footer */
+.site-footer * {
+    color:#fff;
+}
+
+.site-footer h4 {
+    font-size:18px;
+}
+.site-footer ul {
+    padding-left:0;
+}
+.site-footer li {
+    list-style-type:none;
+    padding-left:0;
+}
+.site-footer a {
+    text-decoration:none;
 }

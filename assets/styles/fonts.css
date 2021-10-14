@@ -1,36 +1,36 @@
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Brandon Grotesque';
   font-style: normal;
   font-weight: 300;
   src: local(''),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-300.woff2') format('woff2'),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-300.woff') format('woff');
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Light.woff2') format('woff2'),
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Light.woff') format('woff');
   font-display: fallback;
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Brandon Grotesque';
   font-style: normal;
   font-weight: 400;
   src: local(''),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-regular.woff2') format('woff2'),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-regular.woff') format('woff');
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Regular.woff2') format('woff2'),
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Regular.woff') format('woff');
   font-display: fallback;
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Brandon Grotesque';
   font-style: normal;
   font-weight: 600;
   src: local(''),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-600.woff2') format('woff2'),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-600.woff') format('woff');
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Bold.woff2') format('woff2'),
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Bold.woff') format('woff');
   font-display: fallback;
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Brandon Grotesque';
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-700.woff2') format('woff2'),
-       url('/wp-content/themes/fct1/assets/fonts/open-sans-v18-latin-700.woff') format('woff');
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Black.woff2') format('woff2'),
+       url('/wp-content/themes/fct1/assets/fonts/BrandonGrotesque-Black.woff') format('woff');
   font-display: fallback;
 }

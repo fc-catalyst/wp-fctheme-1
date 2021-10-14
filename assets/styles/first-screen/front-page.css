@@ -17,6 +17,7 @@ body::before {
 .fct-hero {
     min-height:100vh;
     padding:0!important;
+    margin-bottom:0!important;
 }
 
 .fct-hero > * {
@@ -33,7 +34,7 @@ body::before {
 }
 
 .fct-hero .wp-block-group {
-    max-width:520px;
+    max-width:540px;
     margin:var(--menu-height) auto 0;
 }
 
@@ -51,6 +52,5 @@ body::before {
 }
 .fct-hero p {
     margin-top:10px;
-    font-weight:400;
-    letter-spacing:0.2px;
+    font-size:18px;
 }
