@@ -314,13 +314,6 @@ add_shortcode( 'fc-year', function() { // always demanded by copyright XD
 });
 
 
-// load scripts async, like fcLoadScriptVariable(path.js, varname, success(), load after vars []);
-add_action( 'wp_head', 'fcLoadScriptVariable', 0 );
-add_action( 'admin_head', 'fcLoadScriptVariable', 0 );
-function fcLoadScriptVariable() { ?>
-<script type="text/javascript">!function(){let r={},a={},o={},s=function(){},d=!1;function f(){clearInterval(s),d=!1}window.fcLoadScriptVariable=function(e,t="",n=function(){},c=[],i=!1){!e||o[e]||a[e]||r[e]||(r[e]={var:t,fun:n,dpc:c,css:i},d||(s=setInterval(function(){!function(){if(!Object.keys(r).length)return f(),0;var e,t=document.readyState;if(t="complete"===t||"interactive"===t)e:for(var n in r){for(let e=0,t=r[n].dpc.length;e<t;e++)if(void 0===window[r[n].dpc[e]])continue e;a[n]||o[n]||(c("script",{type:"text/javascript",src:n,async:""}),(e=(a[n]=!0)===r[n].css?n.replace(".js",".css"):r[n].css)&&c("link",{type:"text/css",href:e,rel:"stylesheet"})),r[n].var&&void 0===window[r[n].var]||(o[n]=!0,r[n].fun(),delete r[n],delete a[n])}function c(e,t){let n=document.createElement(e);for(var c in t)n.setAttribute(c,t[c]);document.head.appendChild(n)}}()},300),d=!0,setTimeout(f,2e4)))},window.fcLoadScriptVariable.state=function(){return d}}();var fcGmapKey='<?php @include_once( __DIR__ . '/gmaps_api_key' ) ?>';</script>
-<?php }
-
 /* useful functions */
 
 // images on the fly
@@ -483,3 +476,102 @@ function fct1_a_clear($text, $com = false, $targ = [], $rel = [], $atts = []) {
    
     return $result;
 }
+
+
+// load scripts async, like fcLoadScriptVariable(path.js, varname, success(), load after vars []);
+add_action( 'wp_head', 'fcLoadScriptVariable', 0 );
+add_action( 'admin_head', 'fcLoadScriptVariable', 0 );
+function fcLoadScriptVariable() { ?>
+<script type="text/javascript">
+(function() {
+    let load = [],
+        paths = [], // for faster search
+        interval = function(){},
+        timer = setTimeout( function(){} ),
+        tumbler = false;
+
+    function init( path = '', variable = '', func = function(){}, dependencies = [], css = false ) {
+        if ( !path && !variable ) { return }
+        load.push( { p : path, v : variable, f : func, d : dependencies, c : css } );
+        start();
+    }
+
+    function start() {
+        if ( !tumbler ) {
+            interval = setInterval( process, 300 );
+            tumbler = true;
+        }
+        clearTimeout( timer );
+        timer = setTimeout( stop, 20000 );
+    }
+    function stop() {
+        clearInterval( interval );
+        tumbler = false;
+        clearTimeout( timer );
+    }
+
+    function loaded(e) {
+        paths[ e.target.getAttribute( 'data-path' ) ] = 2;
+    }
+    
+    function process() {
+
+        if ( !load.length ) { stop(); return }
+        if ( !( document.readyState === 'complete' || document.readyState === 'interactive' ) ) { return }
+        
+        const setAtts = function(tag, atts = {}, onload = false) {
+            let el = document.createElement( tag );
+            for ( let k in atts ) {
+                el.setAttribute( k, atts[k] );
+            }
+            if ( atts.src && onload && typeof onload === 'function' ) {
+                el.addEventListener( 'load', onload );
+            }
+            document.head.appendChild( el );
+        };
+
+        mainloop: for ( let k in load ) {
+
+            // start loading only after dependencies global variables appear
+            for ( let i = 0, j = load[k].d.length; i < j; i++ ) {
+                if ( typeof window[ load[k].d[i] ] === 'undefined' ) { continue mainloop }
+            }
+
+            // load js & css paths
+            if ( load[k].p && !paths[ load[k].p ] ) {
+
+                paths[ load[k].p ] = 1; // 1 = tag added, 2 = path loaded
+
+                setAtts(
+                    'script',
+                    {
+                        'type' : 'text/javascript',
+                        'src' : load[k].p,
+                        'data-path' : load[k].p,
+                        'async' : ''
+                    },
+                    loaded
+                );
+
+                let css = load[k].c === true ? load[k].p.replace( '.js', '.css' ) : load[k].c;
+                if ( css ) {
+                    setAtts( 'link', { 'type' : 'text/css', 'href' : css, 'rel' : 'stylesheet' } );
+                }
+            }
+
+            // path is loaded
+            if ( load[k].p && paths[ load[k].p ] !== 2 ) { continue }
+
+            // variable is loaded
+            if ( load[k].v && typeof window[ load[k].v ] === 'undefined' ) { continue }
+
+            load[k].f();
+            load.splice(k, 1);
+        }
+    }
+
+    window.fcLoadScriptVariable = init;
+
+})();
+window.fcGmapKey='<?php @include_once( __DIR__ . '/gmaps_api_key' ) ?>';</script>
+<?php }
