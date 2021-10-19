@@ -382,12 +382,12 @@ function fct1_image_src( $img_id_src = 0, $size = 'full', $crop = false ) { // s
 
 }
 
-function fct1_meta_print($name = '', $return = false, $before = '', $after = '') {
+function fct1_meta($name = '', $before = '', $after = '') {
     static $a = []; // collect all the values for further reuse
     if ( !$name ) { return; }
 
     $id = get_the_ID();
-    
+
     if ( !isset( $a[ $id ] ) ) {
         $a[ $id ] = get_post_meta( $id, '' );
     }
@@ -398,12 +398,16 @@ function fct1_meta_print($name = '', $return = false, $before = '', $after = '')
     } else {
         $v = trim( $v ) ? $before . $v . $after : '';
     }
-    $a[ $id ][ $name ][0] = $v;
+    //$a[ $id ][ $name ][0] = $v;
 
+    return $v;
+}
+
+function fct1_meta_print($name = '', $return = false, $before = '', $after = '') {
     if ( $return ) {
-        return $v;
+        return fct1_meta( $name, $before, $after );
     }
-    echo $v;
+    echo fct1_meta( $name, $before, $after );
 }
 
 function fct1_a_clear($text, $com = false, $targ = [], $rel = [], $atts = []) {

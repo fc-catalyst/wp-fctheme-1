@@ -72,6 +72,10 @@ if ( have_posts() ) :
     endwhile;
 endif;
 
+?>
+<div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
+<?php
+
 get_footer();
 
 function print_author() {

@@ -19,6 +19,7 @@ endif;
 
 ?>
     </div>
+    <div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
 <?php
 
 get_footer();
