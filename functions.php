@@ -72,6 +72,9 @@ add_action( 'wp_head', function() { // include the first-screen styles, instead 
         echo $content;
     }
 ?></style><?php
+
+@include_once( __DIR__ . '/fonts_link' );
+
 }, 7 );
 
 function fct1_get_style_files() {
