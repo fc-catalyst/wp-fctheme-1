@@ -74,7 +74,7 @@ p {
     margin:17px 0 22px;
     font-size:16px;
     line-height:1.6;
-    font-weight:500;
+    font-weight:400;
 }
 ul, ol {
     margin:17px 0 23px;
@@ -302,7 +302,11 @@ body.admin-bar header.site-header {
 .site-footer * {
     color:#fff;
 }
-
+.site-footer p:empty,
+p:first-child:empty,
+p:last-child:empty {
+    display:none;
+}
 .site-footer h4 {
     font-size:18px;
 }
@@ -312,6 +316,7 @@ body.admin-bar header.site-header {
 .site-footer li {
     list-style-type:none;
     padding-left:0;
+    font-weight:400;
 }
 .site-footer a {
     text-decoration:none;
