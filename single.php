@@ -60,7 +60,7 @@ if ( have_posts() ) :
 <div class="entry-content">
     <?php get_template_part( 'template-parts/post', 'prevnext' ) ?>
     <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
-    <h2 align="center">Themen die Sie Interessieren Könnten</h2>
+    <h2 align="center"><?php _e( 'Topics you might be interested in', 'fct1' ) ?></h2>
     <div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
     <?php get_template_part( 'template-parts/post', 'moreposts' ) ?>
 </div>

@@ -10,14 +10,18 @@
 <body <?php body_class(); ?> id="document-top">
 
 	<ul class="skip-links">
-		<li><a href="#main-content" class="screen-reader-shortcut">Skip to main content</a></li>
-		<li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+		<li>
+            <a href="#main-content" class="screen-reader-shortcut"><?php _e( 'Skip to main content', 'fct1' ) ?></a>
+        </li>
+		<li>
+            <a href="#footer" class="screen-reader-shortcut"><?php _e( 'Skip to footer', 'fct1' ) ?></a>
+        </li>
 	</ul>
 
 	<header class="site-header">
 		<div class="header-wrap">
 
-            <a href="<?php echo home_url() ?>" class="site-logo" title="Startseite">
+            <a href="<?php echo home_url() ?>" class="site-logo" title="<?php _e( 'Home', 'fct1' ) ?>">
                 <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo-4.png' ?>" alt="Klinikerfahrungen Logo"/>
             </a>
 

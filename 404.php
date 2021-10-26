@@ -11,11 +11,11 @@ get_header();
 			<div class="wrap-width" itemprop="text">
 				<header class="entry-header">
 					<h1 class="entry-title" itemprop="headline">
-						Page not found
+						<?php _e( 'Page not found', 'fct1' ) ?>
 					</h1>
 				</header>
 				<div class="entry-content">
-					<p>The content, you are looking for, is not found :(</p>
+					<p><?php _e( 'The content, you are looking for, is not found :(', 'fct1' ) ?></p>
 					<p style="font-size:70px;">404</p>
 				</div>
 			</div>

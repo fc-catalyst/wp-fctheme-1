@@ -1,0 +1,76 @@
+#.404
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
+
+msgid "The content, you are looking for, is not found :("
+msgstr "Der gesuchte Inhalt wurde nicht gefunden :("
+
+#. archive.php
+msgid "Blog"
+msgstr "Blog"
+
+#. template-parts/post-tile.php
+msgid "Read more"
+msgstr "Weiter lesen"
+
+#. template-parts/pagination.php
+msgid "Previous Page"
+msgstr "Vorherige Seite"
+
+msgid "Next Page"
+msgstr "Nächste Seite"
+
+#. footer.php
+msgid "Footer"
+msgstr "Fußzeile"
+
+#. functions.php mostly for wp-admin
+msgid "Section"
+msgstr ""
+
+msgid "Sections"
+msgstr ""
+
+msgid "All sections"
+msgstr ""
+
+msgid "View Section"
+msgstr ""
+
+msgid "Add New"
+msgstr ""
+
+msgid "Add New Section"
+msgstr ""
+
+msgid "Edit Section"
+msgstr ""
+
+msgid "Update Section"
+msgstr ""
+
+msgid "Search Section"
+msgstr ""
+
+msgid "Section not found"
+msgstr ""
+
+msgid "Section not found in Trash"
+msgstr ""
+
+msgid "Global sections, which use Gutenberg editor (footer)"
+msgstr ""
+
+#. header.php
+msgid "Skip to main content"
+msgstr ""
+
+msgid "Skip to footer"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+#. single.php
+msgid "Topics you might be interested in"
+msgstr ""

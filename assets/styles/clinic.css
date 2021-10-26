@@ -1,7 +1,7 @@
-.entry-content {
+main .entry-content {
     font-size:16px;
     line-height:1.6;
-    font-weight:500;
+    font-weight:400;
     color:var(--str-color);
 }
 

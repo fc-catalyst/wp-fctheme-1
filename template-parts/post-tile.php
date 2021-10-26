@@ -23,7 +23,7 @@ $cat = $cat
         <div class="entry-excerpt">
             <?php the_excerpt() ?>
         </div>
-        <a href="<?php the_permalink() ?>" class="entry-read">Weiter lesen</a>
+        <a href="<?php the_permalink() ?>" class="entry-read"><?php _e( 'Read more', 'fct1' ) ?></a>
     </div>
 </article>
 <?php

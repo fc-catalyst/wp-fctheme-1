@@ -108,6 +108,10 @@ function fct1_get_style_files() {
     return $files;
 }
 
+/* translations */
+add_action( 'after_setup_theme', function() {
+    load_theme_textdomain( 'fct1', get_template_directory() . '/languages' );
+});
 
 
 /* theme settings */
@@ -244,22 +248,22 @@ add_action( 'wp_default_scripts', function ( $scripts ) {
 // custom post type for global and reusable sections, like footer
 add_action( 'init', function() {
 	$labels = [
-		'name'                => 'Sections',
-		'singular_name'       => 'Section',
-		'menu_name'           => 'Sections',
-		'all_items'           => 'All sections',
-		'view_item'           => 'View Section',
-		'add_new_item'        => 'Add New Section',
-		'add_new'             => 'Add New',
-		'edit_item'           => 'Edit Section',
-		'update_item'         => 'Update Section',
-		'search_items'        => 'Search Section',
-		'not_found'           => 'Section not found',
-		'not_found_in_trash'  => 'Section not found in Trash',
+		'name'                => __( 'Sections', 'fct1' ),
+		'singular_name'       => __( 'Section', 'fct1' ),
+		'menu_name'           => __( 'Sections', 'fct1' ),
+		'all_items'           => __( 'All sections', 'fct1' ),
+		'view_item'           => __( 'View Section', 'fct1' ),
+        'add_new'             => __( 'Add New', 'fct1' ),
+		'add_new_item'        => __( 'Add New Section', 'fct1' ),
+		'edit_item'           => __( 'Edit Section', 'fct1' ),
+		'update_item'         => __( 'Update Section', 'fct1' ),
+		'search_items'        => __( 'Search Section', 'fct1' ),
+		'not_found'           => __( 'Section not found', 'fct1' ),
+		'not_found_in_trash'  => __( 'Section not found in Trash', 'fct1' ),
 	];
 	$args = [
 		'label'               => 'fct-section',
-		'description'         => 'Global and reusable sections using Gutenberg editor for styling (footer)',
+		'description'         => __( 'Global sections, which use Gutenberg editor (footer)', 'fct1' ),
 		'labels'              => $labels,
 		'supports'            => [
 									'title',

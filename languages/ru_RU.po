@@ -1,0 +1,76 @@
+#.404
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+msgid "The content, you are looking for, is not found :("
+msgstr "Странице, которую вы ищете, не существует :("
+
+#. archive.php
+msgid "Blog"
+msgstr "Блог"
+
+#. template-parts/post-tile.php
+msgid "Read more"
+msgstr "Читать дальше"
+
+#. template-parts/pagination.php
+msgid "Previous Page"
+msgstr "Предыдущая страница"
+
+msgid "Next Page"
+msgstr "Следующая страница"
+
+#. footer.php
+msgid "Footer"
+msgstr "Футер"
+
+#. functions.php mostly for wp-admin
+msgid "Section"
+msgstr "Секция"
+
+msgid "Sections"
+msgstr "Секции"
+
+msgid "All sections"
+msgstr "Все секции"
+
+msgid "View Section"
+msgstr "Просмотр секции"
+
+msgid "Add New"
+msgstr "Добавить"
+
+msgid "Add New Section"
+msgstr "Добавить секцию"
+
+msgid "Edit Section"
+msgstr "Изменить секцию"
+
+msgid "Update Section"
+msgstr "Обновить секцию"
+
+msgid "Search Section"
+msgstr "Искать секцию"
+
+msgid "Section not found"
+msgstr "Секция не найдена"
+
+msgid "Section not found in Trash"
+msgstr "Секция не найдена в Корзине"
+
+msgid "Global sections, which use Gutenberg editor (footer)"
+msgstr "Глобальные секции, созданные в Gutenberg редакторе (футер)"
+
+#. header.php
+msgid "Skip to main content"
+msgstr "Перейти к основному содержанию"
+
+msgid "Skip to footer"
+msgstr "Перейти к футеру"
+
+msgid "Home"
+msgstr "Главная"
+
+#. single.php
+msgid "Topics you might be interested in"
+msgstr "Интересные темы"
