@@ -42,7 +42,7 @@ h3 {
     margin:30px 0 23px;
     font-size:30px;
     line-height:1.5;
-    font-weight:600;
+    font-weight:400;
     text-transform:uppercase;
     color:var(--h-color);
 }
@@ -182,6 +182,10 @@ body.admin-bar header.site-header {
     transform:rotate( -135deg );
 }
 
+.has-white-color * { /* ++add for other class-ed colors */
+    color:#fff;
+}
+
 /* floating images mobile */
 @media (max-width:650px) {
     .wp-block-image .alignleft,
@@ -235,34 +239,6 @@ body.admin-bar header.site-header {
     margin-top:-20px;
     overflow:hidden;
 }
-
-/* gutenberg sections blocks styling ++--*/
-#main-content .bg-white {
-    background-color:#fff;
-}
-#main-content .bg-grey {
-    background-color:#eee;
-}
-#main-content .bg-white *:-webkit-any( p, li ),
-#main-content .bg-grey *:-webkit-any( p, li ) {
-    color:var(--str-color);
-}
-#main-content .bg-white *:-webkit-any( h1, h2, h3, h4, h5, h6 ),
-#main-content .bg-grey *:-webkit-any( h1, h2, h3, h4, h5, h6 ) {
-    color:var(--h-color);
-}
-#main-content .bg-white *:-webkit-any( a ),
-#main-content .bg-grey *:-webkit-any( a ) {
-    color:var(--a-color);
-}
-
-#main-content .bg-gradient {
-    background:var(--top-gap-bg);
-}
-#main-content .bg-gradient *:-webkit-any( h1, h2, h3, h4, h5, h6, p, li, a ) {
-    color:#fff;
-}
-
 
 /* functional */
 .fct-open-next:not( .fct-active ) + * {

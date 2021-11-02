@@ -202,14 +202,14 @@ add_action( 'admin_print_styles', function() {
         return;
     }
 
-  ?>
+    ?>
     <style>
         #wpbody-content form > table:first-of-type tr:nth-of-type( 2 ),
         #wpbody-content form > table:first-of-type tr:nth-of-type( 3 ) {
             display: none;
         }
     </style>
-  <?php
+    <?php
 
 } );
 
@@ -306,6 +306,25 @@ add_action( 'admin_init', function() {
         remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
     }
     //*/
+});
+
+// front page has dark background by default - set a darker background to the admin editor
+add_action( 'admin_print_styles', function() {
+
+    $screen = get_current_screen();
+    $frontpage_id = get_option( 'page_on_front' );
+
+    if( $screen->id !== 'page' || $frontpage_id !== $_GET['post'] ) {
+        return;
+    }
+
+    ?>
+        <style>
+            .editor-styles-wrapper {
+                background-color:#d5e7ea!important;
+            }
+        </style>
+    <?php
 });
 /*
 add_action( 'user_register', function ($user_id) { // set new theme to all newly registered users

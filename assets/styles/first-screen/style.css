@@ -368,7 +368,7 @@ body.header-fixed.scrolled .menu-iconed > a::before {
 
 @media (min-width:950px) { /* hide the text on desktop */
     .menu-iconed.menu-hide-content > a {
-        letter-spacing:-1ch;
+        letter-spacing:-1.1ch;
         color:transparent!important;
     }
     .menu-iconed.menu-hide-content > a::before {

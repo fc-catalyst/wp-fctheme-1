@@ -67,6 +67,10 @@ main h2 {
 main h2 > strong {
     color:#c3f7fe!important;
 }
+main h2 > em {
+    font-size:60%;
+    font-style:normal;
+}
 
 main h3 {
     margin-top:0;
