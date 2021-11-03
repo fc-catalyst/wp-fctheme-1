@@ -343,11 +343,11 @@ add_shortcode( 'fc-year', function() { // always demanded by copyright XD
 /* useful functions */
 
 // images on the fly
-function fct1_image_print( $img_id_src = 0, $size = 'full', $crop = false, $alt = '' ) {
+function fct1_image_print( $img_id_src = 0, $size = 'full', $crop = false, $alt = '', $itemprop = '' ) {
     $img = fct1_image_src( $img_id_src, $size, $crop );
     if ( !$img ) { return; }
     
-    ?><img src="<?php echo $img[0] ?>" width="<?php echo $img[1] ?>" height="<?php echo $img[2] ?>" alt="<?php echo $alt ?>" loading="lazy" /><?php
+    ?><img src="<?php echo $img[0] ?>" width="<?php echo $img[1] ?>" height="<?php echo $img[2] ?>" alt="<?php echo $alt ?>" loading="lazy" <?php echo $itemprop ? 'itemprop="'.$itemprop.'" ' : '' ?>/><?php
 }
 
 function fct1_image_src( $img_id_src = 0, $size = 'full', $crop = false ) { // src starts from after ..uploads/
