@@ -24,7 +24,7 @@ msgstr "Blog"
 
 #. template-parts/post-tile.php
 msgid "Read more"
-msgstr "Weiter lesen"
+msgstr "Weiterlesen"
 
 #. template-parts/pagination.php
 msgid "Previous Page"
