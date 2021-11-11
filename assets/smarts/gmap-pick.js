@@ -145,7 +145,7 @@ function fcAddGmapPick(selector = '') {
         });
         
     marker.setMap( gmap );
-    
+    // +++!!! make the onchange event, so that the address in the box changes too
     google.maps.event.addListener( marker, 'dragend', function() {
         let lat = marker.getPosition().lat(),
             lng = marker.getPosition().lng();
@@ -174,8 +174,26 @@ function fcAddGmapPick(selector = '') {
         let zoom = gmap.getZoom();
         $( '#entity-geo-zoom_entity-add' ).val( zoom );
     });
-    
-    let correct = setInterval( function() { // track if the lat value is changed due to slow autocomplete
+
+/*    // gmap helper field
+    const $address = $( '<input type="text" name="gmap_pick_address" id="gmap_pick_address" />' );
+    $self.before( $address );
+    const autocomplete = new google.maps.places.Autocomplete(
+        $address,
+        {
+            componentRestrictions: { country: ['de'] },
+            fields: ['geometry'],
+            types: ['address']
+        }
+    );
+
+    autocomplete.addListener( 'place_changed', function() {
+        
+        console.log( autocomplete.getPlace() );
+    });
+//*/
+    // track if the lat value is changed due to slow autocomplete
+    let correct = setInterval( function() {
         let lat_new = $( '#entity-geo-lat_entity-add' ).val();
         if ( !lat_new || Number( lat_new ) == lat ) { return }
 
