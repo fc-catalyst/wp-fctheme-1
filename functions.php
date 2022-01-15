@@ -509,6 +509,7 @@ function fct1_a_clear($text, $com = false, $targ = [], $rel = [], $atts = []) {
 
 
 // load scripts async, like fcLoadScriptVariable(path/src.js, varname, success(), load after vars [], load css);
+// ++move to separate file
 add_action( 'wp_head', 'fcLoadScriptVariable', 0 );
 add_action( 'admin_enqueue_scripts', 'fcLoadScriptVariable', 0 ); // not admin_head to run the highest
 function fcLoadScriptVariable() { ?>

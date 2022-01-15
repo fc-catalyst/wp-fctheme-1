@@ -6,18 +6,16 @@ function fcAddGmapView(selector = '', add_marker = false) {
 
     if ( !selector ) { return }
 
-    if ( typeof selector !== 'object' && typeof selector !== 'string' && !selector instanceof String ) { return }
+    const $ = jQuery,
+        $self = $( selector );
 
-    const $self = jQuery( selector );
-
-    if ( typeof( $self ) !== 'object' || !$self.length || !$self.parents().length ) { return }
+    if ( !$self.length ) { return }
 
     const lat = $self.attr( 'data-lat' ),
         lng = $self.attr( 'data-long' );
 
     if ( !lat || !lng ) { return }
-
-
+        
     const zoom = $self.attr( 'data-zoom' ),
         addr = $self.attr( 'data-addr' ),
         title = $self.attr( 'data-title' ),
@@ -148,5 +146,4 @@ function fcAddGmapView(selector = '', add_marker = false) {
         $self.after( '<div>' + addr + '</div>' );
     }
 
-    return gmap;
 }
