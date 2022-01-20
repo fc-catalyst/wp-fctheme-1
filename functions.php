@@ -339,6 +339,15 @@ add_shortcode( 'fc-year', function() { // always demanded by copyright XD
     return date( 'Y' );
 });
 
+add_shortcode( 'fc-logout-link', function($atts = []) {
+    $allowed = [
+        'text' => __( 'Logout' ),
+    ];
+    $atts = shortcode_atts( $allowed, $atts );
+    
+    return '<a href="'.wp_logout_url().'">'.$atts['text'].'</a>';
+});
+
 
 /* useful functions */
 
