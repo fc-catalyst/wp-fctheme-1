@@ -101,6 +101,14 @@ body::before {
         padding:0;
         text-align:center;
     }
+    .entry-content .wp-block-embed {
+        margin:32px auto!important;
+        padding:0;
+    }
+    .entry-content > .wp-caption {/* legacy hotfix */
+        margin:32px auto!important;
+        padding:0;
+    }
     
     .wp-block-image .alignleft,
     .wp-block-image .alignright {
@@ -127,11 +135,10 @@ body::before {
     }
 }
 
-article ul {
+article ul, article ul li {
     list-style-type:none;
 }
 article li {
-    list-style-type:none;
     padding-left:24px;
     font-size:16px;
 }

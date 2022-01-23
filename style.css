@@ -81,8 +81,10 @@ ul, ol {
     margin:17px 0 23px;
     padding:0 0 0 35px;
 }
-li {
+ul li {
     list-style-type:circle;
+}
+li {
     margin:0 0 8px;
     padding:0 0 0 4px;
     line-height:1.6;
@@ -124,6 +126,11 @@ body.admin-bar header.site-header {
 .entry-content > *:last-child {
     margin-bottom:0;
 }
+.entry-content > p:last-child,
+.entry-content > ol:last-child,
+.entry-content > ul:last-child {
+    margin-bottom:50px;
+}
 .entry-content figure > figcaption {
     padding-left:15px;
     padding-right:15px;
@@ -131,6 +138,9 @@ body.admin-bar header.site-header {
     font-size:16px;
     font-style:italic;
     opacity:0.8;
+}
+.entry-content figure {
+    text-align:center;
 }
 
 /* stretched columns */
