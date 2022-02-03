@@ -33,7 +33,7 @@ if ( have_posts() ) :
             <?php echo $print_cats[0] ? ' • <span class="entry-categories">'.implode(', ',$print_cats).'</span>' : '' ?>
         </div>
         <div class="entry-author">
-            by <?php the_author_meta( 'display_name' ) ?>
+            <?php printf( __( 'by %s', 'fct1' ), get_the_author_meta( 'display_name' ) ) ?>
         </div>
     </div>
 

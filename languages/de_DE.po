@@ -87,3 +87,13 @@ msgstr "Startseite"
 #. single.php
 msgid "Topics you might be interested in"
 msgstr "Themen die für dich interessant sein könnten"
+
+msgid "by %s"
+msgstr "von %s"
+
+#. template-parts/post-prevnext.php
+msgid "Previous Post"
+msgstr "Vorherige Beiträg"
+
+msgid "Next Post"
+msgstr "Nächster Beiträg"

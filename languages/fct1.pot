@@ -74,3 +74,13 @@ msgstr ""
 #. single.php
 msgid "Topics you might be interested in"
 msgstr ""
+
+msgid "by %s"
+msgstr ""
+
+#. template-parts/post-prevnext.php
+msgid "Previous Post"
+msgstr ""
+
+msgid "Next Post"
+msgstr ""

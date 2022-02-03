@@ -28,7 +28,7 @@ function fcAddGmapPick(gmap, holder) {
     // trigger the 'map_changed' event
     google.maps.event.addListener( gmap, 'click', function(e) {
         marker.setPosition( e.latLng );
-        setTimeout( function() { gmap.panTo( e.latLng ); }, 100 ); // just to smooth animation
+        setTimeout( function() { gmap.panTo( e.latLng ); }, 100 ); // just for smooth animation
         dispatch();
     });
     google.maps.event.addListener( gmap, 'zoom_changed', function() { dispatch(); });
