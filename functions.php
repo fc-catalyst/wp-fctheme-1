@@ -352,22 +352,22 @@ add_shortcode( 'fc-logout-link', function($atts = []) {
 /* useful functions */
 
 // images on the fly
-function fct1_image_print( $img_id_src = 0, $size = 'full', $crop = false, $alt = '', $itemprop = '' ) {
+function fct1_image_print( $img_id_src, $size = '', $crop = false, $alt = '', $itemprop = '' ) {
     $img = fct1_image_src( $img_id_src, $size, $crop );
     if ( !$img ) { return; }
     
     ?><img src="<?php echo $img[0] ?>" width="<?php echo $img[1] ?>" height="<?php echo $img[2] ?>" alt="<?php echo $alt ?>" loading="lazy" <?php echo $itemprop ? 'itemprop="'.$itemprop.'" ' : '' ?>/><?php
 }
 
-function fct1_image_src( $img_id_src = 0, $size = 'full', $crop = false ) { // src starts from after ..uploads/
+function fct1_image_src( $img_id_src, $size = '', $crop = false ) { // src starts from after ..uploads/
 
-    if ( is_int( $img_id_src ) ) {
+    if ( is_numeric( $img_id_src ) ) {
         $img_id_src = explode( '/wp-content/uploads/', wp_get_attachment_image_src( $img_id_src )[0] )[1];
     }
 
     if ( is_string( $img_id_src ) ) {
 
-        $return = function($src) use (&$path, &$url, &$src_size) {
+        $return = function($src) use (&$path, &$url, $src_size) {
             
             if ( $new_size = $src_size ? $src_size : getimagesize( $path . $src ) ) {
                 return [
@@ -385,6 +385,7 @@ function fct1_image_src( $img_id_src = 0, $size = 'full', $crop = false ) { // s
 
         if ( !is_file( $path . $src ) ) { return; } // no source file
         // can unlink the thumbnails if no source file, or keep it separately
+        $size = $size ? $size : 'full';
         if ( !is_array( $size ) || !is_int( $size[0] ) || !is_int( $size[1] ) ) { return $return( $src ); }
 
         if ( $src_size = getimagesize( $path . $src ) ) { // make only smaller variants

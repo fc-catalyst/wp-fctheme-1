@@ -18,7 +18,7 @@ body::before {
 }
 
 .entry-header {
-    min-height:50vh;
+    min-height:calc( var(--content-max-width) / 3 );/*50vh;*/
     background:var(--blog-main-color);
 }
 
@@ -77,12 +77,14 @@ body::before {
     }
 
     /* gutenberg improvements for the layout */
+    .entry-content > header ~ :-webkit-any(p,h1,h2,h3,h4,h5,h6,ul,ol,figure) {
+        position:relative;
+        z-index:2;        
+    }
     .entry-content > header ~ :-webkit-any(p,h1,h2,h3,h4,h5,h6,ul,ol) {
         margin-top:0;
         margin-bottom:0;
         padding:0 50px 24px;
-        position:relative;
-        z-index:2;
         background-color:#fff;
     }
     .entry-content > header ~ :-webkit-any(h1,h2,h3) {
@@ -100,14 +102,17 @@ body::before {
         margin:32px auto!important;
         padding:0;
         text-align:center;
+        box-shadow: 0px -33px 0px 0px #f8f8f8;
     }
     .entry-content .wp-block-embed {
         margin:32px auto!important;
         padding:0;
+        box-shadow: 0px -33px 0px 0px #f8f8f8;
     }
     .entry-content > .wp-caption {/* legacy hotfix */
         margin:32px auto!important;
         padding:0;
+        box-shadow: 0px -33px 0px 0px #f8f8f8;
     }
     
     .wp-block-image .alignleft,
