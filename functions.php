@@ -2,7 +2,7 @@
 
 define( 'FCT1_', [
     'PREFIX'  => 'fct1',
-    'D' => time() // develope mode: time() or ''
+    'D' => '' // develope mode: time() or ''
 ]);
 
 
