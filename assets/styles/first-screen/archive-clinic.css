@@ -157,6 +157,10 @@ article h2 > a {
 .entity-about .cr_rating_bar > div {
     background-color:#fff;
 }
+footer {
+    padding:1px 10px 3px;
+    background-color:#c0c0c0;
+}
 
 .entry-link-cover {
     position:absolute;
