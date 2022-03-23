@@ -10,7 +10,7 @@ function fct1_image_print( $img_id_src, $size = '', $crop = false, $alt = '', $i
 function fct1_image_src( $img_id_src, $size = '', $crop = false ) { // src starts from after ..uploads/
 
     if ( is_numeric( $img_id_src ) ) {
-        $img_id_src = explode( '/wp-content/uploads/', wp_get_attachment_image_src( $img_id_src )[0] )[1];
+        $img_id_src = explode( '/wp-content/uploads/', wp_get_attachment_image_src( $img_id_src, 'full' )[0] )[1];
     }
 
     if ( is_string( $img_id_src ) ) {

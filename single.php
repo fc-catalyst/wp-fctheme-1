@@ -39,7 +39,7 @@ if ( have_posts() ) :
 
     <div class="wp-block-column" style="flex-basis:50%;position:relative">
         <div class="entry-photo">
-            <?php fct1_image_print( get_post_thumbnail_id(), [600,600], 0, get_the_title() ) ?>
+            <?php fct1_image_print( get_post_thumbnail_id(), [600,600], 1, get_the_title() ) ?>
         </div>
     </div>
 
