@@ -121,3 +121,13 @@ h2 {
     max-height:300px;
     border-radius:8px;
 }
+
+/* buttons override */
+.fct-button-select {
+    width:100%;
+}
+.wp-block-buttons.is-content-justification-full {
+    display:flex;
+    flex-wrap:wrap;
+    margin-right:-20px;
+}

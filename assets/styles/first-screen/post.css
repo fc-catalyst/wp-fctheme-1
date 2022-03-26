@@ -104,6 +104,9 @@ body::before {
         text-align:center;
         box-shadow: 0px -33px 0px 0px #f8f8f8;
     }
+    footer .entry-content .wp-block-image {
+        box-shadow:none; /* a hotfix, because will redo anyways */
+    }
     .entry-content .wp-block-embed {
         margin:32px auto!important;
         padding:0;
