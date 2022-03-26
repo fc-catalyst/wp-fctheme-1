@@ -97,3 +97,7 @@ msgstr "Vorherige Beiträg"
 
 msgid "Next Post"
 msgstr "Nächster Beiträg"
+
+#. the theme description
+msgid "Custom theme, initially developed for klinikerfahrungen.de"
+msgstr "Individuelles Theme, ursprünglich entwickelt für klinikerfahrungen.de"
