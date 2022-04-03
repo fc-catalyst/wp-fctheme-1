@@ -1,5 +1,7 @@
 <?php
 
+$dev = false;
+
 $fct1_settings_sample = is_file( __DIR__ . '/settings.php' ) ? '' : '-sample';
 
 require __DIR__ . '/settings'.$fct1_settings_sample.'.php';
