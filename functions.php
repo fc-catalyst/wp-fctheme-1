@@ -1,6 +1,6 @@
 <?php
 
-$dev = false;
+$fct1_dev = false;
 
 $fct1_settings_sample = is_file( __DIR__ . '/settings.php' ) ? '' : '-sample';
 
@@ -10,7 +10,7 @@ require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
 require __DIR__ . '/inc/shortcodes.php';
 
-unset( $fct1_settings_sample );
+unset( $fct1_settings_sample, $fct1_dev );
 
 
 /* translations */

@@ -48,18 +48,18 @@ add_action( 'wp_head', function() { // include the first-screen styles, instead 
     foreach ( $include_files as $v ) {
         if ( !is_file( $include_dir . $v . '.css' ) ) { continue; }
 
-        if ( FCT1S['dev'] ) {
-            echo "\n\n".'/*---------- '.$v.'.css ----------*'.'/'."\n";
-            include_once( $include_dir . $v . '.css' );
-            continue;
-        }
+        if ( FCT1S['dev'] ) { echo "\n\n".'/*---------- '.$v.'.css ----------*'.'/'."\n"; }
         
         include_once( $include_dir . $v . '.css' );
 
     }
 
-    echo fct1_css_minify( ob_get_contents() );
-    //ob_end_clean(); // breaks Y
+    $content = ob_get_contents();
+    ob_end_clean();
+    
+    if ( !FCT1S['dev'] ) { $content = fct1_css_minify( $content ); }
+    
+    echo $content;
 
 ?></style><?php
 

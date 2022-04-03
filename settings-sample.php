@@ -4,7 +4,7 @@
 
 define( 'FCT1S', [
     'prefix'         => 'fct1' . '-',
-    'dev'            => $dev ? time() : '',
+    'dev'            => $fct1_dev ? time() : '',
     'gmap_api_key'   => '',
     'fonts_external' => '',
     
