@@ -1,5 +1,7 @@
 <?php
 
+// ++add namespace
+
 // add styles
 add_action( 'wp_enqueue_scripts', function() { // ++try get_footer, if wp-rocket not installed and GInsights reacts better
 
@@ -70,6 +72,13 @@ function fct1_get_style_files_() {
     static $files = null;
     if ( $files !== null ) { return $files; }
 
+    if ( is_front_page() ) {
+        $files[] = 'front-page';
+    }
+    if ( is_search() ) {
+        $files[] = 'search';
+    }
+    
     // get post type
     $qo = get_queried_object();
     if ( !is_object( $qo ) ) { return []; }
@@ -84,15 +93,14 @@ function fct1_get_style_files_() {
     if ( is_singular( $post_type ) ) {
         $files[] = $post_type;
     }
-    if ( is_front_page() ) {
-        $files[] = 'front-page';
-    }
     if ( is_home() || is_archive() && ( !$post_type || $post_type === 'page' ) ) {
         $files[] = 'archive-post';
     }
     if( is_post_type_archive( $post_type ) ) {
         $files[] = 'archive-' . $post_type;
     }
-    
+    echo '<!-- ahaha ';
+    print_r( $files );
+    echo ' -->';
     return $files;
 }
