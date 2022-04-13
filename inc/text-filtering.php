@@ -1,69 +1,88 @@
 <?php
 
-// run through text and fix the links attributes
-function fct1_a_clear($text, $com = false, $targ = [], $rel = [], $atts = []) {
+// run through text and fix the links number & attributes
+function fct1_a_clear_all($text, $limit = -1, $force = [], $allowed_atts = [] ) {
 
-    $targ = $targ === false ? false : $targ + [
-        'in' => '',
-        'ex' => '_blank'
+    $limit = is_numeric( $limit ) ? intval( $limit ) : -1; // refers to external links
+
+    $allowed_atts = empty( $allowed_atts ) || !is_array( $allowed_atts )
+        ? ['href', 'rel', 'target', 'title']
+        : array_merge( ['href'], $allowed_atts ); // href is a must have for all links
+
+    unset( $force['href'] );
+    $defaults = [ // rules to treat some attributes
+        'target' => [ // --keep && --remove can be applied here too, absent value is treated as --keep
+            'internal' => '--keep', // --keep or !isset() is for keeping the existing attribute value
+            'external' => '_blank'
+        ],
+        'rel' => [
+            'internal' => '--remove', // --remove is for removing the attribute
+            'external' => 'nofollow noopener noreferrer',
+        ]
     ];
-
-    $rel = $rel === false ? false : $rel + [
-        'in' => '',
-        'ex' => 'nofollow noopener noreferrer',
-        'com' => 'noopener'
-    ];
-
-    $atts = $atts ? $atts : ['href', 'rel', 'target', 'title'];
-
-    $is_ext = function($url) {
+    $modified = $force + $defaults;
+       
+    $is_external = function($url) {
         $a = parse_url( $url );
         return !empty( $a['host'] ) && strcasecmp( $a['host'], $_SERVER['HTTP_HOST'] );
     };
 
-    return preg_replace_callback(
-        '/<a\s+[^>]+>/i',
+    $format_attr = function($attr_name, $attr_value) {
+        return ' '.$attr_name.'="'.htmlentities( $attr_value, ENT_COMPAT ).'"';
+    };
 
-        function( $m ) use ( $com, $targ, $rel, $atts, $is_ext ) {
+    $count = $limit;
 
-            return preg_replace_callback(
-                '/\s*([\w\d\-\_]+)=([\'"])(.*?)\\2/i',
+    return preg_replace_callback( '/(<a\s+[^>]+>)(.*?)(<\/a>)/i', // go through all links' opening tags
 
-                function( $m ) use ( $com, $targ, $rel, $atts, $is_ext ) {
+        function( $link ) use ( $allowed_atts, $modified, $is_external, $format_attr, &$count ) {
 
-                    $att = $m[1];
-                    $val = $m[3];
-                    $add_attr = '';
+            if ( !preg_match( '/href=([\'"])(.*?)\\1/i', $link[1], $href ) ) {
+                return $link[2]; // a with no href attr
+            }
 
-                    if ( !in_array( $att, $atts ) ) { return; }
-                    
-                    if ( $att === 'rel' ) { return $rel === false ? $m[0] : ''; }
-                    if ( $att === 'target' ) { return $targ === false ? $m[0] : ''; }
+            if ( $external = $is_external( $href[2] ) ) {
+                if ( $count === 0 ) { return $link[2]; } // print only the text of the link
+                $count--;
+            }
 
-                    if ( $att === 'href' ) {
-                    
-                        $ext = $is_ext( $val );
+            $extint = $external ? 'external' : 'internal';
 
-                        if ( in_array( 'rel', $atts ) ) {
-                            $rel_new = $rel['in'];
-                            if ( $ext ) {
-                                $rel_new = $com ? $rel['com'] : $rel['ex'];
-                            }
-                            $add_attr .= $rel_new ? ' rel="'.$rel_new.'"' : '';
-                        }
+            preg_match_all( '/\s*([\w\d\-\_]+)=([\'"])(.*?)\\2/i', $link[1], $atts, PREG_SET_ORDER );
+            $att_val = [];
+            foreach ( $atts as $v ) { $att_val[ $v[1] ] = $v[3]; }
 
-                        if ( in_array( 'target', $atts ) ) {
-                            $targ_new = $ext ? $targ['ex'] : $targ['in'];
-                            $add_attr .= $targ_new ? ' target="'.$targ_new.'"' : '';
-                        }
+            $result = ''; // collect the attributes, formatted with $format_attr()
+            foreach ( $allowed_atts as $v ) {
 
+                $obligate = null;
+                if ( isset( $modified[ $v ] ) ) {
+                    if ( is_array( $modified[ $v ] ) ) {
+                        $obligate = isset( $modified[ $v ][ $extint ] )
+                            ? $modified[ $v ][ $extint ]
+                            : $obligate;
+                    } else {
+                        $obligate = $modified[ $v ];
                     }
+                }
 
-                    return ' ' . $att . '="' . $val . '"' . $add_attr;
+                // remove the attribute
+                if ( $obligate === '--remove' ) { continue; }
 
-                },
-                $m[0]
-            );
+                // keep as is initially
+                if ( !isset( $obligate ) || $obligate === '--keep' ) {
+                    if ( !isset( $att_val[ $v ] ) ) { continue; }
+                    $result .= $format_attr( $v, $att_val[ $v ] );
+                    continue;
+                }
+
+                // override the value with the obligatory
+                $result .= $format_attr( $v, $obligate );
+
+            }
+
+            return '<a' . $result . '>' . $link[2] . $link[3];
+
         },
         $text
     );
