@@ -49,6 +49,14 @@ body::before {
     letter-spacing:0.5px;
     font-size:18px;
 }
+.entry-breadcrumb {
+    margin-top:16px;
+    font-weight:400;
+    font-size:15px;
+}
+.entry-breadcrumb a {
+    text-decoration:none;
+}
 
 .entry-photo img {
     width:100%;

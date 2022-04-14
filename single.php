@@ -35,6 +35,10 @@ if ( have_posts() ) :
         <div class="entry-author">
             <?php printf( __( 'by %s', 'fct1' ), get_the_author_meta( 'display_name' ) ) ?>
         </div>
+        <?php if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb(
+            '<div class="entry-breadcrumb">',
+            '</div>'
+        ); } ?>
     </div>
 
     <div class="wp-block-column" style="flex-basis:50%;position:relative">
