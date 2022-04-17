@@ -5,7 +5,7 @@ $fct1_dev = false;
 $fct1_settings_sample = is_file( __DIR__ . '/settings.php' ) ? '' : '-sample';
 
 require __DIR__ . '/settings'.$fct1_settings_sample.'.php';
-require __DIR__ . '/inc/styles.php';
+require __DIR__ . '/inc/styles-load.php';
 require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
 require __DIR__ . '/inc/shortcodes.php';
@@ -20,8 +20,90 @@ add_action( 'after_setup_theme', function() {
 
 
 /* theme settings */
+add_action( 'after_setup_theme', function() {
 
-// fixed header on
+    add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'title-tag' );
+    add_theme_support( 'align-wide' ); // gutenberg full-width and wide blocks
+/*
+    add_theme_support( 'custom-logo', [ // upload logo field for customizer
+        'width'       => 700,
+        'height'      => 160,
+        'flex-width'  => true,
+        'flex-height' => false,
+        'header-text' => '',
+        'unlink-homepage-logo' => true,
+    ]);
+//*/
+    add_theme_support( 'editor-color-palette', [ // custom colors
+        [
+            'name'  => __( 'Dark', 'fct1' ) . ' 1',
+            'slug'  => 'fct1-dark-1',
+            'color' => '#23667b',
+        ],
+        [
+            'name'  => __( 'Dark', 'fct1' ) . ' 2',
+            'slug'  => 'fct1-dark-2',
+            'color' => '#277888',
+        ],
+        [
+            'name'  => __( 'Dark', 'fct1' ) . ' 3',
+            'slug'  => 'fct1-dark-3',
+            'color' => '#58acbc',
+        ],
+        [
+            'name'  => __( 'Light', 'fct1' ) . ' 1',
+            'slug'  => 'fct1-light-1',
+            'color' => '#87c8d3',
+        ],
+        [
+            'name'  => __( 'Warning', 'fct1' ) . ' 1',
+            'slug'  => 'fct1-warning-1',
+            'color' => '#fda7a7',
+        ],
+        [
+            'name'  => __( 'White', 'fct1' ),
+            'slug'  => 'white',
+            'color' => '#fff',
+        ],
+        [
+            'name'  => __( 'Black', 'fct1' ),
+            'slug'  => 'black',
+            'color' => '#000',
+        ],
+        [
+            'name'  => __( 'Grey', 'fct1' ) . ' 1',
+            'slug'  => 'fct1-grey-1',
+            'color' => '#22262c',
+        ],
+        [
+            'name'  => __( 'Grey', 'fct1' ) . ' 2',
+            'slug'  => 'fct1-grey-2',
+            'color' => '#2f3339',
+        ],
+    ]);
+
+    add_theme_support( // custom gradients
+        'editor-gradient-presets',
+        [
+            [
+                'name'     => __( 'Gradient', 'fct1' ) . ' 1',
+                'gradient' => 'linear-gradient(60deg, #277888 10%, #58acbc 90%)',
+                'slug'     => 'fct1-gradient-1'
+            ]
+        ]
+    );
+    add_action( 'admin_print_styles', function() { // custom gradients to work properly in the back-end
+    ?>
+    <style>
+    .has-fct1-gradient-1-gradient-background { background:linear-gradient(60deg, #277888 10%, #58acbc 90%) }
+    </style>
+    <?php
+    });
+});
+
+
+// fixed header on/off
 add_filter( 'body_class', function ($classes) {
     return array_merge( $classes, ['header-fixed'] );
 });
@@ -32,12 +114,6 @@ add_action( 'init', function() {
 		'main' => 'Main Menu',
 		'logged' => 'Main Menu Logged in',
 	]);
-});
-
-// thumbnails
-add_action( 'init', function() {
-	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'title-tag' );
 });
 
 // remove 'Archive: ' text from headline
@@ -57,11 +133,6 @@ add_filter( 'excerpt_more', function($more) {
 });
 add_filter( 'excerpt_length', function($number) {
     return 18;
-});
-
-// gutenberg full-width & wide blocks support (wide is full-width background and boxed content)
-add_action( 'after_setup_theme', function() {
-    add_theme_support( 'align-wide' );
 });
 
 

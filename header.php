@@ -21,9 +21,11 @@
 	<header class="site-header">
 		<div class="header-wrap">
 
-            <a href="<?php echo home_url() ?>" class="site-logo" title="<?php _e( 'Home', 'fct1' ) ?>">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo-4.png' ?>" alt="Klinikerfahrungen Logo"/>
+            <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) { the_custom_logo(); } else { ?>
+            <a href="<?php echo home_url() ?>" class="custom-logo-link" rel="home">
+                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo-4.png' ?>" alt="<?php echo get_bloginfo( 'name' ) ?>"/>
             </a>
+            <?php } ?>
 
             <?php if ( has_nav_menu( 'main' ) ) : ?>
             <nav class="nav-primary" id="nav-primary" aria-label="Main menu">

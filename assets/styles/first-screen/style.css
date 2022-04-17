@@ -69,7 +69,7 @@ header.site-header .header-wrap {
     box-sizing:border-box;
 }
 
-.site-logo {
+.custom-logo-link {
     line-height:0;
 }
 
@@ -98,19 +98,20 @@ header.site-header .header-wrap {
         height:var(--menu-height);
         background:var(--top-gap-bg);
     }
-    .site-logo {
+    .custom-logo-link {
         margin:calc( var(--menu-height) * 0.1 ) 0;
         transition:margin 0.3s ease;
     }
-    .site-logo img {
+    .custom-logo-link img {
         max-height:calc( var(--menu-height) * 0.8 );
+        width:auto;
         transition:max-height 0.3s ease;
     }
     
-    body.header-fixed.scrolled .site-logo {
+    body.header-fixed.scrolled .custom-logo-link {
         margin:calc( var(--menu-height) * 0.1 * 0.65 ) 0;
     }
-    body.header-fixed.scrolled .site-logo img {
+    body.header-fixed.scrolled .custom-logo-link img {
         max-height:calc( var(--menu-height) * 0.8 * 0.65 );
     }
 
@@ -221,11 +222,12 @@ header.site-header .header-wrap {
         height:calc( var(--menu-height) * 0.6 );
         background:var(--top-gap-bg);
     }
-    .site-logo {
+    .custom-logo-link {
         margin:calc( var(--menu-height) * 0.1 * 0.6 ) 0;
     }
-    .site-logo img {
+    .custom-logo-link img {
         max-height:calc( var(--menu-height) * 0.8 * 0.6 );
+        width:auto;
     }
 
     /* toggle & hamburger */
@@ -520,3 +522,20 @@ body .entry-content .wp-block-image {
 .wp-block-column > *:first-child {
     margin-top:17px!important;
 }
+
+/* default theme colors for gutenberg ++ move to variables */
+.has-fct-1-dark-1-background-color { background-color:#23667b }
+.has-fct-1-dark-1-color { color:#23667b }
+.has-fct-1-dark-2-background-color { background-color:#277888 }
+.has-fct-1-dark-2-color { color:#277888 }
+.has-fct-1-dark-3-background-color { background-color:#58acbc }
+.has-fct-1-dark-3-color { color:#58acbc }
+.has-fct-1-light-1-background-color { background-color:#87c8d3 }
+.has-fct-1-light-1-color { color:#87c8d3 }
+.has-fct-1-warning-1-background-color { background-color:#fda7a7 }
+.has-fct-1-warning-1-color { color:#fda7a7 }
+.has-fct-1-grey-1-background-color { background-color:#22262c }
+.has-fct-1-grey-1-color { color:#22262c }
+.has-fct-1-grey-2-background-color { background-color:#2f3339 }
+.has-fct-1-grey-2-color { color:#2f3339 }
+.has-fct1-gradient-1-gradient-background { background:linear-gradient(60deg, #277888 10%, #58acbc 90%) }
