@@ -1,62 +1,48 @@
 /* home overall */
 
+/*
 body {
     background:var(--top-gap-bg);
     background-attachment: fixed;
 }
-
+*/
 body::before {
     content:none;
 }
-
+/*
 #main-content *:-webkit-any( h1, h2, h3, h4, h5, h6, p, li, a ) {
     color:#fff;
 }
-
+*/
 /* hero */
-.fct-hero {
+.fct1-hero {
     min-height:100vh;
     padding:0!important;
-    margin-bottom:0!important;
 }
 
-.fct-hero > * {
+.fct1-hero > * {
     padding-top:var(--menu-height);
     padding-bottom:var(--menu-height);
-    
-}
-
-.fct-hero > *:nth-child(2) {
-    align-self:stretch!important;
-    background:var(--featured-image) no-repeat 50% 50%;
-    background-size:cover;
+    position:relative;
+    overflow:hidden;
     min-height:50vh;
 }
+.fct1-hero > * img {
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    object-fit:cover;
+    object-position:center center;
+}
 
-.fct-hero .wp-block-group {
+.fct1-hero .wp-block-column > * {
     max-width:540px;
     margin:var(--menu-height) auto 0;
 }
 
-.fct-hero h1 {
-    margin-bottom:0;
-    text-transform:uppercase;
-    font-size:34px;
-    font-weight:600;
-    letter-spacing:2px;
-}
-.fct-hero h1 > strong {
-    font-size:48px;
-    letter-spacing:5px;
-    font-weight:600;
-}
-.fct-hero p {
-    margin-top:10px;
-    font-size:18px;
-    letter-spacing:0.2px;
-}
-
-/* not first screen was too short, so it goes here */
+/* not first screen was too short, so it goes here ++ move h1-h3 sizes to first screen style.css */
 main h2 {
     margin-bottom:0;
     text-transform:uppercase;
@@ -64,9 +50,7 @@ main h2 {
     font-weight:600;
     letter-spacing:2px;
 }
-main h2 > strong {
-    color:#c3f7fe!important;
-}
+
 main h2 > em {
     font-size:60%;
     font-style:normal;

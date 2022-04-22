@@ -31,8 +31,13 @@ h1 {
     font-size:34px;
     line-height:1.5;
     font-weight:600;
+    letter-spacing:2px;
     text-transform:uppercase;
     color:var(--h-color);
+}
+h1 > br + strong {
+    font-size:140%;
+    letter-spacing:0.105em;
 }
 h2 {
     margin:35px 0 23px;

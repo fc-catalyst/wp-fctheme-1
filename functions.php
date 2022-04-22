@@ -9,6 +9,8 @@ require __DIR__ . '/inc/styles-load.php';
 require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
 require __DIR__ . '/inc/shortcodes.php';
+require __DIR__ . '/gutenberg/index.php';
+require __DIR__ . '/gutenberg/settings.php';
 
 unset( $fct1_settings_sample, $fct1_dev );
 
@@ -24,8 +26,7 @@ add_action( 'after_setup_theme', function() {
 
     add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'title-tag' );
-    add_theme_support( 'align-wide' ); // gutenberg full-width and wide blocks
-/*
+
     add_theme_support( 'custom-logo', [ // upload logo field for customizer
         'width'       => 700,
         'height'      => 160,
@@ -34,72 +35,7 @@ add_action( 'after_setup_theme', function() {
         'header-text' => '',
         'unlink-homepage-logo' => true,
     ]);
-//*/
-    add_theme_support( 'editor-color-palette', [ // custom colors
-        [
-            'name'  => __( 'Dark', 'fct1' ) . ' 1',
-            'slug'  => 'fct1-dark-1',
-            'color' => '#23667b',
-        ],
-        [
-            'name'  => __( 'Dark', 'fct1' ) . ' 2',
-            'slug'  => 'fct1-dark-2',
-            'color' => '#277888',
-        ],
-        [
-            'name'  => __( 'Dark', 'fct1' ) . ' 3',
-            'slug'  => 'fct1-dark-3',
-            'color' => '#58acbc',
-        ],
-        [
-            'name'  => __( 'Light', 'fct1' ) . ' 1',
-            'slug'  => 'fct1-light-1',
-            'color' => '#87c8d3',
-        ],
-        [
-            'name'  => __( 'Warning', 'fct1' ) . ' 1',
-            'slug'  => 'fct1-warning-1',
-            'color' => '#fda7a7',
-        ],
-        [
-            'name'  => __( 'White', 'fct1' ),
-            'slug'  => 'white',
-            'color' => '#fff',
-        ],
-        [
-            'name'  => __( 'Black', 'fct1' ),
-            'slug'  => 'black',
-            'color' => '#000',
-        ],
-        [
-            'name'  => __( 'Grey', 'fct1' ) . ' 1',
-            'slug'  => 'fct1-grey-1',
-            'color' => '#22262c',
-        ],
-        [
-            'name'  => __( 'Grey', 'fct1' ) . ' 2',
-            'slug'  => 'fct1-grey-2',
-            'color' => '#2f3339',
-        ],
-    ]);
 
-    add_theme_support( // custom gradients
-        'editor-gradient-presets',
-        [
-            [
-                'name'     => __( 'Gradient', 'fct1' ) . ' 1',
-                'gradient' => 'linear-gradient(60deg, #277888 10%, #58acbc 90%)',
-                'slug'     => 'fct1-gradient-1'
-            ]
-        ]
-    );
-    add_action( 'admin_print_styles', function() { // custom gradients to work properly in the back-end
-    ?>
-    <style>
-    .has-fct1-gradient-1-gradient-background { background:linear-gradient(60deg, #277888 10%, #58acbc 90%) }
-    </style>
-    <?php
-    });
 });
 
 
@@ -151,7 +87,7 @@ add_filter( 'wp_nav_menu_objects', function ($items) {
 	return $items;
 }, 10 );
 
-// print featured image
+// print featured image url
 add_action( 'wp_head', function() { // ++--
     $page_id = get_queried_object_id();
     if ( has_post_thumbnail( $page_id ) ) {
@@ -280,22 +216,6 @@ add_action( 'admin_init', function() {
     }
     //*/
 });
-
-// front page gutenberg background-color ++--
-add_action( 'admin_print_styles', function() {
-    $screen = get_current_screen();
-    $frontpage_id = get_option( 'page_on_front' );
-    if( $screen->id !== 'page' || $frontpage_id !== $_GET['post'] ) { return; }
-
-    ?>
-        <style>
-            .editor-styles-wrapper {
-                background-color:#d5e7ea!important;
-            }
-        </style>
-    <?php
-});
-
 
 /* useful functions */
 
