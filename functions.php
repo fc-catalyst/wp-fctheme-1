@@ -71,6 +71,13 @@ add_filter( 'excerpt_length', function($number) {
     return 18;
 });
 
+// svg support
+add_filter( 'upload_mimes', function($types) { // ++install a plugin, if meta data is needed for the files
+    if ( !current_user_can( 'administrator' ) ) { return $types; }
+
+    $types['svg'] = 'image/svg+xml';
+    return $types;
+}, 10, 2 );
 
 /* solutions & crutches */
 
