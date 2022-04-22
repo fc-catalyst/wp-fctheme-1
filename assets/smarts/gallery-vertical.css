@@ -1,38 +1,38 @@
-.fct-vertical-gallery-up,
-.fct-vertical-gallery-down {
+.fct1-vertical-gallery-up,
+.fct1-vertical-gallery-down {
     position:absolute;
     z-index:-1;
     pointer-events:none;
 }
 @media (min-width:600px) {
-    .fct-vertical-gallery-wrap {
+    .fct1-vertical-gallery-wrap {
         position:relative;
         overflow:hidden; /* bottom border */
     }
-    .fct-vertical-gallery {
+    .fct1-vertical-gallery {
         position:absolute;
         max-width:100%;
         overflow:hidden; /* top border */
     }
     
-    .fct-vertical-gallery > * {
+    .fct1-vertical-gallery > * {
         transition:transform 0.3s ease;
     }
 
-    .fct-vertical-gallery > *:nth-child(1) { transition-delay:0.30s }
-    .fct-vertical-gallery > *:nth-child(2) { transition-delay:0.27s }
-    .fct-vertical-gallery > *:nth-child(3) { transition-delay:0.24s }
-    .fct-vertical-gallery > *:nth-child(4) { transition-delay:0.21s }
-    .fct-vertical-gallery > *:nth-child(5) { transition-delay:0.18s }
-    .fct-vertical-gallery > *:nth-child(6) { transition-delay:0.15s }
-    .fct-vertical-gallery > *:nth-child(7) { transition-delay:0.12s }
-    .fct-vertical-gallery > *:nth-child(8) { transition-delay:0.09s }
-    .fct-vertical-gallery > *:nth-child(9) { transition-delay:0.06s }
-    .fct-vertical-gallery > *:nth-child(10) { transition-delay:0.03s }
+    .fct1-vertical-gallery > *:nth-child(1) { transition-delay:0.30s }
+    .fct1-vertical-gallery > *:nth-child(2) { transition-delay:0.27s }
+    .fct1-vertical-gallery > *:nth-child(3) { transition-delay:0.24s }
+    .fct1-vertical-gallery > *:nth-child(4) { transition-delay:0.21s }
+    .fct1-vertical-gallery > *:nth-child(5) { transition-delay:0.18s }
+    .fct1-vertical-gallery > *:nth-child(6) { transition-delay:0.15s }
+    .fct1-vertical-gallery > *:nth-child(7) { transition-delay:0.12s }
+    .fct1-vertical-gallery > *:nth-child(8) { transition-delay:0.09s }
+    .fct1-vertical-gallery > *:nth-child(9) { transition-delay:0.06s }
+    .fct1-vertical-gallery > *:nth-child(10) { transition-delay:0.03s }
     
-    .fct-vertical-gallery-up,
-    .fct-vertical-gallery-up::before,
-    .fct-vertical-gallery-down {
+    .fct1-vertical-gallery-up,
+    .fct1-vertical-gallery-up::before,
+    .fct1-vertical-gallery-down {
         z-index:2;
         pointer-events:auto;
         left:50%;
@@ -45,33 +45,33 @@
         transition:opacity 0.2s ease, transform 0.3s ease;
         cursor:pointer;
     }
-    .fct-vertical-gallery-up::before {
+    .fct1-vertical-gallery-up::before {
         content:'';
         position:absolute;
         left:12px;
         top:-14px;
     }
-    .fct-vertical-gallery-up {
+    .fct1-vertical-gallery-up {
         transform:translate( -50%, 30px ) rotate( 135deg );
     }
-    .fct-vertical-gallery-down {
+    .fct1-vertical-gallery-down {
         bottom:0;
         transform:translate( -50%, -30px ) rotate( -45deg );
     }
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-up,
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-up::before,
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-down {
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-up,
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-up::before,
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-down {
         opacity:0.8;
     }
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-up:hover,
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-up:hover::before,
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-down:hover {
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-up:hover,
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-up:hover::before,
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-down:hover {
         opacity:1;
     }
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-up:hover {
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-up:hover {
         transform:translate( -50%, 25px ) rotate( 135deg );
     }
-    .fct-vertical-gallery-wrap:hover .fct-vertical-gallery-down:hover {
+    .fct1-vertical-gallery-wrap:hover .fct1-vertical-gallery-down:hover {
         transform:translate( -50%, -25px ) rotate( -45deg );
     }
 }

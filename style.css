@@ -4,7 +4,7 @@ Theme URI:      https://github.com/VVolkov833/wp-fctheme-1
 Description:    Custom theme, initially developed for klinikerfahrungen.de
 Author:         Firmcatalyst, Vadim Volkov
 Author URI:     https://firmcatalyst.com
-Version:        1.0.0
+Version:        1.1.0
 Text Domain:    fct1
 Domain Path:    /languages
 Requires at least: 5.0
@@ -26,35 +26,7 @@ ol:last-child {
 	margin-bottom:0;
 }
 
-h1 {
-    margin:30px 0 23px;
-    font-size:34px;
-    line-height:1.5;
-    font-weight:600;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--h-color);
-}
-h1 > br + strong {
-    font-size:140%;
-    letter-spacing:0.105em;
-}
-h2 {
-    margin:35px 0 23px;
-    font-size:32px;
-    line-height:1.5;
-    font-weight:600;
-    text-transform:uppercase;
-    color:var(--h-color);
-}
-h3 {
-    margin:30px 0 23px;
-    font-size:30px;
-    line-height:1.5;
-    font-weight:400;
-    text-transform:uppercase;
-    color:var(--h-color);
-}
+/* h1 h2 h3 are in first-screen/style.css */
 h4 {
     margin:26px 0 22px;
     font-size:26px;
@@ -140,17 +112,6 @@ body.admin-bar header.site-header {
 .entry-content > ul:last-child {
     margin-bottom:50px;
 }
-.entry-content figure > figcaption {
-    padding-left:15px;
-    padding-right:15px;
-    text-align:center;
-    font-size:16px;
-    font-style:italic;
-    opacity:0.8;
-}
-.entry-content figure {
-    text-align:center;
-}
 
 /* stretched columns */
 .are-vertically-aligned-stretch {
@@ -181,10 +142,22 @@ body.admin-bar header.site-header {
 
 /* gutenberg styling */
 
-.wp-block-buttons .fct-button-select {
+.entry-content figure > figcaption {
+    padding-left:15px;
+    padding-right:15px;
+    text-align:center;
+    font-size:16px;
+    font-style:italic;
+    opacity:0.8;
+}
+.entry-content figure {
+    text-align:center;
+}
+
+.wp-block-buttons .fct1-button-select {
     position:relative;
 }
-.wp-block-buttons .fct-button-select > a::after {
+.wp-block-buttons .fct1-button-select > a::after {
     content:'';
     display:block;
     width:12px;
@@ -196,13 +169,9 @@ body.admin-bar header.site-header {
     top:17px;
     transform:rotate( 45deg );
 }
-.wp-block-buttons .fct-button-select.fct-active > a::after {
+.wp-block-buttons .fct1-button-select.fct1-active > a::after {
     top:22px;
     transform:rotate( -135deg );
-}
-
-.has-white-color * { /* ++add for other class-ed colors */
-    color:#fff;
 }
 
 /* floating images mobile */
@@ -260,23 +229,23 @@ body.admin-bar header.site-header {
 }
 
 /* functional */
-.fct-open-next:not( .fct-active ) + * {
+.fct1-open-next:not( .fct1-active ) + * {
     max-height:0;
     margin-top:0;
     margin-bottom:0;
     padding-top:0;
     padding-bottom:0;
 }
-.fct-open-next + * {
+.fct1-open-next + * {
     overflow:hidden;
     transition:all 0.7s ease;
 }
-.fct-open-next.fct-active + * {
+.fct1-open-next.fct1-active + * {
     max-height:1800px;
 }
 
 /* video */
-.fct-video > * {
+.fct1-video > * {
     width:100%;
     min-height:312px;
 }

@@ -17,7 +17,7 @@ h2 {
 
 /* clinic hero */
 
-.fct-entity-hero {
+.fct1-entity-hero {
     --entity-bg:var(--top-gap-bg);
     min-height:75vh;
     background-image:var(--top-gap-bg), linear-gradient(60deg, #277888ee 12%, #58acbc00 90%), var(--entity-bg), var(--top-gap-bg);
@@ -26,74 +26,74 @@ h2 {
     background-position:0 0, 0 0, 50% var(--menu-height), 0 0;
     background-size:100% var(--menu-height), cover, cover, cover;
 }
-.fct-entity-hero > * {
+.fct1-entity-hero > * {
     padding-top:calc( var(--menu-height) + 30px );
     padding-bottom:30px;
 }
 
 @media (max-width:949px) {
-    .fct-entity-hero {
+    .fct1-entity-hero {
         background-image:var(--top-gap-bg), linear-gradient(150deg, #277888ee 12%, #58acbc00 100%), var(--entity-bg);
         background-repeat:no-repeat;
         background-position:0 0, 0 0, 50% calc( 50% + ( var(--menu-height) * 0.6 ) );
         background-size:100% calc( var(--menu-height) * 0.6 ), cover, cover;
     }
-    .fct-entity-hero > * {
+    .fct1-entity-hero > * {
         padding-top:calc( ( var(--menu-height) * 0.6 ) + 20px );
         padding-bottom:20px;
     }
-    .fct-entity-hero > *:not(:first-child) {
+    .fct1-entity-hero > *:not(:first-child) {
         padding-top:20px;
     }
 }
 
-.fct-entity-hero * {
+.fct1-entity-hero * {
     color:#fff;
 }
 
-.fct-entity-hero .fct-entity-badges {
+.fct1-entity-hero .fct1-entity-badges {
     margin-bottom:10px;
 }
 
-.fct-entity-hero h1 {
+.fct1-entity-hero h1 {
     margin-top:0;
     margin-bottom:10px;
     font-size:30px;
 }
 
-.fct-entity-hero h1 + p {
+.fct1-entity-hero h1 + p {
     margin-top:0;
     margin-bottom:8px;
     text-transform:uppercase;
     font-weight:300;
     font-size:20px;
 }
-.fct-entity-hero h1 + p > a {
+.fct1-entity-hero h1 + p > a {
     text-decoration:none;
 }
-.fct-entity-hero h1 + p > a:hover {
+.fct1-entity-hero h1 + p > a:hover {
     border-bottom:1px solid #fff;
 }
-.fct-entity-hero h1 + p span {
+.fct1-entity-hero h1 + p span {
     white-space:nowrap;
 }
 
-.fct-entity-hero .cr_rating_bar {
+.fct1-entity-hero .cr_rating_bar {
     margin-top:3px;
 }
 
-.fct-entity-hero .cr_rating_bar + span {
+.fct1-entity-hero .cr_rating_bar + span {
     display:inline-block;
     margin-left:12px;
     font-size:26px;
     color:#f5b309;
 }
 
-.fct-entity-hero .cr_rating_bar > div {
+.fct1-entity-hero .cr_rating_bar > div {
     background-color:#fff;
 }
 
-.fct-entity-hero .wp-block-button__link {
+.fct1-entity-hero .wp-block-button__link {
     padding-top:0.3em;
     padding-bottom:0.3em;
     text-transform:uppercase;
@@ -101,14 +101,14 @@ h2 {
     font-weight:600;
 }
 
-.fct-entity-hero .wp-block-button__link::after {
+.fct1-entity-hero .wp-block-button__link::after {
     content:'\000BB';
     display:inline-block;
     margin-left:10px;
     font-weight:300;
     transform:rotate( 90deg ) scale( 1.2 );
 }
-.fct-entity-hero .fct-entity-photo {
+.fct1-entity-hero .fct1-entity-photo {
     display:flex;
     align-items:center;
     justify-content:space-around;
@@ -117,7 +117,7 @@ h2 {
     position:relative;
 }
 
-.fct-entity-hero .fct-entity-photo img {
+.fct1-entity-hero .fct1-entity-photo img {
     height:30%;
     width:auto;
     max-width:100%;
@@ -126,7 +126,7 @@ h2 {
 }
 
 /* buttons override */
-.fct-button-select {
+.fct1-button-select {
     width:100%;
 }
 .wp-block-buttons.is-content-justification-full {

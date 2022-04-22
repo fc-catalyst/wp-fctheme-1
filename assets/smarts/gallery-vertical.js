@@ -6,7 +6,7 @@
 function fcAddGallery(selector = '') {
 
     if ( !selector ) {
-        selector = '.fct-vertical-gallery';
+        selector = '.fct1-vertical-gallery';
     }
 
     var $ = jQuery,
@@ -18,14 +18,14 @@ function fcAddGallery(selector = '') {
 
     var $children = $self.children();
         
-    $self.addClass( 'fct-vertical-gallery' );
-    $self.parent().addClass( 'fct-vertical-gallery-wrap' );
+    $self.addClass( 'fct1-vertical-gallery' );
+    $self.parent().addClass( 'fct1-vertical-gallery-wrap' );
 
     // navigation buttons
-    $self.before( '<div class="fct-vertical-gallery-up"></div>' );
-    $self.after( '<div class="fct-vertical-gallery-down"></div>' );
-    var $up = $self.prev( '.fct-vertical-gallery-up' ),
-        $down = $self.next( '.fct-vertical-gallery-down' );
+    $self.before( '<div class="fct1-vertical-gallery-up"></div>' );
+    $self.after( '<div class="fct1-vertical-gallery-down"></div>' );
+    var $up = $self.prev( '.fct1-vertical-gallery-up' ),
+        $down = $self.next( '.fct1-vertical-gallery-down' );
     
     $down.click( function() {
         var visible_height = Math.round( $self.parent().innerHeight() - $self.position()['top'] );

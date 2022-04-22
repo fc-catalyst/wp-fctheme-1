@@ -35,6 +35,37 @@ body * {
 	font-family:'brandon-grotesque', sans-serif;
 }
 
+h1 {
+    margin:30px 0 23px;
+    font-size:34px;
+    line-height:1.5;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+h1 > br + strong {
+    font-size:140%;
+    letter-spacing:0.105em;
+}
+h2 {
+    margin:35px 0 23px;
+    font-size:32px;
+    line-height:1.5;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+h3 {
+    margin:30px 0 23px;
+    font-size:30px;
+    line-height:1.5;
+    font-weight:400;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+
 /* top navigation */
 header.site-header {
 	width:100%;
@@ -524,18 +555,20 @@ body .entry-content .wp-block-image {
 }
 
 /* default theme colors for gutenberg ++ move to variables */
+.has-white-color, .has-white-color * { color:#fff }
+.has-black-color, .has-black-color * { color:#000 }
 .has-fct-1-dark-1-background-color { background-color:#23667b }
-.has-fct-1-dark-1-color { color:#23667b }
+.has-fct-1-dark-1-color, .has-fct-1-dark-1-color * { color:#23667b }
 .has-fct-1-dark-2-background-color { background-color:#277888 }
-.has-fct-1-dark-2-color { color:#277888 }
+.has-fct-1-dark-2-color, .has-fct-1-dark-2-color * { color:#277888 }
 .has-fct-1-dark-3-background-color { background-color:#58acbc }
-.has-fct-1-dark-3-color { color:#58acbc }
+.has-fct-1-dark-3-color, .has-fct-1-dark-3-color * { color:#58acbc }
 .has-fct-1-light-1-background-color { background-color:#87c8d3 }
-.has-fct-1-light-1-color { color:#87c8d3 }
+.has-fct-1-light-1-color, .has-fct-1-light-1-color * { color:#87c8d3 }
 .has-fct-1-warning-1-background-color { background-color:#fda7a7 }
-.has-fct-1-warning-1-color { color:#fda7a7 }
+.has-fct-1-warning-1-color, .has-fct-1-warning-1-color * { color:#fda7a7 }
 .has-fct-1-grey-1-background-color { background-color:#22262c }
-.has-fct-1-grey-1-color { color:#22262c }
+.has-fct-1-grey-1-color, .has-fct-1-grey-1-color * { color:#22262c }
 .has-fct-1-grey-2-background-color { background-color:#2f3339 }
-.has-fct-1-grey-2-color { color:#2f3339 }
+.has-fct-1-grey-2-color, .has-fct-1-grey-2-color * { color:#2f3339 }
 .has-fct1-gradient-1-gradient-background { background:linear-gradient(60deg, #277888 10%, #58acbc 90%) }

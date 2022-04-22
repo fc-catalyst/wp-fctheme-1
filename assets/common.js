@@ -91,9 +91,9 @@
         }
         
         /* hidden fields show-hide */
-        $( '.fct-open-next > a' ).click( function(e) {
+        $( '.fct1-open-next > a' ).click( function(e) {
             e.preventDefault();
-            $( this ).parent().toggleClass( 'fct-active' );
+            $( this ).parent().toggleClass( 'fct1-active' );
         });
         
         
@@ -107,7 +107,7 @@
         }
         
         /* add map by class */
-        const $gmap_holder = $( '.fct-gmap-view' );
+        const $gmap_holder = $( '.fct1-gmap-view' );
         if ( $gmap_holder.length ) {
             fcLoadScriptVariable(
                 'https://maps.googleapis.com/maps/api/js?key='+fcGmapKey+'&libraries=places', // ++unite global variables

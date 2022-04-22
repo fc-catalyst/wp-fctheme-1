@@ -1,20 +1,6 @@
 /* home overall */
 
-/*
-body {
-    background:var(--top-gap-bg);
-    background-attachment: fixed;
-}
-*/
-body::before {
-    content:none;
-}
-/*
-#main-content *:-webkit-any( h1, h2, h3, h4, h5, h6, p, li, a ) {
-    color:#fff;
-}
-*/
-/* hero */
+/* hero ++gotta be attached to the columns Gutenberg block with fct1-hero checked */
 .fct1-hero {
     min-height:100vh;
     padding:0!important;
@@ -40,26 +26,4 @@ body::before {
 .fct1-hero .wp-block-column > * {
     max-width:540px;
     margin:var(--menu-height) auto 0;
-}
-
-/* not first screen was too short, so it goes here ++ move h1-h3 sizes to first screen style.css */
-main h2 {
-    margin-bottom:0;
-    text-transform:uppercase;
-    font-size:34px;
-    font-weight:600;
-    letter-spacing:2px;
-}
-
-main h2 > em {
-    font-size:60%;
-    font-style:normal;
-}
-
-main h3 {
-    margin-top:0;
-    text-transform:uppercase;
-    font-size:30px;
-    font-weight:400;
-    letter-spacing:1.5px;
 }

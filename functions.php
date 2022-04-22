@@ -92,11 +92,17 @@ add_action( 'wp_head', function() { // ++--
     $page_id = get_queried_object_id();
     if ( has_post_thumbnail( $page_id ) ) {
         $img = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full' )[0];
-        echo '<style>:root{--featured-image:url("'.$img.'");</style>'."\n";
+        echo '<style>:root{--featured-image:url("'.$img.'")}</style>'."\n";
     }
-
 }, 6 );
 
+// hide the top gap behind the menu
+add_action( 'wp_head', function() {
+    $page_id = get_queried_object_id();
+    if ( get_post_meta( $page_id, 'hide-top-gap', true ) ) {
+        echo '<style>body::before{content:none}</style>'."\n";
+    }
+}, 8 );
 
 /* economy */
 

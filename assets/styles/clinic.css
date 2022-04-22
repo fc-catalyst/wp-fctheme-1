@@ -6,33 +6,33 @@ main .entry-content {
 }
 
 /* schedule */
-.fct-schedule-list {
+.fct1-schedule-list {
     flex-basis:100%!important;
     display:flex;
     flex-wrap:wrap;
 }
-.fct-schedule-list > * {
+.fct1-schedule-list > * {
     margin:0 7px 12px;
     flex-basis:calc( 50% - 14px );
 }
-.fct-schedule-list dt {
+.fct1-schedule-list dt {
     text-align:right;
     text-transform:uppercase;
     color:var(--h-color);
 }
-.fct-schedule-list dt::after {
+.fct1-schedule-list dt::after {
     content:':';
 }
-.fct-schedule-list dd {
+.fct1-schedule-list dd {
     text-align:left;
 }
 
 /* google maps */
-.fct-gmap-view {
+.fct1-gmap-view {
     min-height:312px;
     height:calc( 100% - 50px );
 }
-.fct-gmap-view + div {
+.fct1-gmap-view + div {
     display:flex;
     align-items:center;
     min-height:50px;
@@ -42,7 +42,7 @@ main .entry-content {
     color:#fff;
     font-size:15px;
 }
-.fct-gmap-view + div::before {
+.fct1-gmap-view + div::before {
     content:'';
     display:inline-block;
     width:24px;
