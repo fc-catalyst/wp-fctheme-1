@@ -30,8 +30,8 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'custom-logo', [ // upload logo field for customizer
         'width'       => 700,
         'height'      => 160,
-        'flex-width'  => true,
-        'flex-height' => false,
+        'flex-width'  => true, // can't use simple svg support with strict rules here
+        'flex-height' => true, // or here
         'header-text' => '',
         'unlink-homepage-logo' => true,
     ]);

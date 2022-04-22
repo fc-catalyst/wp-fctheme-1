@@ -4,7 +4,7 @@ get_header();
 
 ?>
     <div class="wrap-width">
-    <h1><?php _e( 'Search results for' ) ?>
+    <h1><?php _e( 'Search results for', 'fct1' ) ?>
         <small> <?php the_search_query() ?></small></h1>
     <div style="height:40px;width:100%" aria-hidden="true" class="wp-block-spacer"></div>
 <?php

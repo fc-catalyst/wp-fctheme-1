@@ -68,9 +68,6 @@ msgstr ""
 msgid "Skip to footer"
 msgstr ""
 
-msgid "Home"
-msgstr ""
-
 #. single.php
 msgid "Topics you might be interested in"
 msgstr ""
@@ -87,4 +84,8 @@ msgstr ""
 
 #. the theme description
 msgid "Custom theme, initially developed for klinikerfahrungen.de"
+msgstr ""
+
+#. search
+msgid "Search results for"
 msgstr ""

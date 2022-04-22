@@ -81,9 +81,6 @@ msgstr "Zum Hauptinhalt springen"
 msgid "Skip to footer"
 msgstr "Zur Fußzeile springen"
 
-msgid "Home"
-msgstr "Startseite"
-
 #. single.php
 msgid "Topics you might be interested in"
 msgstr "Themen die für dich interessant sein könnten"
@@ -101,3 +98,7 @@ msgstr "Nächster Beiträg"
 #. the theme description
 msgid "Custom theme, initially developed for klinikerfahrungen.de"
 msgstr "Individuelles Theme, ursprünglich entwickelt für klinikerfahrungen.de"
+
+#. search
+msgid "Search results for"
+msgstr "Suchergebnisse Ihrer Anfrage"
