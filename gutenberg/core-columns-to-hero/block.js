@@ -5,7 +5,7 @@
     // add new settings variable
     wp.hooks.addFilter(
         'blocks.registerBlockType',
-        'fcp-gutenberg/turn-to-hero-variable',
+        'fct1-gutenberg/turn-to-hero-variable',
         function (settings, name) {
 
             if ( typeof settings.attributes === 'undefined' || !~effected_blocks.indexOf( name ) ) { return settings }
@@ -21,12 +21,12 @@
     );
 
     // add the control / input
+    var el = wp.element.createElement;
     wp.hooks.addFilter(
         'editor.BlockEdit',
-        'fcp-gutenberg/turn-to-hero-control',
+        'fct1-gutenberg/turn-to-hero-control',
         wp.compose.createHigherOrderComponent( function ( BlockEdit ) {
             return function ( props ) {
-                var el = wp.element.createElement;
                 return el(
                     wp.element.Fragment,
                     {},
@@ -52,7 +52,7 @@
     // add class name to the output block on save
     wp.hooks.addFilter(
         'blocks.getSaveContent.extraProps',
-        'fcp-gutenberg/turn-to-hero-save',
+        'fct1-gutenberg/turn-to-hero-save',
         function (extraProps, blockType, attributes) {
 
             if ( !~effected_blocks.indexOf( blockType.name ) ) { return extraProps }

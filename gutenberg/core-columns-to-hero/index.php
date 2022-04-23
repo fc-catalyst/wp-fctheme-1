@@ -8,3 +8,4 @@ add_action( 'enqueue_block_editor_assets', function() {
         FCT1S_VER
     );
 });
+// ++ can load syles dynamically after checking with has_block() and parse_blocks()
