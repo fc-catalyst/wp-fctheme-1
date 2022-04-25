@@ -263,6 +263,17 @@ function fct1_css_minify($text) {
     return trim( $text );
 }
 
+function fct1_log($content, $dir = __DIR__) {
+    if ( is_array( $content ) || is_object( $content ) ) {
+        $content = print_r( $content, true );
+    }
+    return file_put_contents(
+        $dir . '/log.txt',
+        "\n" . '------------- ' . date( 'H:i:s (d.m.Y)' ) . ' -------------' . "\n" . $content . "\n\n",
+        FILE_APPEND | LOCK_EX
+    );
+}
+
 
 // print the loadings cript the highest
 // ++ maybe load the key async and encoded.. but who cares as it appears streight in the script src anyways
