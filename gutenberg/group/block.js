@@ -16,17 +16,15 @@
 
 		edit: function( props ) {
             var initial = props.attributes.columns ? props.attributes.columns : 2;
-			return el(
-				'div',
+			return el( 'div',
 				{ 'data-rows': initial },
-				el( InnerBlocks, {/*
-                    allowedBlocks: [ 'fct1-gutenberg/team-member' ],
+				el( InnerBlocks, {
+                    allowedBlocks: [ 'fct1-gutenberg/tile-numbered' ],
                     template: [
-                        [ 'fct1-gutenberg/team-member', {} ],
-                        [ 'fct1-gutenberg/team-member', {} ]
+                        [ 'fct1-gutenberg/tile-numbered', {} ],
+                        [ 'fct1-gutenberg/tile-numbered', {} ]
                     ],
                     templateLock: false
-//*/
                 }),
                 el( // sidebar
                     wp.element.Fragment,

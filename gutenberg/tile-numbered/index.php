@@ -1,6 +1,6 @@
 <?php
 
-$block_name = 'group'; // basename( __DIR__ )
+$block_name = 'tile-numbered'; // basename( __DIR__ )
 
 add_action( 'init', function() use ( $block_name ) {
 
@@ -8,9 +8,11 @@ add_action( 'init', function() use ( $block_name ) {
         ob_start();
 
         ?>
-            <div class="fct1-<?php echo $block_name ?>" data-rows="<?php echo $props['columns'] ? $props['columns'] : 2 ?>">
-                <?php echo( $content ) ?>
-            </div>
+        <div class="fct1-tile-numbered">
+            <?php echo $props['url'] ? '<a href="'.$props['url'].'"></a>' : '' ?>
+            <?php echo wp_get_attachment_image( $props['mediaID'], 'full' ) ?>
+            <?php echo $props['excerpt'] ? '<p>'.$props['excerpt'].'</p>' : '' ?>
+        </div>
         <?php
 
         $content = ob_get_contents();
