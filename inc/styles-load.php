@@ -38,8 +38,10 @@ add_action( 'wp_enqueue_scripts', function() { // ++try get_footer, if wp-rocket
 
 });
 
+
 add_action( 'wp_head', function() { // include the first-screen styles, instead of enqueuing
-?><style><?php
+?>
+<style><?php
     $include_dir = get_template_directory() . '/assets/styles/first-screen/';
     $include_files = array_merge( ['style'], fct1_get_style_files_() );
 
@@ -61,11 +63,22 @@ add_action( 'wp_head', function() { // include the first-screen styles, instead 
     
     echo $content;
 
-?></style><?php
+?></style>
+<?php
 
-    echo FCT1S['fonts_external'];
+    echo FCT1S['fonts_external'] . "\n";
 
 }, 7 );
+
+
+// moving the Gutenberg away from the first screen ++do the same with jquery and other, as all loads async-ly
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_style( 'wp-block-library' );
+});
+add_action( 'wp_footer', function() {
+    wp_enqueue_style( 'wp-block-library' );
+});
+
 
 // make a list of .css files names, according to the url: post-type, archive, front
 function fct1_get_style_files_() {
