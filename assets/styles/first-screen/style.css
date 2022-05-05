@@ -630,6 +630,9 @@ body .entry-content .wp-block-image {
 .wp-block-column > *:first-child {
     margin-top:17px!important;
 }
+.wp-block-column.has-background {
+    padding:20px 20px 32px;
+}
 
 /* default theme colors for gutenberg ++ move to variables */
 .has-white-background-color { background-color:#fff }
