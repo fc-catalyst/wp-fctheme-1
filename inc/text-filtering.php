@@ -138,18 +138,14 @@ function fct1_html_to_text($a) {
     return $a;
 }
 
-/*
-function fct1_html_fix($html) { // it fixex, but adds a starting tag, if starts with a plain text, though
-    $dom = new DOMDocument();
-    $dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
-    return $dom->saveHTML();
-}
-//*/
 function fct1_html_fix($html) {
     $dom = new DOMDocument();
     $dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ) );
-    $dom->getElementsByTagName( 'body' )->item(0)->nodeValue;
-    return trim( substr( $dom->saveHTML( $dom->getElementsByTagName( 'body' )->item(0) ), 6, -7 ) );
+    $return = '';
+    foreach ( $dom->getElementsByTagName( 'body' )->item(0)->childNodes as $v ) {
+        $return .= $dom->saveHTML( $v );
+    }
+    return $return;
 }
 
 function fct1_count_words($text) {
