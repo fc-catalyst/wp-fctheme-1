@@ -1,7 +1,7 @@
 <?php
 
 // run through text and fix the links number & attributes
-function fct1_a_clear_all($text, $limit = -1, $force = [], $allowed_atts = [] ) {
+function fct1_a_clear_all($text, $limit = -1, $force = [], $allowed_atts = [] ) { // ++rebuild with DOMDocument?
 
     $limit = is_numeric( $limit ) ? intval( $limit ) : -1; // refers to external links
 
@@ -32,7 +32,7 @@ function fct1_a_clear_all($text, $limit = -1, $force = [], $allowed_atts = [] ) 
     };
 
     $count = $limit;
-
+    // ++ would probably be faster and safer to perform with DOMDocument
     return preg_replace_callback( '/(<a\s+[^>]+>)(.*?)(<\/a>)/i', // go through all links' opening tags
 
         function( $link ) use ( $allowed_atts, $modified, $is_external, $format_attr, &$count ) {
@@ -89,4 +89,70 @@ function fct1_a_clear_all($text, $limit = -1, $force = [], $allowed_atts = [] ) 
     
    
     return $result;
+}
+
+function fct1_html_words_limit($html, $limit) {
+
+    $count = -1;
+    $offset = 0;
+
+    preg_replace_callback( '/>([^<]+)</i',
+        function( $text ) use ( $html, $limit, &$count, &$offset ) {
+
+            if ( $count === $limit ) { return $text[0]; }
+
+            $offset = strpos( $html, $text[1], $offset );
+
+            $count_local = fct1_count_words( $text[1] );
+            $offset_local = 0;
+
+            if ( $count_local > 0 && $count + $count_local > $limit ) { // track the offset inside local range
+                $words = explode( ' ', trim(  preg_replace( ['/\&nbsp;/', '/\s+/'], ' ', $text[1] ) ) );
+                for ( $i = 0; $i < $limit - $count; $i++ ) {
+                    $offset_local = strpos( $text[0], $words[ $i ], $offset_local );
+                }
+
+                $count = $limit;
+                $offset += $offset_local + strlen( $words[ $i - 1 ] );
+                return $text[0];
+            }
+
+            $count += $count_local;
+            $offset = $offset + strlen( $text[1] );
+
+            return $text[0];
+         }, '>' . $html . '<' // to match the regexp if the text starts with plane
+    );
+
+    if ( $count !== $limit ) { return $html; }
+
+    return fct1_html_fix( trim( substr( $html, 0, $offset ) ) . '&hellip;' );
+}
+
+function fct1_html_to_text($a) {
+    $a = preg_replace( '/</', ' <', $a ); // possible gaps to spaces
+    $a = preg_replace( '/<(head|script|style|template)[^>]*>(?:.*?)<\/\1>/si', ' ', $a ); // remove the hidden tags
+    $a = strip_tags( $a );
+    $a = preg_replace( ['/\&nbsp;/', '/\s+/'], ' ', $a );
+    $a = trim( $a );
+    return $a;
+}
+
+/*
+function fct1_html_fix($html) { // it fixex, but adds a starting tag, if starts with a plain text, though
+    $dom = new DOMDocument();
+    $dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+    return $dom->saveHTML();
+}
+//*/
+function fct1_html_fix($html) {
+    $dom = new DOMDocument();
+    $dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ) );
+    $dom->getElementsByTagName( 'body' )->item(0)->nodeValue;
+    return trim( substr( $dom->saveHTML( $dom->getElementsByTagName( 'body' )->item(0) ), 6, -7 ) );
+}
+
+function fct1_count_words($text) {
+    //return str_word_count( $text ); // it just fails counting properly and stabelly
+    return substr_count( fct1_html_to_text( $text ), ' ' ) + 1; // counting spaces
 }
