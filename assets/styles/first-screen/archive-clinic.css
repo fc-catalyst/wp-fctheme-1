@@ -110,7 +110,7 @@ article h2 > a {
     align-items:center;
     padding:10px;
     box-sizing:border-box;
-    background-color:var(--a-color);
+    background-color:#23667b;
     flex-basis:70px;
 }
 

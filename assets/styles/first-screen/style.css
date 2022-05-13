@@ -2,9 +2,9 @@
 
 /* inits */
 :root {
-    --str-color:#343434;
-    --h-color:#23667b;
-    --a-color:#23667b;
+    --str-color:#2C3538;
+    --h-color:#2C3538;
+    --a-color:#0087A0;
 
     --menu-height:100px;
     --top-gap-bg:linear-gradient(60deg, #277888 10%, #58acbc 90%);
@@ -37,15 +37,15 @@ body * {
 
 h1 {
     margin:30px 0 23px;
-    font-size:34px;
+    font-size:46px;
     line-height:1.5;
     font-weight:600;
     letter-spacing:2px;
     text-transform:uppercase;
     color:var(--h-color);
 }
-h1 > br + strong {
-    font-size:140%;
+h1 > strong {
+    font-size:105%;
     letter-spacing:0.105em;
 }
 h2 {
@@ -54,7 +54,6 @@ h2 {
     line-height:1.5;
     font-weight:600;
     letter-spacing:2px;
-    text-transform:uppercase;
     color:var(--h-color);
 }
 h3 {
@@ -634,7 +633,7 @@ body .entry-content .wp-block-image {
     padding:20px 20px 32px;
 }
 
-/* default theme colors for gutenberg ++ move to variables */
+/* default theme colors & fonts-sizes for gutenberg ++ move to variables or better print from array */
 .has-white-background-color { background-color:#fff }
 .has-white-color   { color:#fff!important }
 .has-white-color * { color:#fff }
@@ -650,6 +649,12 @@ body .entry-content .wp-block-image {
 .has-fct-1-dark-3-background-color { background-color:#58acbc }
 .has-fct-1-dark-3-color   { color:#58acbc!important }
 .has-fct-1-dark-3-color * { color:#58acbc }
+.has-fct-1-dark-4-background-color { background-color:#0087a0 }
+.has-fct-1-dark-4-color   { color:#0087a0!important }
+.has-fct-1-dark-4-color * { color:#0087a0 }
+.has-fct-1-dark-5-background-color { background-color:#dfc082 }
+.has-fct-1-dark-5-color   { color:#dfc082!important }
+.has-fct-1-dark-5-color * { color:#dfc082 }
 .has-fct-1-light-1-background-color { background-color:#87c8d3 }
 .has-fct-1-light-1-color   { color:#87c8d3!important }
 .has-fct-1-light-1-color * { color:#87c8d3 }
@@ -662,4 +667,21 @@ body .entry-content .wp-block-image {
 .has-fct-1-grey-2-background-color { background-color:#2f3339 }
 .has-fct-1-grey-2-color   { color:#2f3339!important }
 .has-fct-1-grey-2-color * { color:#2f3339 }
+.has-fct-1-grey-3-background-color { background-color:#2c3538 }
+.has-fct-1-grey-3-color   { color:#2c3538!important }
+.has-fct-1-grey-3-color * { color:#2c3538 }
+.has-fct-1-grey-4-background-color { background-color:#d3d7da }
+.has-fct-1-grey-4-color   { color:#d3d7da!important }
+.has-fct-1-grey-4-color * { color:#d3d7da }
+/* a copy of the following is in /gutenberg/settings.php */
 .has-fct1-gradient-1-gradient-background { background:linear-gradient(60deg, #277888 10%, #58acbc 90%) }
+
+.has-f-12-font-size { font-size:12px }
+.has-f-15-font-size { font-size:15px }
+.has-f-16-font-size { font-size:16px }
+.has-f-18-font-size { font-size:18px }
+.has-f-22-font-size { font-size:22px }
+.has-f-26-font-size { font-size:26px }
+.has-f-30-font-size { font-size:30px }
+.has-f-32-font-size { font-size:32px }
+.has-f-46-font-size { font-size:46px }
