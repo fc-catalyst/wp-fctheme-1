@@ -71,7 +71,7 @@ main .entry-content {
     justify-content:space-between;
     margin-bottom:25px;
     font-size:26px;
-    font-weight:600;
+    font-weight:700;
     text-transform:uppercase;
     color:var(--h-color);
 }
@@ -256,7 +256,7 @@ main .entry-content {
 }
 .cr_nomination .cr_headline {
     font-size:18px;
-    font-weight:600;
+    font-weight:700;
     text-transform:uppercase;
     color:var(--h-color);
 }
@@ -289,7 +289,7 @@ main .entry-content {
     align-items:center;
     margin:10px 0 38px;
     font-size:26px;
-    font-weight:600;
+    font-weight:700;
     text-transform:uppercase;
     color:var(--h-color);
 }

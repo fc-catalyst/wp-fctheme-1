@@ -60,7 +60,7 @@ body::before {
     padding:8px 24px;
     background-color:var(--blog-main-color);
     font-size:14px;
-    font-weight:600;
+    font-weight:700;
     letter-spacing:0.5px;
     text-transform:uppercase;
     text-decoration:none;
@@ -113,7 +113,7 @@ body::before {
 .tmp-tiles .entry-date {
     margin-bottom:10px;
     font-size:13px;
-    font-weight:600;
+    font-weight:700;
     text-transform:uppercase;
     color:var(--blog-main-color);
 }

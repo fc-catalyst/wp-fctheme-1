@@ -81,7 +81,7 @@ a:hover {
     opacity:0.9;
 }
 b, strong {
-    font-weight:600;
+    font-weight:700;
 }
 
 img {
@@ -256,7 +256,7 @@ body.admin-bar header.site-header {
     padding:6px 12px 4px;
     background-color:var(--a-color);
     font-size:12px;
-    font-weight:600;
+    font-weight:700;
     text-transform:uppercase;
     text-decoration:none;
     color:#fff;
