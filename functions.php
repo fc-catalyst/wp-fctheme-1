@@ -253,16 +253,6 @@ function fct1_meta($name = '', $before = '', $after = '') {
     return $v;
 }
 
-function fct1_css_minify($text) {
-    $text = preg_replace( '/\s+/', ' ', $text );
-    $text = preg_replace( '/ ?([\{\};:]) ?/', '$1', $text );
-    $text = preg_replace( '/\/\*(.*?)*\*\//', '', $text );
-    //++(space and space)
-    //++space>space, space~space, space+space
-    //++replace empties like .aaa{}
-    return trim( $text );
-}
-
 function fct1_log($content, $dir = __DIR__) {
     if ( is_array( $content ) || is_object( $content ) ) {
         $content = print_r( $content, true );

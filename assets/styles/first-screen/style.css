@@ -21,11 +21,11 @@ header.site-header {
     --link-color-s:#fff;
     --link-bg-h:#000000aa;
     --link-color-h:#fff;
-    /* ++ add current menu item separately */
+    /* ++ can add current menu item separately, now -h */
 }
 
-html { /* initial value */
-    scroll-behavior:smooth;
+html {
+    scroll-behavior:smooth; /* initial value */
 }
 body {
 	margin:0;
@@ -64,6 +64,13 @@ h3 {
     text-transform:uppercase;
     color:var(--h-color);
 }
+p {
+    margin:17px 0 22px;
+    font-size:16px;
+    line-height:1.6;
+    font-weight:400;
+}
+
 
 /* top navigation */
 header.site-header {
@@ -102,6 +109,7 @@ header.site-header .header-wrap {
 .custom-logo-link {
     line-height:0;
 }
+
 
 /* desktop header*/
 @media (min-width:950px) {
