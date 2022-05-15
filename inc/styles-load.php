@@ -120,6 +120,7 @@ function fct1_css_minify($text) {
     $text = preg_replace( '/\/\*(?:.*?)*\*\//', '', $text ); // remove comments
     $text = preg_replace( '/\s+/', ' ', $text ); // one-line & only single speces
     $text = preg_replace( '/ ?([\{\};:\>\~\+]) ?/', '$1', $text ); // remove spaces
+    $text = preg_replace( '/\+(\d)/', ' + $1', $text ); // restore spaces in functions
     $text = preg_replace( '/(?:[^\}]*)\{\}/', '', $text ); // remove empty properties
     $text = str_replace( [';}', '( ', ' )'], ['}', '(', ')'], $text ); // remove last ; and spaces
     return trim( $text );
