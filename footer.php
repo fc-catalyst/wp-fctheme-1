@@ -7,7 +7,7 @@
     $the_query = new WP_Query( [
         'post_type'        => 'fct-section',
         'name'        => 'footer'
-    ] ); 
+    ]);
 
     if ( $the_query->have_posts() ) {
         while ( $the_query->have_posts() ) {
