@@ -2,9 +2,29 @@
 
 get_header();
 
+
+$the_query = new WP_Query( [
+    'post_type'        => 'fct-section',
+    'name'        => 'category-hero'
+]);
+
+if ( $the_query->have_posts() ) {
+    ?><style>body::before{content:none}</style><?php
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();
+?>		
+        <div class="entry-content">
+            <?php the_content(); ?>
+        </div>
+<?php
+    }
+    wp_reset_postdata();
+}
 ?>
+
+    <div style="height:90px" aria-hidden="true" class="wp-block-spacer"></div>
+
     <div class="wrap-width">
-    <h1><?php is_category() ? single_cat_title( '<small>' . __( 'Blog', 'fct1' ) .':</small> ' ) : '' ?></h1>
 <?php
 
 if ( have_posts() ) :

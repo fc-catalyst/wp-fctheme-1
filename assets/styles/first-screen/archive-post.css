@@ -22,8 +22,8 @@ article {
     --gap:8%;
     width:calc((100% - (var(--gap) * (var(--per) - 1))) / var(--per));
     min-height:0;
-    padding-bottom:44px;
-    margin-bottom:70px;
+    padding-bottom:55px;
+    margin-bottom:100px;
     position:relative;
     margin-left:var(--gap);
 }
@@ -203,6 +203,10 @@ article h2 > a:hover::before {
     padding-top:var(--menu-height);
     padding-bottom:var(--menu-height);
     position:relative;
+}
+
+.fct1-hero p {
+    font-weight:300;
 }
 
 .fct1-hero .breadcrumbs {
