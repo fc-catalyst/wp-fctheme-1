@@ -1,9 +1,11 @@
 <?php
 
+// ++ move to the list posts plugin to not repeat styles so many times
+
 $query = [
     'orderby'          => 'date',
     'order'            => 'DESC',
-    'posts_per_page'   => '4',
+    'posts_per_page'   => '3',
     'paged'            => 1,
     'post_status'      => ['publish'],  
 ];

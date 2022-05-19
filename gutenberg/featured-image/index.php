@@ -1,19 +1,13 @@
 <?php
 
-$block_name = 'headline'; // basename( __DIR__ ) //++add optins to print different h and or.. maybe limit to sections type
+$block_name = 'featured-image'; // basename( __DIR__ ) //++add optins to print different h and or.. maybe limit to sections type
 
 add_action( 'init', function() use ( $block_name ) {
 
-    $print_block = function( $props, $content = null ) use ( $block_name ) {
-        ob_start();
-
-        ?>
-<h1><?php is_category() ? single_cat_title( '<small>' . __( 'Blog', 'fct1' ) .':</small> ' ) : single_post_title() ?></h1>
-        <?php
-
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
+    $print_block = function( $props, $content = null ) {
+        $post = get_queried_object();
+        $image = fct1_image( get_post_thumbnail_id( $post->ID ), [600,600], 1, $post->post_title );
+        return $image ? '<div class="entry-image">' . $image . '</div>' : '';
     };
 
     register_block_type( 'fct1-gutenberg/' . $block_name, [

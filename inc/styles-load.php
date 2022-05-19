@@ -123,5 +123,6 @@ function fct1_css_minify($text) {
     $text = preg_replace( '/\+(\d)/', ' + $1', $text ); // restore spaces in functions
     $text = preg_replace( '/(?:[^\}]*)\{\}/', '', $text ); // remove empty properties
     $text = str_replace( [';}', '( ', ' )'], ['}', '(', ')'], $text ); // remove last ; and spaces
+    // ++can also remove 0 from 0.5
     return trim( $text );
 }

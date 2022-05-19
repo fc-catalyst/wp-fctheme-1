@@ -157,23 +157,24 @@ article h2 > a::before { /* over the image above */
 
 /* hover */
 .entry-category {
-    transition:background-color .2s ease;
+    transition:background-color .2s ease-out, box-shadow .2s ease-out;
 }
 .entry-category:hover {
     background-color:#efefef;
+    box-shadow: 2px 3px 11px -2px #00000099;
     opacity:1;
 }
 article h2 > a::before {
-    transition:box-shadow .2s ease, opacity .2s ease-out;
+    transition:box-shadow .2s ease-out;
 }
 article h2 > a:hover::before {
     box-shadow: 2px 3px 11px -2px #00000099;
 }
 .entry-read {
-    transition:background-color .2s ease;
+    transition:background-color .2s ease-out;
 }
 .entry-read:hover {
-    background-color:#efefef;
+    background-color:#ededed;
     opacity:1;
 }
 
@@ -209,7 +210,7 @@ article h2 > a:hover::before {
     font-weight:300;
 }
 
-.fct1-hero .breadcrumbs {
+.fct1-hero .yoast-breadcrumbs {
     position:absolute;
     bottom:0;
 }

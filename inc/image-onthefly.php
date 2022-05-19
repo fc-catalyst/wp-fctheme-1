@@ -7,6 +7,14 @@ function fct1_image_print( $img_id_src, $size = '', $crop = false, $alt = '', $i
     ?><img src="<?php echo $img[0] ?>" width="<?php echo $img[1] ?>" height="<?php echo $img[2] ?>" alt="<?php echo $alt ?>" loading="lazy" <?php echo $itemprop ? 'itemprop="'.$itemprop.'" ' : '' ?>/><?php
 }
 
+function fct1_image( $img_id_src, $size = '', $crop = false, $alt = '', $itemprop = '' ) {
+    ob_start();
+    fct1_image_print( $img_id_src, $size, $crop, $alt, $itemprop );
+    $content = ob_get_contents();
+    ob_end_clean();
+    return $content;
+}
+
 function fct1_image_src( $img_id_src, $size = '', $crop = false ) { // src starts from after ..uploads/
 
     if ( is_numeric( $img_id_src ) ) {

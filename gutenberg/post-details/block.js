@@ -2,15 +2,15 @@
 	var el = element.createElement;
     var useBlockProps = blockEditor.useBlockProps;
 
-	blocks.registerBlockType( 'fct1-gutenberg/headline', {
-		title: 'FCT1 Main Query H1',
+	blocks.registerBlockType( 'fct1-gutenberg/post-details', {
+		title: 'FCT1 Post Details',
         icon: 'block-default',
 		category: 'widgets',
 		edit: function( props ) {
 			return el(
-				'h1',
+				'p',
 				{ className: props.className },
-                'The Main Query H1'
+                'The Post Details'
 			);
 		},
 		save: function( props ) {
