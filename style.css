@@ -4,7 +4,7 @@ Theme URI:      https://github.com/VVolkov833/wp-fctheme-1
 Description:    Custom theme, initially developed for klinikerfahrungen.de
 Author:         Firmcatalyst, Vadim Volkov
 Author URI:     https://firmcatalyst.com
-Version:        1.1.4
+Version:        1.2.2
 Text Domain:    fct1
 Domain Path:    /languages
 Requires at least: 5.0
@@ -31,23 +31,21 @@ h4 {
     margin:26px 0 22px;
     font-size:26px;
     line-height:1.6;
-    font-weight:500;
-    text-transform:uppercase;
+    font-weight:600;
     color:var(--h-color);
 }
 h5 {
     margin:23px 0 19px;
     font-size:22px;
     line-height:1.6;
-    font-weight:500;
-    text-transform:uppercase;
+    font-weight:600;
     color:var(--str-color);
 }
 h6 {
     margin:23px 0 17px;
     font-size:16px;
     line-height:1.6;
-    font-weight:500;
+    font-weight:600;
     text-transform:uppercase;
     color:var(--str-color);
 }
@@ -148,7 +146,7 @@ body.admin-bar header.site-header {
     text-align:center;
 }
 
-.wp-block-buttons .fct1-button-select {
+.wp-block-buttons .fct1-button-select { /* ++move away */
     position:relative;
 }
 .wp-block-buttons .fct1-button-select > a::after {
@@ -168,7 +166,7 @@ body.admin-bar header.site-header {
     transform:rotate( -135deg );
 }
 
-/* floating images mobile */
+/* float images mobile */
 @media (max-width:650px) {
     .wp-block-image .alignleft,
     .wp-block-image .alignright {
@@ -194,7 +192,7 @@ body.admin-bar header.site-header {
     }
 }
 
-/* headline with line */
+/* headline with line ++-- */
 .with-line {
     display:flex;
     align-items:center;
@@ -260,25 +258,22 @@ body.admin-bar header.site-header {
 
 
 /* footer */
-.site-footer * {
-    color:#fff;
-}
-.site-footer p:empty,
-p:first-child:empty,
-p:last-child:empty {
-    display:none;
-}
-.site-footer h4 {
-    font-size:18px;
+.site-footer {
+    border-top:1px solid var(--a-color);
 }
 .site-footer ul {
     padding-left:0;
 }
 .site-footer li {
     list-style-type:none;
+    margin-bottom:12px;
     padding-left:0;
     font-weight:400;
 }
 .site-footer a {
     text-decoration:none;
+    color:var(--h-color);
+}
+.site-footer h4 {
+    padding-top:19px;
 }
