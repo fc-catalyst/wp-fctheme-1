@@ -206,6 +206,11 @@ article h2 > a:hover::before {
     position:relative;
 }
 
+.blog .fct1-hero h1,
+.archive .fct1-hero h1 small {
+    text-transform:uppercase;
+}
+
 .fct1-hero p {
     font-weight:300;
 }
