@@ -5,15 +5,26 @@ $block_name = 'headline'; // basename( __DIR__ ) //++add optins to print differe
 add_action( 'init', function() use ( $block_name ) {
 
     $print_block = function( $props, $content = null ) use ( $block_name ) {
-        ob_start();
 
-        ?>
-<h1><?php is_category() ? single_cat_title( '<small>' . __( 'Blog', 'fct1' ) .':</small> ' ) : single_post_title() ?></h1>
-        <?php
+        $post = get_queried_object();
+        $class = get_class( $post );
+        $title = '';
 
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
+        switch( $class ) {
+            case 'WP_Post_Type' :
+                $title = __( $post->labels->archives, 'fct1' );
+            break;
+            case 'WP_Post' :
+                $title = __( single_post_title( '', false ), 'fct1' );
+            break;
+            case 'WP_Term' :
+                $pre = __( get_the_title( get_option( 'page_for_posts', true ) ), 'fct1' );
+                $title = __( single_cat_title( '', false ), 'fct1' );
+                $title = $pre ? '<small>' . $pre .':</small> ' . $title : $title;
+            break;        
+        }
+
+        return '<h1>' . $title . '</h1>';
     };
 
     register_block_type( 'fct1-gutenberg/' . $block_name, [

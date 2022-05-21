@@ -22,10 +22,8 @@ article {
     --gap:8%;
     width:calc((100% - (var(--gap) * (var(--per) - 1))) / var(--per));
     min-height:0;
-    padding-bottom:55px;
-    margin-bottom:100px;
-    position:relative;
     margin-left:var(--gap);
+    margin-bottom:100px;
 }
 
 @media (max-width:499px) {
@@ -47,6 +45,12 @@ article {
 article.status-private {
     opacity:0.7;
     filter:saturate( 50% );
+}
+
+
+article {
+    padding-bottom:55px;
+    position:relative;
 }
 
 .entry-header {
