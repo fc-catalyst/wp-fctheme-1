@@ -19,10 +19,13 @@
 			return el( 'div',
 				{ 'data-rows': initial },
 				el( InnerBlocks, {
-                    allowedBlocks: [ 'fct1-gutenberg/tile-numbered' ],
+                    allowedBlocks: [
+                        'fct1-gutenberg/tile-numbered',
+                        'fct1-gutenberg/tile-one'
+                    ],
                     template: [
-                        [ 'fct1-gutenberg/tile-numbered', {} ],
-                        [ 'fct1-gutenberg/tile-numbered', {} ]
+                        [ 'fct1-gutenberg/tile-one', {} ],
+                        [ 'fct1-gutenberg/tile-one', {} ]
                     ],
                     templateLock: false
                 }),

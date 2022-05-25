@@ -1,6 +1,6 @@
 .fct1-group {
     display:flex;
-    /*flex-wrap:wrap; /* make checkbox dependent */
+    flex-wrap:wrap;
     align-items:stretch;
     justify-content:space-between;
 }
@@ -26,7 +26,6 @@
 
 @media (max-width:991px) {
     .wp-block-column .fct1-group {
-        flex-wrap:wrap;
         justify-content:space-around;
     }
     .wp-block-column .fct1-group[data-rows] > * {
@@ -36,7 +35,6 @@
 
 @media (max-width:792px) {
     .fct1-group {
-        flex-wrap:wrap;
         justify-content:space-around;
     }
     .fct1-group[data-rows] > * {

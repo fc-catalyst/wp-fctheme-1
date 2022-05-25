@@ -4,7 +4,7 @@ Theme URI:      https://github.com/VVolkov833/wp-fctheme-1
 Description:    Custom theme, initially developed for klinikerfahrungen.de
 Author:         Firmcatalyst, Vadim Volkov
 Author URI:     https://firmcatalyst.com
-Version:        1.2.2
+Version:        1.2.6
 Text Domain:    fct1
 Domain Path:    /languages
 Requires at least: 5.0
@@ -146,26 +146,6 @@ body.admin-bar header.site-header {
     text-align:center;
 }
 
-.wp-block-buttons .fct1-button-select { /* ++move away */
-    position:relative;
-}
-.wp-block-buttons .fct1-button-select > a::after {
-    content:'';
-    display:block;
-    width:12px;
-    height:12px;
-    border:1px solid var(--h-color);
-    border-width:0px 1px 1px 0px;
-    position:absolute;
-    right:35px;
-    top:17px;
-    transform:rotate( 45deg );
-}
-.wp-block-buttons .fct1-button-select.fct1-active > a::after {
-    top:22px;
-    transform:rotate( -135deg );
-}
-
 /* float images mobile */
 @media (max-width:650px) {
     .wp-block-image .alignleft,
@@ -192,21 +172,6 @@ body.admin-bar header.site-header {
     }
 }
 
-/* headline with line ++-- */
-.with-line {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.with-line::after {
-    content:'';
-    flex:1;
-    height:2px;
-    margin-left:10px;
-    background-color:var(--h-color);
-}
-
 /* vertical gallery ++ transform to a gutenberg block or a shortcode */
 .fcp-vertical-gallery-wrap {
     position:relative;
@@ -220,8 +185,8 @@ body.admin-bar header.site-header {
     overflow:hidden;
 }
 
-/* functional */
-.fct1-open-next:not( .fct1-active ) + * {
+/* hide the next block to open onclick */
+.fct1-open-next:not( .active ) + * {
     max-height:0;
     margin-top:0;
     margin-bottom:0;
@@ -232,14 +197,8 @@ body.admin-bar header.site-header {
     overflow:hidden;
     transition:all 0.7s ease;
 }
-.fct1-open-next.fct1-active + * {
+.fct1-open-next.active + * {
     max-height:1800px;
-}
-
-/* video */
-.fct1-video > * {
-    width:100%;
-    min-height:312px;
 }
 
 /* pages navigation */

@@ -90,10 +90,10 @@
             }
         }
         
-        /* hidden fields show-hide */
-        $( '.fct1-open-next > a' ).click( function(e) {
+        /* toggle element after this one */
+        $( '.fct1-open-next' ).click( function(e) {
             e.preventDefault();
-            $( this ).parent().toggleClass( 'fct1-active' );
+            $( this ).toggleClass( 'active' );
         });
         
         

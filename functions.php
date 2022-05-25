@@ -191,7 +191,7 @@ add_action( 'init', function() {
 	];
 	$args = [
 		'label'               => 'fct-section',
-		'description'         => __( 'Global sections, which use Gutenberg editor (footer)', 'fct1' ),
+		'description'         => __( 'Global sections, which use Gutenberg editor (footer, custom header)', 'fct1' ),
 		'labels'              => $labels,
 		'supports'            => [
 									'title',
@@ -233,7 +233,7 @@ add_action( 'admin_init', function() {
 /* useful functions */
 
 // operate meta fields in a my / better way
-function fct1_meta($name = '', $before = '', $after = '') {
+function fct1_meta($name = '', $before = '', $after = '') { // ++allow $name be an array for entity-add/templates/func..gmap
     static $a = []; // collect all the values for further re-use
     if ( !$name ) { return; }
 
