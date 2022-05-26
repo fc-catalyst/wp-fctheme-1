@@ -20,7 +20,6 @@
 				{ 'data-rows': initial },
 				el( InnerBlocks, {
                     allowedBlocks: [
-                        'fct1-gutenberg/tile-numbered',
                         'fct1-gutenberg/tile-one'
                     ],
                     template: [

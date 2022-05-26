@@ -1,7 +1,7 @@
 .fct1-tile-one {
     position:relative;
     margin-bottom:20px;
-    padding:65px 15px 12px;
+    padding:50px 15px 12px;
     background-color:#fff;
     border-radius:6px;
     box-shadow:3px 6px 22px -10px #58acbc88;
@@ -36,6 +36,7 @@
 
 /* numbered */
 .fct1-tile-one.numbered {
+    padding-top:65px;
     text-align:left;
 }
 .fct1-tile-one.numbered::before {
