@@ -100,9 +100,11 @@
         /* add vertical gallery by class */
         if ( $( '#entity-gallery' ).length ) {
             fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/gallery-vertical.js?' + + new Date(),
+                '/wp-content/themes/fct1/assets/smarts/gallery-vertical.js',
                 'fcAddGallery',
-                function() { fcAddGallery( '#entity-gallery' ) }
+                function() { fcAddGallery( '#entity-gallery' ) },
+                [],
+                true
             );
         }
         
@@ -114,7 +116,7 @@
                 'google'
             );
             fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/gmap-view.js?' + + new Date(),
+                '/wp-content/themes/fct1/assets/smarts/gmap-view.js',
                 'fcAddGmapView',
                 function() { fcAddGmapView( $gmap_holder, true ) },
                 ['google']

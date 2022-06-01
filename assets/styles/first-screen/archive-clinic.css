@@ -109,11 +109,11 @@ article {
 .entry-header .entry-photo::before {
     content:'';
     position:absolute;
-    left:-100%;
+    left:-1px;
     top:0;
-    width:200%;
+    width:100%;
     height:100%;
-    background:linear-gradient(90deg, #d3d7da 52%, #d3d7da00 80%);
+    background:linear-gradient(90deg, #d3d7da 2%, #d3d7da00 55%);
 }
 
 .entry-photo img {
@@ -121,6 +121,13 @@ article {
     height:100%;
     object-fit:cover;
     object-position:center top;
+}
+
+.entry-header .entry-photo.entry-background {
+    width:100%;
+}
+.entry-header .entry-photo.entry-background::before {
+    background:linear-gradient(90deg, #d3d7daff 6%, #d3d7da00 100%);
 }
 
 article h2 {
@@ -195,12 +202,24 @@ article h2 > a {
 }
 
 /* hover */
-.fcp-list-clinic article {
+article {
     transition:box-shadow .2s ease-out;
 }
-.fcp-list-clinic article:hover {
+article:hover {
     box-shadow: 2px 3px 11px -2px #00000099;
 }
+/* newer old hover */
+/*
+article {
+    box-shadow:0px 0px 15px -10px #58acbcbb;
+    transform-origin:center bottom;
+    transition:box-shadow .2s ease-out, transform .2s ease-out;
+}
+article:hover {
+    box-shadow:5px 8px 28px -10px #58acbcbb;
+    transform:scale( 1.02 );
+}
+*/
 /* old hover */
 /*
 .entry-header {

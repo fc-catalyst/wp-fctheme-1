@@ -6,7 +6,7 @@
 function fcAddGallery(selector = '') {
 
     if ( !selector ) {
-        selector = '.fct1-vertical-gallery';
+        selector = '.fct1-vg';
     }
 
     var $ = jQuery,
@@ -14,23 +14,21 @@ function fcAddGallery(selector = '') {
 
     if ( !$self.length ) { return }
 
-    $( 'head' ).append( '<link rel="stylesheet" href="/wp-content/themes/fct1/assets/smarts/gallery-vertical.css" type="text/css" />' );
-
     var $children = $self.children();
         
-    $self.addClass( 'fct1-vertical-gallery' );
-    $self.parent().addClass( 'fct1-vertical-gallery-wrap' );
+    $self.addClass( 'fct1-vg' );
+    $self.parent().addClass( 'fct1-vg-wrap' );
 
     // navigation buttons
-    $self.before( '<div class="fct1-vertical-gallery-up"></div>' );
-    $self.after( '<div class="fct1-vertical-gallery-down"></div>' );
-    var $up = $self.prev( '.fct1-vertical-gallery-up' ),
-        $down = $self.next( '.fct1-vertical-gallery-down' );
+    $self.before( '<div class="fct1-vg-up"></div>' );
+    $self.after( '<div class="fct1-vg-down"></div>' );
+    var $up = $self.prev( '.fct1-vg-up' ),
+        $down = $self.next( '.fct1-vg-down' );
     
     $down.click( function() {
         var visible_height = Math.round( $self.parent().innerHeight() - $self.position()['top'] );
 
-        if ( visible_height > $self.outerHeight() ) { return; }
+        if ( visible_height > $self.outerHeight() ) { return }
 
         var cheights = [],
             vpheight = Math.max( document.documentElement.clientHeight || 0, window.innerHeight || 0 ),
@@ -49,7 +47,7 @@ function fcAddGallery(selector = '') {
             a = cheights[i];
             add += a;
 
-            if ( add <= cheight_above ) { continue; }
+            if ( add <= cheight_above ) { continue }
 
             new_step = add - cheight_above;
 
@@ -64,7 +62,7 @@ function fcAddGallery(selector = '') {
         }
         $up.show();
 
-        if ( !new_step ) { return; }
+        if ( !new_step ) { return }
 
         fcAddGallery.process( offset_now + new_step );
 
@@ -92,7 +90,7 @@ function fcAddGallery(selector = '') {
         
         $up.hide();
         $down.hide();
-        if ( $self.parent().innerHeight() - $self.position()['top'] > $self.outerHeight() ) { return; }
+        if ( $self.parent().innerHeight() - $self.position()['top'] > $self.outerHeight() ) { return }
         $down.show();
     };
     $up.hide();

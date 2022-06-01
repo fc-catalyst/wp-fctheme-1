@@ -12,6 +12,10 @@ require __DIR__ . '/inc/shortcodes.php';
 require __DIR__ . '/gutenberg/index.php';
 require __DIR__ . '/gutenberg/settings.php';
 
+add_action( 'wp_head', function() {
+    echo '<script>var fcVer = \'' . FCT1S_VER . '\'</script>' . "\n";
+}, 0 );
+
 unset( $fct1_settings_sample, $fct1_dev );
 
 
@@ -94,6 +98,7 @@ add_filter( 'wp_nav_menu_objects', function ($items) {
 	return $items;
 }, 10 );
 
+/*
 // print featured image url
 add_action( 'wp_head', function() { // ++--
     $page_id = get_queried_object_id();
@@ -102,6 +107,7 @@ add_action( 'wp_head', function() { // ++--
         echo '<style>:root{--featured-image:url("'.$img.'")}</style>'."\n";
     }
 }, 6 );
+//*/
 
 // hide the top gap behind the menu
 add_action( 'wp_head', function() {
