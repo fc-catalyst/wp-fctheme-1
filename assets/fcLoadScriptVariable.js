@@ -11,6 +11,7 @@
         if ( !path && !variable ) { return }
         path = path && !~path.indexOf( '?' ) ? path + '?ver=' + fcVer : path; // add version for static scripts
         //++ the version can be provided by a plugin - add one more custom argument to this function
+        //++ add a contitional argument to proceed, like if ( jQuery( '#entity-gallery' ).length ) {
         load.push( { p : path, v : variable, f : func, d : dependencies, c : css } );
         start();
     }
