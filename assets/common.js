@@ -95,19 +95,7 @@
             e.preventDefault();
             $( this ).toggleClass( 'active' );
         });
-        
-        
-        /* add vertical gallery by class */
-        if ( $( '#entity-gallery' ).length ) {
-            fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/gallery-vertical.js',
-                'fcAddGallery',
-                function() { fcAddGallery( '#entity-gallery' ) },
-                [],
-                true
-            );
-        }
-        
+
         /* add map by class */
         const $gmap_holder = $( '.fct1-gmap-view' );
         if ( $gmap_holder.length ) {

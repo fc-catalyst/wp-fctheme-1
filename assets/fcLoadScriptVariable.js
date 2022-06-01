@@ -10,6 +10,7 @@
     function init( path = '', variable = '', func = function(){}, dependencies = [], css = false ) {
         if ( !path && !variable ) { return }
         path = path && !~path.indexOf( '?' ) ? path + '?ver=' + fcVer : path; // add version for static scripts
+        //++ the version can be provided by a plugin - add one more custom argument to this function
         load.push( { p : path, v : variable, f : func, d : dependencies, c : css } );
         start();
     }
