@@ -7,9 +7,11 @@
         timer = setTimeout( function(){} ),
         tumbler = false;
 
-    function init( path = '', variable = '', func = function(){}, dependencies = [], css = false ) {
+    function init( path = '', variable = '', func = function(){}, dependencies = [], css = false, ver = '' ) {
         if ( !path && !variable ) { return }
-        path = path && !~path.indexOf( '?' ) ? path + '?ver=' + fcVer : path; // add version for static scripts
+        // add version for static scripts
+        // ++improve somehow, as a plugin can inherit the version from theme, which is Y
+        path = path && !~path.indexOf( '?' ) && ( ver || fcVer ) ? path + '?ver=' + ( ver ? ver : fcVer ) : path;
         //++ the version can be provided by a plugin - add one more custom argument to this function
         //++ add a contitional argument to proceed, like if ( jQuery( '#entity-gallery' ).length ) {
         load.push( { p : path, v : variable, f : func, d : dependencies, c : css } );
@@ -64,11 +66,7 @@
 
                 setAtts( // ++ can check if files exist first to avoid the error printing https://stackoverflow.com/questions/3646914/how-do-i-check-if-file-exists-in-jquery-or-pure-javascript
                     'script',
-                    {
-                        'type' : 'text/javascript',
-                        'src' : load[k].p,
-                        'async' : ''
-                    },
+                    { 'type' : 'text/javascript', 'src' : load[k].p, 'async' : '' },
                     loaded
                 );
 

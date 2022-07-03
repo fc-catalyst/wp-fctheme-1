@@ -12,11 +12,6 @@ body::before {
     justify-content:center;
 }
 
-h1,
-nav {
-    width:100%;
-}
-
 article {
     --per:1;
     --gap:8%;
@@ -64,7 +59,7 @@ article {
     top:-12px;
     z-index:2;
     padding:12px;
-    font-size:16px;
+    font-size:18px;
     font-weight:700;
     letter-spacing:0.5px;
     text-transform:uppercase;
@@ -92,7 +87,7 @@ article {
 
 article h2 {
     margin:0 0 8px;
-    font-size:16px;
+    font-size:18px;
     font-weight:600;
     text-transform:none;
     letter-spacing:0;
@@ -116,7 +111,7 @@ article h2 > a::before { /* over the image above */
 
 .entry-date {
     margin-bottom:8px;
-    font-size:16px;
+    font-size:18px;
     font-weight:300;
     color:var(--blog-main-color);
 }
@@ -124,10 +119,9 @@ article h2 > a::before { /* over the image above */
 .entry-excerpt,
 .entry-excerpt * {
     margin:0;
-    font-size:16px;
+    font-size:18px;
     font-weight:300;
     letter-spacing:0.8px;
-    color:#000;
 }
 
 .entry-read {
@@ -137,7 +131,7 @@ article h2 > a::before { /* over the image above */
     z-index:1;
     margin-left:-12px;
     padding:12px;
-    font-size:16px;
+    font-size:18px;
     font-weight:600;
     letter-spacing:0.8px;
     text-transform:uppercase;
@@ -217,9 +211,4 @@ article h2 > a:hover::before {
 
 .fct1-hero p {
     font-weight:300;
-}
-
-.fct1-hero .yoast-breadcrumbs {
-    position:absolute;
-    bottom:0;
 }

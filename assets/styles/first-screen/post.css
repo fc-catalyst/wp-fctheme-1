@@ -113,11 +113,6 @@ article ul li::before {
     text-decoration:none;
 }
 
-.fct1-hero .yoast-breadcrumbs {
-    position:absolute;
-    bottom:0;
-}
-
 .fct1-hero .entry-image {
     position:relative;
     z-index:1;

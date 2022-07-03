@@ -19,7 +19,7 @@ if ( !empty( $cats ) ) {
 
 $wp_query = new WP_Query( $query );
 
-?><div class="wrap-width tmp-tiles"><?php
+?><div class="entry-content wrap-width tmp-tiles"><?php
 
 if ( $wp_query->have_posts() ) {
     while ( $wp_query->have_posts() ) {

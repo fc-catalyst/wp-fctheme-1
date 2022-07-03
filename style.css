@@ -2,9 +2,9 @@
 Theme Name:     Firmcatslyst Theme 1
 Theme URI:      https://github.com/VVolkov833/wp-fctheme-1
 Description:    Custom theme, initially developed for klinikerfahrungen.de
-Author:         Firmcatalyst, Vadim Volkov
+Author:         Firmcatalyst, Vadim Volkov, Konstantin Nowotny
 Author URI:     https://firmcatalyst.com
-Version:        1.4.1
+Version:        1.4.8
 Text Domain:    fct1
 Domain Path:    /languages
 Requires at least: 5.0
@@ -61,8 +61,8 @@ li {
     margin:0 0 8px;
     padding:0 0 0 4px;
     line-height:1.6;
-    font-size:16px;
-    font-weight:400;
+    font-size:18px;
+    font-weight:300;
 }
 
 a {
@@ -73,7 +73,7 @@ a:hover {
     opacity:0.9;
 }
 b, strong {
-    font-weight:700;
+    font-weight:600;
 }
 
 img {
@@ -130,6 +130,11 @@ body.admin-bar header.site-header {
     width:100%;
     box-sizing:border-box;
     white-space:nowrap;
+}
+.is-style-outline .wp-block-button__link {
+    padding-left:2em;
+    padding-right:2em;
+    font-weight:600;
 }
 
 /* gutenberg styling */
@@ -214,7 +219,6 @@ body.admin-bar header.site-header {
     list-style-type:none;
     margin-bottom:12px;
     padding-left:0;
-    font-weight:400;
 }
 .site-footer a {
     text-decoration:none;
@@ -222,4 +226,38 @@ body.admin-bar header.site-header {
 }
 .site-footer h4 {
     padding-top:19px;
+}
+
+/* Rank Math FAQ CSS */
+#rank-math-faq .rank-math-list-item {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-bottom: 1px solid #fff;
+}
+
+.rank-math-question {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    padding-right: 1em;
+    margin-right: 1em;
+    font-weight: 300;
+    margin-top: 30px;
+}
+
+.rank-math-question:after {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    content: "\2715";
+    transform: rotate(-45deg);
+    transition: all 150ms ease-in-out;
+}
+
+.rank-math-question.collapse:after {
+    transform: rotate(0deg);
+}
+
+.rank-math-question:hover {
+    opacity: 0.8;
 }

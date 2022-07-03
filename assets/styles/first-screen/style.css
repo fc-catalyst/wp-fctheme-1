@@ -32,7 +32,7 @@ body {
 	padding:0;
 }
 body * {
-	font-family:'brandon-grotesque', sans-serif;
+	font-family:'Jost', sans-serif;
 }
 
 h1 {
@@ -49,24 +49,24 @@ h1 > strong {
 }
 h2 {
     margin:35px 0 23px;
-    font-size:32px;
-    line-height:1.5;
+    font-size:42px;
+    line-height:1.45;
     font-weight:700;
     letter-spacing:2px;
     color:var(--h-color);
 }
 h3 {
     margin:30px 0 23px;
-    font-size:28px;
+    font-size:36px;
     line-height:1.5;
     font-weight:400;
     color:var(--h-color);
 }
 p {
     margin:17px 0 22px;
-    font-size:16px;
+    font-size:18px;
     line-height:1.6;
-    font-weight:400;
+    font-weight:300;
 }
 
 
@@ -686,8 +686,22 @@ body .entry-content .wp-block-image {
 .has-f-15-font-size { font-size:15px }
 .has-f-16-font-size { font-size:16px }
 .has-f-18-font-size { font-size:18px }
+.has-f-20-font-size { font-size:20px }
 .has-f-22-font-size { font-size:22px }
 .has-f-26-font-size { font-size:26px }
 .has-f-30-font-size { font-size:30px }
 .has-f-32-font-size { font-size:32px }
 .has-f-46-font-size { font-size:46px }
+
+/* breadcrumbs */
+.yoast-breadcrumbs,
+.rank-math-breadcrumb {
+    position:absolute;
+    bottom:0;
+}
+.yoast-breadcrumbs *,
+.rank-math-breadcrumb * {
+    font-size:14px;
+    font-weight:400;
+    text-decoration:none;
+}

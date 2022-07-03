@@ -2,7 +2,7 @@
 .author-box {
     margin-top:60px;
     margin-bottom:40px;
-    background-color:#fff;
+    font-weight:300;
 }
 .author-photo {
     width:100%;
@@ -53,6 +53,7 @@
     padding-bottom:55px;
     position:relative;
     margin-left:var(--gap);
+    margin-bottom:50px;
 }
 
 @media (max-width:499px) {

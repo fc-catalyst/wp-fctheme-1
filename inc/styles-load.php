@@ -3,7 +3,7 @@
 // ++add namespace
 
 // add styles
-add_action( 'wp_enqueue_scripts', function() { // ++try get_footer, if wp-rocket not installed and GInsights reacts better
+add_action( 'wp_enqueue_scripts', function() { // ++try footer?
 
     $enqueue_dir = get_template_directory() . '/assets/styles/';
     $enqueue_url = get_template_directory_uri() . '/assets/styles/';
