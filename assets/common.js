@@ -100,15 +100,23 @@
         const $gmap_holder = $( '.fct1-gmap-view' );
         if ( $gmap_holder.length ) {
             fcLoadScriptVariable(
-                'https://maps.googleapis.com/maps/api/js?key='+fcGmapKey+'&libraries=places', // ++unite global variables
-                'google'
-            );
-            fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/gmap-view.js',
-                'fcAddGmapView',
-                function() { fcAddGmapView( $gmap_holder, true ) },
-                ['google']
-            );
+                '/wp-content/themes/fct1/assets/smarts/fcOnVisibleDo.js',
+                'fcOnVisibleDo', function() {
+
+                fcOnVisibleDo( '.fct1-gmap-view', function() {
+                    fcLoadScriptVariable(
+                        'https://maps.googleapis.com/maps/api/js?key='+fcGmapKey+'&libraries=places', // ++unite global variables
+                        'google'
+                    );
+                    fcLoadScriptVariable(
+                        '/wp-content/themes/fct1/assets/smarts/gmap-view.js',
+                        'fcAddGmapView',
+                        function() { fcAddGmapView( $gmap_holder, true ) },
+                        ['google']
+                    );
+                }, 200 );
+                    
+            });
         }
         
 },300)}();
