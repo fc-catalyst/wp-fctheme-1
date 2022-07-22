@@ -47,7 +47,7 @@
                 el.setAttribute( k, atts[k] );
             }
             if ( atts.src && onload && typeof onload === 'function' ) {
-                el.addEventListener( 'load', onload );
+                el.addEventListener( 'load', onload ); //++here is no check for the variable?
             }
             document.head.appendChild( el );
         };
