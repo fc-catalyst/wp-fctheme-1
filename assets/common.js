@@ -96,14 +96,15 @@
             $( this ).toggleClass( 'active' );
         });
 
-        /* add map by class */
+        /* add map by class | moved to borlabs */
+/*
         const $gmap_holder = $( '.fct1-gmap-view' );
         if ( $gmap_holder.length ) {
             fcLoadScriptVariable(
                 '/wp-content/themes/fct1/assets/smarts/fcOnVisibleDo.js',
                 'fcOnVisibleDo', function() {
 
-                fcOnVisibleDo( '.fct1-gmap-view', function() {
+                fcOnVisibleDo( $gmap_holder, function() {
                     fcLoadScriptVariable(
                         'https://maps.googleapis.com/maps/api/js?key='+fcGmapKey+'&libraries=places', // ++unite global variables
                         'google'
@@ -114,9 +115,25 @@
                         function() { fcAddGmapView( $gmap_holder, true ) },
                         ['google']
                     );
-                }, 200 );
+                }, 150 );
                     
-            });
+            }, ['jQuery'] );
         }
-        
+//*/
+        /* add video by class */
+        const $video_holder = $( '.fct1-video[data-source=direct]' ); // only direct videos, as youtube is in borlabs
+        if ( $video_holder.length ) {
+            fcLoadScriptVariable(
+                '/wp-content/themes/fct1/assets/smarts/fcOnVisibleDo.js',
+                'fcOnVisibleDo', function() {
+                    fcOnVisibleDo( $video_holder, function(self) {
+                        fcLoadScriptVariable(
+                            '/wp-content/themes/fct1/assets/smarts/video.js',
+                            'fcAddVideo',
+                            function() { fcAddVideo( self ) }
+                        );
+                }, -200 );
+            }, ['jQuery'] );
+        }
+
 },300)}();
