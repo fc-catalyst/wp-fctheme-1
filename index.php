@@ -14,6 +14,27 @@ if ( have_posts() ) :
                 <h1 class="entry-title" itemprop="headline"><?php the_title() ?></h1>
             </header>
             <?php } ?>
+            <?php
+            if ( $custom_header = get_post_meta( get_the_ID(), 'custom-header', true ) ) {
+                $the_query = new WP_Query( [
+                    'post_type'      => 'fct-section',
+                    'p'              => $custom_header,
+                    'posts_per_page' => 1,
+                    'post_status'    => 'publish',
+                ]);
+                if ( $the_query->have_posts() ) {
+                    while ( $the_query->have_posts() ) {
+                        $the_query->the_post();
+                ?>		
+                <header class="entry-header entry-content">
+                    <?php the_content() ?>
+                </header>
+                <?php
+                    }
+                    wp_reset_postdata();
+                }
+            }
+            ?>
             <div class="entry-content">
                 <?php the_content() ?>
             </div>

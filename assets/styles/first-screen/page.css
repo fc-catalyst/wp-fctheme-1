@@ -1,31 +1,36 @@
+/* gurenberg hero */
 .fct1-hero {
-    min-height:100vh;
-    padding:0!important;
+    min-height:40vh;
+    position:relative;
 }
 
-.fct1-hero > * {
+.fct1-hero::after {
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:63%;
+    background-image:url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 160 160'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='3' d='m 158.5,80.3 c 0,43.5 -35.3,78.7 -78.7,78.7 -43.5,0 -78.8,-35.3 -78.8,-78.7 0,-43.5 35.3,-78.8 78.8,-78.8 43.5,0 78.7,35.3 78.7,78.8 z'/%3E%3Cg fill='none' stroke='%23fff' stroke-linejoin='round' stroke-width='3'%3E%3Cpath d='m 79,97.4 c -17.4,-14.2 0.2,-28.4 0.2,-28.4 0,0 17.9,13.6 0.4,28.5 z'/%3E%3Cpath d='m 79.2,69.9 -0,27'/%3E%3Cpath d='m 78.9,55.6 c -17.5,-14 -0,-28.4 -0,-28.4 0,0 18,13.5 0.6,28.4 z' /%3E%3Cpath d='m 78.9,28 0.2,27' /%3E%3Cpath d='M 60.4,38.3 C 38,36.6 44.4,14.8 44.4,14.8 c 0,0 22.5,1.1 16.5,23.2 z' /%3E%3Cpath d='M 45,15.5 60.3,37.8' /%3E%3Cpath d='m 41.9,60.1 c -21.5,6.6 -23.6,-15.9 -23.6,-15.9 0,0 21.3,-7.3 23.9,15.5 z' /%3E%3Cpath d='M 19.2,44.6 41.6,59.6' /%3E%3Cpath d='M 69.4,68.9 C 47.2,72.5 48.3,49.8 48.3,49.8 c 0,0 22.1,-4.3 21.5,18.6 z' /%3E%3Cpath d='M 49,50.4 69.2,68.3' /%3E%3Cpath d='M 46.3,88.2 C 24.1,91.8 25.2,69.1 25.2,69.1 c 0,0 22.1,-4.3 21.5,18.6 z' /%3E%3Cpath d='M 25.9,69.7 46.1,87.6' /%3E%3Cpath d='m 41.4,104.2 c -14.1,17.4 -28.5,-0.1 -28.5,-0.1 0,0 13.6,-17.9 28.5,-0.5 z' /%3E%3Cpath d='m 13.8,104 27,-0' /%3E%3Cpath d='M 71.1,113.2 C 50.4,122 46,99.7 46,99.7 c 0,0 20.4,-9.4 25.4,12.9 z' /%3E%3Cpath d='m 46.8,100.1 23.9,12.6' /%3E%3Cpath d='m 64.4,123.9 c -1.8,22.4 -23.5,16 -23.5,16 0,0 1.1,-22.4 23.2,-16.5 z' /%3E%3Cpath d='M 41.6,139.2 63.8,123.9' /%3E%3Cpath d='m 96.3,38.8 c 22.4,-1.8 16,-23.5 16,-23.5 0,0 -22.5,1.1 -16.5,23.2 z' /%3E%3Cpath d='M 111.7,16 96.4,38.3' /%3E%3Cpath d='m 116.3,60.3 c 21.5,6.6 23.6,-15.9 23.6,-15.9 0,0 -21.3,-7.3 -23.9,15.5 z' /%3E%3Cpath d='M 139.1,44.7 116.6,59.7' /%3E%3Cpath d='m 90.4,68.5 c 22.2,3.6 21.1,-19.1 21.1,-19.1 0,0 -22.1,-4.3 -21.5,18.6 z' /%3E%3Cpath d='M 110.8,49.9 90.6,67.9' /%3E%3Cpath d='m 109.9,87.8 c 22.2,3.6 21.1,-19.1 21.1,-19.1 0,0 -22.1,-4.3 -21.5,18.6 z' /%3E%3Cpath d='M 130.3,69.3 110.1,87.3' /%3E%3Cpath d='m 117,106.7 c 14.1,17.4 28.5,-0.1 28.5,-0.1 0,0 -13.6,-17.9 -28.5,-0.5 z' /%3E%3Cpath d='m 144.5,106.5 -27,-0' /%3E%3Cpath d='m 86.7,114.3 c 20.7,8.8 25.1,-13.4 25.1,-13.4 0,0 -20.4,-9.4 -25.4,12.9 z' /%3E%3Cpath d='M 111,101.3 87.1,113.9' /%3E%3Cpath d='m 95.1,123.6 c 1.8,22.4 23.5,16 23.5,16 0,0 -1.1,-22.4 -23.2,-16.5 z' /%3E%3Cpath d='M 118,139 95.7,123.7' /%3E%3Cpath d='M 79.2,55.6 V 159.6' /%3E%3Cpath d='m 86.4,114 v 45' /%3E%3Cpath d='m 71.5,112.8 v 45.5' /%3E%3C/g%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:0 center;
+    background-size:auto 140%;
+    opacity:0.05;
+    filter:blur(0.2rem);
+    -webkit-filter:blur(0.2rem);
+}
+
+.fct1-hero > *:first-child {
     padding-top:var(--menu-height);
     padding-bottom:var(--menu-height);
     position:relative;
-    overflow:hidden;
-    min-height:50vh;
-}
-.fct1-hero > * img {
-    width:100%;
-    height:100%;
-    position:absolute;
-    left:0;
-    top:0;
-    object-fit:cover;
-    object-position:center center;
 }
 
-.fct1-hero .wp-block-column > * {
-    max-width:540px;
-    margin:var(--menu-height) auto 0;
-}
-
-.fct1-hero h1 {
-    font-size:45px;
+.blog .fct1-hero h1,
+.archive .fct1-hero h1 small {
     text-transform:uppercase;
+}
+
+.fct1-hero p {
+    font-weight:300;
 }

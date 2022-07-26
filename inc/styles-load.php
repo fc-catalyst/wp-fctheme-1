@@ -86,21 +86,16 @@ function fct1_get_style_files_() {
     if ( $files !== null ) { return $files; }
 
     $files = [];
-    if ( is_front_page() ) {
-        $files[] = 'front-page';
-    }
-    if ( is_search() ) {
-        $files[] = 'search';
-    }
 
     // get post type
     $qo = get_queried_object();
-    if ( !is_object( $qo ) ) { return $files; }
-    if ( get_class( $qo ) === 'WP_Post_Type' ) {
-        $post_type = $qo->name;
-    }
-    if ( get_class( $qo ) === 'WP_Post' ) {
-        $post_type = $qo->post_type;
+    if ( is_object( $qo ) ) {
+        if ( get_class( $qo ) === 'WP_Post_Type' ) {
+            $post_type = $qo->name;
+        }
+        if ( get_class( $qo ) === 'WP_Post' ) {
+            $post_type = $qo->post_type;
+        }
     }
 
     if ( is_singular( $post_type ) ) {
@@ -111,6 +106,13 @@ function fct1_get_style_files_() {
     }
     if( is_post_type_archive( $post_type ) ) {
         $files[] = 'archive-' . $post_type;
+    }
+    
+    if ( is_front_page() ) {
+        $files[] = 'front-page';
+    }
+    if ( is_search() ) {
+        $files[] = 'search';
     }
 
     return $files;
