@@ -9,6 +9,7 @@ require __DIR__ . '/inc/styles-load.php';
 require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
 require __DIR__ . '/inc/shortcodes.php';
+require __DIR__ . '/inc/crutches.php';
 require __DIR__ . '/gutenberg/index.php';
 require __DIR__ . '/gutenberg/settings.php';
 
