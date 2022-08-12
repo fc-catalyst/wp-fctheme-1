@@ -114,6 +114,13 @@ function fct1_get_style_files_() {
     if ( is_search() ) {
         $files[] = 'search';
     }
+    
+    if ( comments_open() ) {
+        $files[] = 'comment-form';
+    }
+    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+        $files[] = 'comments';
+    }
 
     return $files;
 }

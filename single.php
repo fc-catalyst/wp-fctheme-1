@@ -62,7 +62,9 @@ if ( have_posts() ) :
     <?php get_template_part( 'template-parts/post', 'moreposts' ) ?>
 </div>
 
+
 <?php comments_template() ?>
+
 
 <?php
 

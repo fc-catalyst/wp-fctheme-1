@@ -1,0 +1,62 @@
+.comments-list {
+    margin:65px auto 20px;
+    /*max-width:900px;*/
+}
+
+.comments-list li.comment {
+    list-style-type:none;
+    margin-bottom:55px;
+}
+
+.comment-author {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+    font-size:24px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:var(--h-color);
+}
+.comment-author img {
+    border-radius:50%;
+    margin-right:25px;
+}
+.comment-author cite {
+    font-style:normal;
+}
+.comment-author .says {
+    display:none;
+}
+
+.comment-author::after {
+    content:'';
+    flex:1;
+    height:2px;
+    margin-left:10px;
+    background-color:var(--h-color);
+}
+
+.comments-area .comment-meta,
+.comments-area .reply {
+    display:flex;
+    margin-top:16px;
+    font-size:14px;
+    opacity:0.6;
+}
+.comments-area .comment-meta > *,
+.comments-area .reply > * {
+    margin-right:12px;
+}
+
+/* a reply */
+.comments-area .comment .comment {
+    margin:30px 0 0 40px;
+    padding-left:25px;
+    border-left:2px solid var(--h-color);
+    opacity:0.8;
+    transition:opacity .1s ease-out;
+}
+.comments-area .comment .comment:hover {
+    opacity:1;
+}

@@ -1,6 +1,6 @@
 <?php
 
-$fct1_dev = false;
+$fct1_dev = true;
 
 $fct1_settings_sample = is_file( __DIR__ . '/settings.php' ) ? '' : '-sample';
 
@@ -9,13 +9,11 @@ require __DIR__ . '/inc/styles-load.php';
 require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
 require __DIR__ . '/inc/shortcodes.php';
+require __DIR__ . '/inc/comments.php';
 require __DIR__ . '/inc/crutches.php';
 require __DIR__ . '/gutenberg/index.php';
 require __DIR__ . '/gutenberg/settings.php';
 
-add_action( 'wp_head', function() {
-    echo '<script>var fcVer = \'' . FCT1S_VER . '\'</script>' . "\n";
-}, 0 );
 
 unset( $fct1_settings_sample, $fct1_dev );
 
@@ -280,6 +278,7 @@ function fcLoadScriptVariable() {
 ?><script type="text/javascript">
 <?php require __DIR__ . '/assets/fcLoadScriptVariable.'.( FCT1S['dev'] ? 'js' : 'min.js' ) ?>
 window.fcGmapKey='<?php echo FCT1S['gmap_api_key'] ?>';
+window.fcVer = '<?php echo FCT1S_VER ?>';
 </script><?php
 }
 

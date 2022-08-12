@@ -1,0 +1,60 @@
+.comment-respond {
+    margin:65px auto 20px;
+    /*max-width:900px;*/
+}
+.comment-form {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+.comment-form > * {
+    width:100%;
+    margin-bottom:0;
+}
+.comment-form .comment-form-author,
+.comment-form .comment-form-email {
+    width:49%;
+}
+
+.comment-form input[type=text],
+.comment-form textarea {
+    width:100%;
+    border:2px solid var(--h-color);
+    padding:10px 13px;
+    box-sizing:border-box;
+    -webkit-appearance:none;
+}
+
+.comment-form .form-submit {
+    text-align:right;
+}
+.comment-form input[type=submit] {
+    border:none;
+    border-radius:22px;
+    padding:12px 45px;
+    box-sizing:border-box;
+    -webkit-appearance:none;
+    background-color:var(--h-color);
+    text-transform:uppercase;
+    color:#fff;
+    cursor:pointer;
+}
+
+.comment-form input[type=checkbox] {
+    position:absolute;
+    z-index:-1;
+    opacity:0;
+    pointer-events:none;
+}
+.comment-form input[type=checkbox] + label::before {
+    content:'';
+    display:inline-block;
+    width:14px;
+    height:14px;
+    border:2px solid var(--h-color);
+    margin-right:12px;
+    background-color:#fff;
+}
+.comment-form input[type=checkbox]:checked + label::before {
+    background-color:var(--a-color);
+}
