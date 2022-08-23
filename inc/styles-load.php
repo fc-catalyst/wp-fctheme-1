@@ -118,7 +118,7 @@ function fct1_get_style_files_() {
     if ( comments_open() ) {
         $files[] = 'comment-form';
     }
-    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
+    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) || $_GET['unapproved'] ) {
         $files[] = 'comments';
     }
 
