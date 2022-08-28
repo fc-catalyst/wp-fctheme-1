@@ -80,38 +80,7 @@ body::before {
 .entry-about span {
     white-space:nowrap;
 }
-/*
-.entry-rating {
-    margin-bottom:10px;
-}
-.entry-rating .cr_rating_bar + span {
-    display:inline-block;
-    margin-left:12px;
-    font-size:26px;
-    color:#f5b309;
-}
-.entry-rating .cr_rating_bar > div {
-    background-color:#fff;
-}
 
-.entry-rate {
-    margin-top:30px;
-}
-.entry-rate .wp-block-button__link {
-    padding-top:0.3em;
-    padding-bottom:0.3em;
-    text-transform:uppercase;
-    font-size:16px;
-    font-weight:700;
-}
-.entry-rate .wp-block-button__link::after {
-    content:'\000BB';
-    display:inline-block;
-    margin-left:10px;
-    font-weight:300;
-    transform:rotate( 90deg ) scale( 1.3 );
-}
-*/
 .entry-avatar {
     display:flex;
     align-items:center;
