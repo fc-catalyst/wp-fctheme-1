@@ -118,7 +118,8 @@ function fct1_get_style_files_() {
     if ( comments_open() ) {
         $files[] = 'comment-form';
     }
-    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) || $_GET['unapproved'] ) {
+
+    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) || $_GET['unapproved'] || isset( $_COOKIE[ 'comment_author_' . COOKIEHASH ] ) || isset( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ) {
         $files[] = 'comments';
     }
 
