@@ -49,6 +49,15 @@
     margin-right:12px;
 }
 
+.comments-area .comment-more {
+    margin-top:16px;
+    font-size:14px;
+    opacity:0.6;
+}
+.comments-area .comment-more > * {
+    margin-right:12px;
+}
+
 /* a reply */
 .comments-area .comment .comment {
     margin:30px 0 0 40px;
