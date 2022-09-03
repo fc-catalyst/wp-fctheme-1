@@ -18,6 +18,7 @@
         </li>
 	</ul>
 
+    <input type="checkbox" id="nav-primary-toggle" aria-hidden="true">
 	<header class="site-header">
 		<div class="header-wrap">
 
@@ -29,8 +30,7 @@
 
             <?php if ( has_nav_menu( 'main' ) ) : ?>
             <nav class="nav-primary" id="nav-primary" aria-label="Main menu">
-                <input type="checkbox" id="nav-primary-toggle" aria-hidden="true">
-                <label for="nav-primary-toggle"></label>
+                <label for="nav-primary-toggle" class="toggle-label"></label>
                 <?php
                     wp_nav_menu( [
                         'theme_location'  => is_user_logged_in() ? 'logged' : 'main',
