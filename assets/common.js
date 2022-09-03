@@ -3,12 +3,11 @@
         anchor_links();
         menu_events();
 
-        var scrolled = $( window ).scrollTop();
-        body_add_scrolled();
+        let scrolled = window.scrollY;
+        scrolled_monitor();
 
         $( window ).on( 'scroll', function() {
-            scrolled = $( window ).scrollTop();
-            body_add_scrolled();
+            scrolled_monitor();
         });
 
         /* the functions for the events above */
@@ -31,17 +30,19 @@
             });
         }
 
-        function body_add_scrolled() {
-            var $body = $( 'body' );
-            if ( scrolled > 20 ) {
-                if ( $body.hasClass( 'scrolled' ) )
-                    return;
-                $body.addClass( 'scrolled' );
-                return;
-            }
-            $body.removeClass( 'scrolled' );
+        function scrolled_monitor() {
+            const l = document.body.classList,
+                  s = window.scrollY,
+                  c = 'scrolled', d = 'scrollingDown';
+            if ( s < 40 ) { l.remove( c, d ); return }
+            l.add( c );
+            if ( s < 300 ) { l.remove( d ); return }
+            l.add( d );
+            if ( s < scrolled ) { l.remove( d ) }
+            else { l.add( d ) }
+            scrolled = s;
         }
-        
+
         function scroll_to_object(target) {
 
             if ( typeof target ==='string' || typeof target === 'object' && !target instanceof $ ) {
@@ -62,7 +63,7 @@
         
         function scroll_offset() {
             var offset = 0,
-                $heightObject = $( '.header-fixed .site-header' );
+                $heightObject = $( '.site-header' );
             if ( $heightObject.length ) {
                 offset = $heightObject.height();
             }

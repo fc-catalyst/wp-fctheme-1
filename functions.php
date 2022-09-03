@@ -1,6 +1,6 @@
 <?php
 
-$fct1_dev = false;
+$fct1_dev = true;
 
 $fct1_settings_sample = is_file( __DIR__ . '/settings.php' ) ? '' : '-sample';
 
@@ -41,12 +41,6 @@ add_action( 'after_setup_theme', function() {
 
 });
 
-
-// fixed header on/off
-add_filter( 'body_class', function ($classes) {
-    return array_merge( $classes, ['header-fixed'] );
-});
-
 // menu & thumbnails
 add_action( 'init', function() {
 	register_nav_menus( [
@@ -75,7 +69,7 @@ add_filter( 'excerpt_length', function($number) {
 });
 
 // svg support
-add_filter( 'upload_mimes', function($types) { // ++install a plugin, if meta data is needed for the files
+add_filter( 'upload_mimes', function($types) { // install a plugin, if meta data is needed for svg images (sizes)
     if ( !current_user_can( 'administrator' ) ) { return $types; }
 
     $types['svg'] = 'image/svg+xml';
