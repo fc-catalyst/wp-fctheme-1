@@ -355,60 +355,49 @@ body::before {
 
 
 /* iconed menu items */
-:root {
+.site-header {
     --i-dummy:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle fill='none' stroke='black' stroke-width='.5' r='7.5' cy='8' cx='8' /%3E%3C/svg%3E%0A");
-}
-
-.menu-iconed > a::before {
-	content:'___';
-	display:inline-block;
-    vertical-align:top;
-    width:auto;
-    height:100%;
-    margin-right:9px;
-    background:var(--link-color);
-    transition:background 0.3s ease;
-    mask:var(--i-dummy) center / contain no-repeat;
-    -webkit-mask:var(--i-dummy) center / contain no-repeat;
-}
-.scrolled .menu-iconed > a::before {
-    background:var(--link-color-s);
-}
-
-@media (min-width:950px) { /* hide the text on desktop */
-    .menu-iconed.menu-hide-content > a {
-        letter-spacing:-1.1ch;
-        color:transparent!important;
-    }
-    .menu-iconed.menu-hide-content > a::before {
-        letter-spacing:1px;
-        margin-right:-2px!important;
-    }
-}
-
-/* icons list */
-:root {
     --i-user-filled:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg fill='black' stroke='black' stroke-width='.5'%3E%3Ccircle r='3.7' cy='4.3' cx='8'%0A/%3E%3Cpath d='m 10,9 c -1.5,0.7 -2.8,0.7 -4,0 -3,0 -4.3,2.1 -4.4,3.9 v 1.22 c 0,0.8 0.6,1.4 1.4,1.4 H 13 c 0.8,0 1.4,-0.6 1.4,-1.4 v -1.2 c 0,-1.8 -1.7,-3.9 -4.4,-3.94 z' /%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
+.menu-iconed {
+    white-space:nowrap;
+}
+.menu-iconed > a::before {
+	content:' ';
+	display:inline-block;
+    vertical-align:top;
+    width:2ch;
+    height:2ch;
+    margin-right:12px;
+    line-height:0;
+    mask:var(--i-dummy) center / contain no-repeat;
+    -webkit-mask:var(--i-dummy) center / contain no-repeat;
+}
+@media (min-width:950px) { /* hide the text on desktop */
+    .menu-iconed.menu-hide-content > a {
+        width:2ch;
+        overflow:hidden;
+    }
+}
 .menu-iconed.i-user-filled > a::before {
-    mask:var(--i-user-filled) center / contain no-repeat;
-    -webkit-mask:var(--i-user-filled) center / contain no-repeat;
+    mask-image:var(--i-user-filled);
+    -webkit-mask-image:var(--i-user-filled);
 }
 
-@media (min-width:950px) { /* an althernative icon view */
-    .menu-i-alt > a {
-        margin-left:12px;
-        padding:14px!important;
-        border-radius:50%;
-        background-color:#fff!important;
-        overflow:hidden;
-        transform:scale(0.75);
-    }
-    .menu-i-alt > a::before {
-        margin:3px -3px -3px 0!important;
-        background-color:#277888!important;
-        transform:scale(2.45);
+.menu-iconed > a::before {
+    background:var(--link-color);
+    transition:background 0.3s ease;
+}
+.site-header:hover .menu-iconed > a::before {
+    background:var(--bg-h-link-color);
+}
+.site-header .menu-iconed:hover > a::before {
+    background:var(--link-color-h);
+}
+@media (max-width:949px) {
+    #nav-primary-toggle:checked + .site-header .menu-iconed > a::before {
+        background:var(--bg-h-link-color);
     }
 }
 
