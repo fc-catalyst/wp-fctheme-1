@@ -15,7 +15,7 @@ body::before {
     overflow:hidden;
 }
 .fct1-hero > * {
-    padding-top:calc( var(--menu-height) + 30px );
+    padding-top:calc( var(--header-height-init) + 30px );
     padding-bottom:60px;
     position:relative;
     z-index:1;

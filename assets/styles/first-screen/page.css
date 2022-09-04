@@ -21,8 +21,8 @@
 }
 
 .fct1-hero > *:first-child {
-    padding-top:var(--menu-height);
-    padding-bottom:var(--menu-height);
+    padding-top:var(--header-height-init);
+    padding-bottom:var(--header-height-init);
     position:relative;
 }
 

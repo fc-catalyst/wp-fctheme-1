@@ -36,7 +36,7 @@
                   c = 'scrolled', d = 'scrollingDown';
             if ( s < 40 ) { l.remove( c, d ); return }
             l.add( c );
-            if ( s < 300 ) { l.remove( d ); return }
+            if ( s < 300 ) { l.remove( d ); return } //++can make less sensitive
             l.add( d );
             if ( s < scrolled ) { l.remove( d ) }
             else { l.add( d ) }
