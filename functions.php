@@ -1,6 +1,6 @@
 <?php
 
-$fct1_dev = true;
+$fct1_dev = false;
 
 $fct1_settings_sample = is_file( __DIR__ . '/settings.php' ) ? '' : '-sample';
 

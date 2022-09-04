@@ -72,7 +72,7 @@
         
         function menu_events() {
             var $checkbox = $( '#nav-primary-toggle' ),
-                hamburger = $checkbox.next();
+                $hamburger = $( '#nav-primary-toggle + .site-header .toggle-label' );
 
             $checkbox.click( function() {
                 setTimeout( function() {
@@ -83,7 +83,7 @@
             });
 
             function menuHide(e) {
-                if ( e.target === hamburger[0] ) {
+                if ( e.target === $hamburger[0] ) {
                     e.preventDefault();
                 }
                 $checkbox.prop( 'checked', false );
