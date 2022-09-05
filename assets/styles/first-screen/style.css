@@ -654,6 +654,7 @@ body .entry-content .wp-block-image {
 .has-fct-1-grey-4-color * { color:#d3d7da }
 /* a copy of the following is in /gutenberg/settings.php */
 .has-fct1-gradient-1-gradient-background { background:linear-gradient(60deg, #277888 10%, #58acbc 90%) }
+.has-fct1-gradient-2-gradient-background { background:linear-gradient(240deg, #fce0a9 20%, #d3af69 90%) }
 
 .has-f-12-font-size { font-size:12px }
 .has-f-15-font-size { font-size:15px }
