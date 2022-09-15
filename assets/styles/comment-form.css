@@ -1,3 +1,9 @@
+.comments-area {
+    padding-top:50px;
+    padding-bottom:50px;
+    background-color:#fafafa;
+}
+
 .comment-respond {
     margin:65px auto 20px;
     /*max-width:900px;*/
