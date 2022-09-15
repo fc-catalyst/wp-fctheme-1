@@ -6,7 +6,7 @@ add_action( 'init', function() {
 		'fct1-basic-block',
 		get_template_directory_uri() . '/gutenberg/'. basename( __DIR__ ) . '/block.js',
 		[ 'wp-blocks', 'wp-element', 'wp-block-editor' ],
-		FCT1S_VER . filemtime( __DIR__ . '/block.js' ),
+		FCT1S_VER,
 		true
 	);
     

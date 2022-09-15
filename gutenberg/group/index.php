@@ -28,14 +28,14 @@ add_action( 'init', function() use ( $block_name ) {
         'fct1-' . $block_name . '-block',
         get_template_directory_uri() . '/gutenberg/' . $block_name . '/block.js',
         ['wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components'],
-        FCT1S_VER . filemtime( __DIR__ . '/block.js' )
+        FCT1S_VER
     );
     
     wp_register_style(
         'fct1-' . $block_name . '-editor',
         get_template_directory_uri() . '/gutenberg/' . $block_name . '/editor.css',
         ['wp-edit-blocks'],
-        FCT1S_VER . filemtime( __DIR__ . '/editor.css' )
+        FCT1S_VER
     );
 });
 
@@ -46,7 +46,7 @@ add_action( 'wp_enqueue_scripts', function() use ( $block_name ) { // ++add firs
     wp_enqueue_style( 'fct1-' . $block_name,
         get_template_directory_uri() . '/gutenberg/' . $block_name . '/style.css',
         false,
-        FCT1S_VER . filemtime( __DIR__ . '/style.css' ),
+        FCT1S_VER,
         'all'
     );
 
