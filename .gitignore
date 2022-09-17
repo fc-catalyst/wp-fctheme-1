@@ -1,6 +1,4 @@
-screenshot.jpg
-settings.php
+./screenshot.jpg
+./settings.php
 imgs/*
-gmaps_api_key
-fonts_link
 .gitignore

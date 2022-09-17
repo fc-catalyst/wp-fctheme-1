@@ -89,6 +89,7 @@ function fct1_get_style_files_() {
 
     // get post type
     $qo = get_queried_object();
+    $post_type = '';
     if ( is_object( $qo ) ) {
         if ( get_class( $qo ) === 'WP_Post_Type' ) {
             $post_type = $qo->name;
@@ -119,7 +120,7 @@ function fct1_get_style_files_() {
         $files[] = 'comment-form';
     }
 
-    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) || $_GET['unapproved'] || isset( $_COOKIE[ 'comment_author_' . COOKIEHASH ] ) || isset( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ) {
+    if ( get_comments_number() && post_type_supports( get_post_type(), 'comments' ) || isset( $_GET['unapproved'] ) && $_GET['unapproved'] || isset( $_COOKIE[ 'comment_author_' . COOKIEHASH ] ) || isset( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ) {
         $files[] = 'comments';
     }
 

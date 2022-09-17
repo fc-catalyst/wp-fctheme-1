@@ -41,7 +41,7 @@ add_action( 'init', function() use ( $block_name ) {
 
 add_action( 'wp_enqueue_scripts', function() use ( $block_name ) { // ++add first screen option
 
-    if ( !has_block( 'fct1-gutenberg/' . $block_name ) ) { return $content; }
+    if ( !has_block( 'fct1-gutenberg/' . $block_name ) ) { return; }
 
     wp_enqueue_style( 'fct1-' . $block_name,
         get_template_directory_uri() . '/gutenberg/' . $block_name . '/style.css',
@@ -49,6 +49,4 @@ add_action( 'wp_enqueue_scripts', function() use ( $block_name ) { // ++add firs
         FCT1S_VER,
         'all'
     );
-
-    return $content;
 });
