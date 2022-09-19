@@ -242,11 +242,11 @@ function fct1_meta($name = '', $before = '', $after = '') { // ++allow $name be 
         $a[ $id ] = get_post_meta( $id, '' );
     }
 
-    $v = $a[ $id ][ $name ][0];
+    $v = isset( $a[ $id ][ $name ] ) ? $a[ $id ][ $name ][0] : '';
     if ( is_serialized( $v ) ) {
         $v = unserialize( $v );
     } else {
-        $v = trim( $v ) ? $before . $v . $after : '';
+        $v = trim( $v, '' ) ? $before . $v . $after : '';
     }
 
     return $v;
