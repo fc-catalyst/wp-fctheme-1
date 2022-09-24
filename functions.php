@@ -232,24 +232,26 @@ add_action( 'admin_init', function() {
 /* useful functions */
 
 // operate meta fields in a my / better way
-function fct1_meta($name = '', $before = '', $after = '') { // ++allow $name be an array for entity-add/templates/func..gmap
+function fct1_meta($name = '', $before = '', $after = '', $expect_array = false) { // ++allow $name be an array for entity-add/templates/func..gmap
     static $a = []; // collect all the values for further re-use
-    if ( !$name ) { return; }
 
-    $id = get_the_ID();
+	$return = $expect_array ? [ null ] : null;
+
+    if ( !$name ) { return $return; }
+
+    if ( ( $id = get_the_ID() ) === false ) { return $return; }
 
     if ( !isset( $a[ $id ] ) ) {
-        $a[ $id ] = get_post_meta( $id, '' );
+        $a[ $id ] = get_post_meta( $id );
     }
 
-    $v = isset( $a[ $id ][ $name ] ) ? $a[ $id ][ $name ][0] : '';
-    if ( is_serialized( $v ) ) {
-        $v = unserialize( $v );
-    } else {
-        $v = trim( $v, '' ) ? $before . $v . $after : '';
-    }
+	if ( !isset( $a[ $id ][ $name ] ) ) { return $return; }
 
-    return $v;
+    $v = $a[ $id ][ $name ][0];
+
+    if ( is_serialized( $v ) ) { return unserialize( $v ); }
+
+    return $before . $v . $after;
 }
 
 function fct1_log($content, $dir = __DIR__) {

@@ -32,7 +32,7 @@ add_filter( 'comment_form_fields', function($fields) {
     $order = array_flip( ['author', 'email', 'comment'] );
     uksort( $fields, function($a, $b) use ($order) {
         if ( isset( $order[ $a ] ) && isset( $order[ $b ] ) ) {
-            return $order[ $a ] > $order[ $b ];
+            return $order[ $a ] > $order[ $b ] ? 1 : -1;
         }
         return isset( $order[ $b ] ); // missing values go to the end
     });
