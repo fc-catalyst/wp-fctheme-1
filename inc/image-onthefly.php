@@ -23,9 +23,9 @@ function fct1_image_src( $img_id_src, $size = '', $crop = false ) { // src start
 
     if ( is_string( $img_id_src ) ) {
 
-        $return = function($src) use (&$path, &$url, $src_size) {
+        $return = function($src, $src_size = []) use (&$path, &$url) {
             
-            if ( $new_size = $src_size ? $src_size : getimagesize( $path . $src ) ) {
+            if ( $new_size = !empty( $src_size ) ? $src_size : getimagesize( $path . $src ) ) {
                 return [
                     $url . $src,
                     $new_size[0],
