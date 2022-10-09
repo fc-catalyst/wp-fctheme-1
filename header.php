@@ -24,7 +24,7 @@
 
             <?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) { the_custom_logo(); } else { ?>
             <a href="<?php echo home_url() ?>" class="custom-logo-link" rel="home">
-                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/klinikerfahrungen-logo-4.png' ?>" alt="<?php echo get_bloginfo( 'name' ) ?>"/>
+                <img src="<?php echo get_stylesheet_directory_uri() . '/imgs/logo.svg' ?>" width="526" height="160" alt="<?php echo get_bloginfo( 'name' ) ?>"/>
             </a>
             <?php } ?>
 
