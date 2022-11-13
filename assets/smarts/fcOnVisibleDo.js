@@ -1,16 +1,16 @@
-// fcOnVisibleDo() is the function to run a function if an object is in the vertical visibility range
+// fcOnVisibleDo1() is the function to run a function if an object top is in the vertical visibility range
 
 (function() {
     let load = [],
         timer = setTimeout( ()=>{} );
 
-    function add( obj, func, bias = 0 ) { // bias: +20 for later -20 for earlier
+    function add( obj, func, bias = 0, delay = 0 ) { // bias: +20 for later -20 for earlier
         if ( !obj || !func ) { return }
 
-        const add = function(obj) {
+        const add = function(obj) { // ++if the object is an array of bojects
             if ( typeof obj !== 'object' ) { return }
             if ( typeof jQuery !== 'undefined' && obj instanceof jQuery ) { obj = obj[0] }
-            load.push( { o : obj, f : func, b : bias ? bias : 0, t : top( obj ) } );
+            load.push( { o : obj, f : func, b : bias ? bias : 0, t : top( obj ), d : delay, r : false } );
         };
         
         if ( typeof obj ==='string' ) { document.querySelectorAll( obj ).forEach( add ) }
@@ -21,17 +21,25 @@
         start();
     }
 
-    function check() {
+    async function check() {
+
+        const win_bot = window.scrollY + window.innerHeight;
         for ( let k in load ) {
             // ++can add comparing for scrolling up from below
-            if ( window.scrollY + window.innerHeight < load[k].t + load[k].b ) { continue }
+            if ( win_bot < load[k].t + load[k].b ) { continue }
+
+            if ( load[k].d ) { await new Promise( resolve => setTimeout( resolve, load[k].d ) ) }
+
             load[k].f( load[k].o );
-            load.splice(k, 1);
+            load[k].r = true; // remove
         }
-        if ( load.length === 0 ) { stop() }
+
+        load = load.filter( el => !el.r );
+
+        if ( load.length === 0 ) { clear(); return }
         
         clearTimeout( timer );
-        timer = setTimeout( recount, 500 ); // recount every scroll-stop in case of something loads lazy
+        timer = setTimeout( recount, 500 ); // recount every scroll-stop in case of something loads a bit lazy
     }
     
     function recount() {
@@ -43,12 +51,12 @@
     }
     
     function start() {
-        stop();
+        clear();
         document.addEventListener( 'scroll', check );
         window.addEventListener( 'resize', recount ); // ++can replace with a bodyResize custom event to avoid rude^
         check();
     }
-    function stop() {
+    function clear() {
         document.removeEventListener( 'scroll', check );
         window.removeEventListener( 'resize', recount );
     }
