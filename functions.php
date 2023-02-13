@@ -323,3 +323,4 @@ add_action( 'wp_footer', function() { // ++make conditional, take idea from Vosl
 </script>
 	<?php
 } );
+// to update
