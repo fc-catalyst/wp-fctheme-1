@@ -286,7 +286,7 @@ body::before {
     display:none;
 }
 
-@media (max-width:949px) {
+@media (max-width:999px) {
     #nav-primary-toggle {
         display:block;
         position:fixed;
