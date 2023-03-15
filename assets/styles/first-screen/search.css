@@ -46,16 +46,16 @@ article.status-private {
 }
 .entry-photo > a {
     display: block;
+    width: 100%;
+    height: 100%;
 }
-.entry-photo,
-.entry-photo > a {
+.entry-photo {
     width: 150px;
     height: 150px;
 }
 
 @media (min-width:767px) {
-    .entry-photo,
-    .entry-photo a {
+    .entry-photo {
         width: 250px;
         height: 250px;
     }
