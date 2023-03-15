@@ -9,11 +9,12 @@ get_header();
     <div style="height:40px;width:100%" aria-hidden="true" class="wp-block-spacer"></div>
 <?php
 
+
 if ( have_posts() ) :
     while ( have_posts() ) :
         the_post();
 
-        get_template_part( 'template-parts/search', 'tile' );
+        get_template_part( 'template-parts/search', 'row' );
 
     endwhile;
     get_template_part( 'template-parts/pagination' );
