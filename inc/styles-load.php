@@ -38,37 +38,27 @@ add_action( 'wp_enqueue_scripts', function() { // ++try footer?
 
 });
 
+// add first screen styles
+add_action( 'wp_enqueue_scripts', function() {
 
-add_action( 'wp_head', function() { // include the first-screen styles, instead of enqueuing
-?>
-<style><?php
     $include_dir = get_template_directory() . '/assets/styles/first-screen/';
     $include_files = array_merge( ['style'], fct1_get_style_files_() );
 
-    ob_start();
-
     foreach ( $include_files as $v ) {
-        if ( !is_file( $include_dir . $v . '.css' ) ) { continue; }
+        $path = $include_dir . $v . '.css';
+        if ( !is_file( $path ) ) { continue; }
 
-        if ( FCT1S['dev'] ) { echo "\n\n".'/*---------- '.$v.'.css ----------*'.'/'."\n"; }
-        
-        include_once( $include_dir . $v . '.css' );
+        $name = FCT1S['prefix'].'-first-'.$v;
+        $content = FCT1S['dev'] ? file_get_contents( $path ) : fct1_css_minify( file_get_contents( $path ) );
 
+        wp_register_style( $name, false );
+        wp_enqueue_style( $name );
+        wp_add_inline_style( $name, $content );
     }
 
-    $content = ob_get_contents();
-    ob_end_clean();
-    
-    if ( !FCT1S['dev'] ) { $content = fct1_css_minify( $content ); }
-    
-    echo $content;
+    echo FCT1S['fonts_external'] ?? '';
 
-?></style>
-<?php
-
-    echo FCT1S['fonts_external'] . "\n";
-
-}, 7 );
+}, 0 );
 
 
 // moving the Gutenberg away from the first screen ++do the same with jquery and other, as all loads async-ly
