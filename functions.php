@@ -334,7 +334,7 @@ function fcLoadScriptVariable()
 		window.fcVer = '<?php echo FCT1S_VER ?>';
 	</script><?php
 			}
-
+// ++ maybe try using medium instead of generating square images?
 
 			/*
  * Convert Rank Math FAQ Block Into Accordion - Option 2

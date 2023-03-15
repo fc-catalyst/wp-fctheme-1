@@ -13,7 +13,7 @@ $cat = $cat
             <?php fct1_image_print( get_post_thumbnail_id(), [500,500], ['center','top'], get_the_title() ) ?>
         </div>
         <h2 class="entry-title" itemprop="headline">
-            <a class="entry-title-link" rel="bookmark" href="<?php the_permalink() ?>"><?php the_title() ?></a>
+            <a class="entry-title-link" href="<?php the_permalink() ?>"><?php the_title() ?></a>
         </h2>
     </header>
     <div class="entry-details">

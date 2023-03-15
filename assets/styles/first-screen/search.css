@@ -44,6 +44,9 @@ article.status-private {
     box-sizing: border-box;
     background: linear-gradient(223deg, #0b456229 0%, #0b45625c 100%);
 }
+.entry-photo > a {
+    display: block;
+}
 .entry-photo,
 .entry-photo > a {
     width: 150px;
