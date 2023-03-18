@@ -20,6 +20,12 @@ if ( have_posts() ) :
     get_template_part( 'template-parts/pagination' );
 endif;
 
+if ( !have_posts() ) :
+    ?>
+        <h2><?php _e( 'No results found.' ) ?></h2>
+    <?php
+endif;
+
 ?>
     </div>
     <div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
