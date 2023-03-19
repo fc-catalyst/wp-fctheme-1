@@ -279,6 +279,7 @@ function fct1_log($content, $dir = __DIR__)
 }
 
 // add meta fields to search results
+/* now these fields are added to the content, so meta are not needed in search any more
 add_filter('pre_get_posts', function ($query) {
 	// ++ it is pretty hard for the server so better combine everything to the content as a html comment on save!!!
 	if ( is_admin() || !$query->is_search || !$query->is_main_query() ) { return; }
@@ -321,6 +322,7 @@ function search_wrap_after($sql) {
 	$sql['where'] .= ' ) ';
 	return $sql;
 }
+//*/
 
 // print the loadings script the highest
 // ++ maybe load the key async and encoded.. but who cares as it appears streight in the script src anyways
