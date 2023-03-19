@@ -82,6 +82,7 @@ article h2 {
 article h2>a {
     display: block;
     text-decoration: none;
+    color: var(--a-color);
 }
 
 .entry-excerpt,
