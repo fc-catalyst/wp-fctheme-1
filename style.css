@@ -29,21 +29,21 @@ ol:last-child {
 /* h1 h2 h3 are in first-screen/style.css */
 h4 {
     margin:26px 0 22px;
-    font-size:26px;
+    font-size:18px;
     line-height:1.6;
-    font-weight:500;
+    font-weight:600;
     color:var(--h-color);
 }
 h5 {
     margin:23px 0 19px;
-    font-size:22px;
+    font-size:15px;
     line-height:1.6;
-    font-weight:500;
+    font-weight:600;
     color:var(--str-color);
 }
 h6 {
     margin:23px 0 17px;
-    font-size:18px;
+    font-size:12px;
     line-height:1.6;
     font-weight:600;
     color:var(--str-color);

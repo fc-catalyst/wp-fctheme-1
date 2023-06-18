@@ -90,7 +90,7 @@
                 document.removeEventListener( 'click', menuHide, false );
             }
         }
-        
+
         /* toggle element after this one */
         $( '.fct1-open-next' ).click( function(e) {
             e.preventDefault();
@@ -136,5 +136,29 @@
                 }, -200 );
             }, ['jQuery'] );
         }
+
+        /* fitvids */
+        // const $ = jQuery;
+        const $iframes = $( '.single figure iframe[width][height]' );
+        const fitvids = ($obj, ratio) => {
+            return () => {
+                const width = $obj.width(),
+                      height = Math.round( width / ratio );
+                $obj.css( { 'height': height } );
+            }
+        }
+        $iframes.each( (ind,obj) => {
+            const $obj = $( obj ),
+                  ratio = Number( $obj.attr( 'width' ) ) / Number( $obj.attr( 'height' ) );
+            obj.self_fitvids = fitvids( $obj, ratio );
+            $obj.css( { 'width': '100%' } );
+            obj.self_fitvids();
+        });
+
+        $( window ).on( 'resize', () => {
+            $iframes.each( (ind,obj) => {
+                obj.self_fitvids();
+            });
+        });
 
 },300)}();
