@@ -75,7 +75,7 @@ article.status-private {
 article h2 {
     margin: 0 0 10px;
     font-size: 20px;
-    font-weight: 700;
+    font-weight:600;
     letter-spacing: 0.5px;
     color: var(--a-color);
 }

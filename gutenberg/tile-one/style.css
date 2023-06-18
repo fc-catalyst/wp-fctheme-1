@@ -24,7 +24,7 @@
 
 .fct1-tile-one p {
     font-size:16px;
-    font-weight:700;
+    font-weight:600;
 }
 
 .fct1-tile-one a {
@@ -44,7 +44,7 @@
     position:absolute;
     left:12px; top:15px;
     font-size:34px;
-    font-weight:700;
+    font-weight:600;
     color:#dfbf82;
 }
 .fct1-tile-one.numbered:nth-child(1)::before { content:'1' }

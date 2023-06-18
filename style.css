@@ -31,22 +31,21 @@ h4 {
     margin:26px 0 22px;
     font-size:26px;
     line-height:1.6;
-    font-weight:600;
+    font-weight:500;
     color:var(--h-color);
 }
 h5 {
     margin:23px 0 19px;
     font-size:22px;
     line-height:1.6;
-    font-weight:600;
+    font-weight:500;
     color:var(--str-color);
 }
 h6 {
     margin:23px 0 17px;
-    font-size:16px;
+    font-size:18px;
     line-height:1.6;
     font-weight:600;
-    text-transform:uppercase;
     color:var(--str-color);
 }
 
