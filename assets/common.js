@@ -139,6 +139,7 @@
 
         /* fitvids */
         // const $ = jQuery;
+        // ++ also start on borlabs approved
         const $iframes = $( '.single figure iframe[width][height]' );
         const fitvids = ($obj, ratio) => {
             return () => {
