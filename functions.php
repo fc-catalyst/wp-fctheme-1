@@ -2,8 +2,7 @@
 
 $fct1_dev = false;
 
-
-require is_file( wp_upload_dir() . '/theme-settings.php' ) ? wp_upload_dir() . '/theme-settings.php' : __DIR__ . '/settings-sample.php';
+require is_file( wp_upload_dir()['basedir'].'/theme-settings.php' ) ? wp_upload_dir()['basedir'].'/theme-settings.php' : __DIR__.'/settings-sample.php';
 require __DIR__ . '/inc/styles-load.php';
 require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
