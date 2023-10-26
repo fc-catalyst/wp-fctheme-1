@@ -102,7 +102,7 @@
         const $gmap_holder = $( '.fct1-gmap-view' );
         if ( $gmap_holder.length ) {
             fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/fcOnVisibleDo.js',
+                '/wp-content/themes/wp-fctheme-1/assets/smarts/fcOnVisibleDo.js',
                 'fcOnVisibleDo', function() {
 
                 fcOnVisibleDo( $gmap_holder, function() {
@@ -111,7 +111,7 @@
                         'google'
                     );
                     fcLoadScriptVariable(
-                        '/wp-content/themes/fct1/assets/smarts/gmap-view.js',
+                        '/wp-content/themes/wp-fctheme-1/assets/smarts/gmap-view.js',
                         'fcAddGmapView',
                         function() { fcAddGmapView( $gmap_holder, true ) },
                         ['google']
@@ -125,11 +125,11 @@
         const $video_holder = $( '.fct1-video[data-source=direct]' ); // only direct videos, as youtube is in borlabs
         if ( $video_holder.length ) {
             fcLoadScriptVariable(
-                '/wp-content/themes/fct1/assets/smarts/fcOnVisibleDo.js',
+                '/wp-content/themes/wp-fctheme-1/assets/smarts/fcOnVisibleDo.js',
                 'fcOnVisibleDo', function() {
                     fcOnVisibleDo( $video_holder, function(self) {
                         fcLoadScriptVariable(
-                            '/wp-content/themes/fct1/assets/smarts/video.js',
+                            '/wp-content/themes/wp-fctheme-1/assets/smarts/video.js',
                             'fcAddVideo',
                             function() { fcAddVideo( self ) }
                         );
