@@ -2,9 +2,8 @@
 
 $fct1_dev = false;
 
-$fct1_settings_sample = is_file(__DIR__ . '/settings.php') ? '' : '-sample';
 
-require __DIR__ . '/settings' . $fct1_settings_sample . '.php';
+require is_file( wp_upload_dir() . '/theme-settings.php' ) ? wp_upload_dir() . '/theme-settings.php' : __DIR__ . '/settings-sample.php';
 require __DIR__ . '/inc/styles-load.php';
 require __DIR__ . '/inc/image-onthefly.php';
 require __DIR__ . '/inc/text-filtering.php';
