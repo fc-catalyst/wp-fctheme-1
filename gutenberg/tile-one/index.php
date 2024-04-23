@@ -9,7 +9,7 @@ add_action( 'init', function() use ( $block_name ) {
 
         ?>
         <div class="fct1-tile-one<?php echo $props['numbered'] ? ' numbered' : '' ?>">
-            <?php echo $props['url'] ? '<a href="'.$props['url'].'"></a>' : '' ?>
+            <?php echo $props['url'] ? '<a href="'.$props['url'].'" title="'.$props['excerpt'].'"></a>' : '' ?>
             <?php echo wp_get_attachment_image( $props['mediaID'], 'full' ) ?>
             <?php echo $props['excerpt'] ? '<p'.($props['color1']?' style="color:'.$props['color1'].'"':'').'>'.$props['excerpt'].'</p>' : '' ?>
         </div>

@@ -227,7 +227,7 @@ body.admin-bar header.site-header {
     text-decoration:none;
     color:var(--h-color);
 }
-.site-footer h4 {
+.site-footer h3 {
     padding-top:19px;
 }
 
