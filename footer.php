@@ -14,8 +14,8 @@
             $the_query->the_post();
 ?>		
 		<div class="entry-content">
-            <?php // the_content() // adds <p></p> after every </li>, so, a crutch ?>
-            <?php echo do_shortcode( get_the_content() ) ?>
+            <?php //the_content() // adds <p></p> after every </li>, so, an ugly crutch ?>
+            <?php echo str_replace( ['<p>', '</p>'], '', apply_filters( 'the_content', get_the_content() ) ) ?>
 		</div>
 <?php
 		}
