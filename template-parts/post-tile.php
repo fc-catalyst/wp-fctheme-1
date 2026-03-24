@@ -17,9 +17,6 @@ $cat = $cat
         </h2>
     </header>
     <div class="entry-details">
-        <div class="entry-date" itemprop="datePublished" content="<?php the_date('Y-m-d') ?>">
-            <?php echo get_the_date() ?>
-        </div>
         <div class="entry-excerpt">
             <?php the_excerpt() ?>
         </div>

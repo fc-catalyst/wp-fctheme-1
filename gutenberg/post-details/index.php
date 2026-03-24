@@ -20,10 +20,7 @@ add_action( 'init', function() use ( $block_name ) {
 
         ?>
 <div class="entry-details">
-    <span class="entry-date" itemprop="datePublished" content="<?php echo get_the_date( 'Y-m-d', $post ) ?>">
-        <?php echo get_the_date( '', $post ) ?>
-    </span>
-    <?php echo $print_cats[0] ? ' | <span class="entry-categories">'.implode(', ',$print_cats).'</span>' : '' ?>
+    <?php echo $print_cats[0] ? '<span class="entry-categories">'.implode(', ',$print_cats).'</span>' : '' ?>
     <div class="entry-author">
         <?php printf( __( 'by %s', 'fct1' ), get_the_author_meta( 'display_name', $post->post_author ) ) ?>
     </div>
